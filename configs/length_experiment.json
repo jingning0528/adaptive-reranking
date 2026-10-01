@@ -1,0 +1,11 @@
+{
+  "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "device": "mps",
+  "baseline_max_length": 256,
+  "experimental_max_length": 512,
+  "batch_size": 128,
+  "query_chunk_size": 16,
+  "candidate_top_k": 100,
+  "input_format": "[query, title + space + abstract]"
+}

@@ -25,11 +25,18 @@ evaluation framework, with SciFact as the initial benchmark.
   NDCG@10 versus MiniLM-L6's `0.73644` on the identical validation Top-100.
   The paired difference is `-0.05023` with 95% CI
   `[-0.09056, -0.01094]`, so this model pair is a routing no-go.
+- Controlled MiniLM length test: 512 tokens scored `0.74060` NDCG@10 versus
+  `0.73644` at 256, but the paired difference CI
+  `[-0.01716, 0.02551]` includes zero and Recall@10 decreased. Longer input is
+  not supported as a universal policy, although qrels-based diagnostics show
+  heterogeneous effects when a relevant candidate was truncated.
 
 See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) for the controlled reranker
 comparison and error analysis, and [METHOD1_REPORT.md](METHOD1_REPORT.md) for
 the first candidate-selection result. [METHOD2_REPORT.md](METHOD2_REPORT.md)
 records the strong-reranker feasibility test.
+[METHOD3_REPORT.md](METHOD3_REPORT.md) reports the controlled 256-versus-512
+token experiment.
 
 ## Setup
 
@@ -108,3 +115,16 @@ The tested BGE-base reranker is worse than MiniLM-L6 on this validation set,
 so the current pair does not justify routing work. The script is resumable and
 pins the model revision, candidate pool, split, device, and preprocessing in a
 cache fingerprint.
+
+## Method 3: input-length feasibility
+
+The next controlled test keeps MiniLM-L6 and all candidates fixed and changes
+only the maximum pair length from 256 to 512:
+
+```bash
+python run_length_experiment.py
+```
+
+The overall NDCG gain is small and uncertain, while Recall@10 decreases, so
+512 tokens should not replace 256 globally. The stored diagnostics stratify
+queries by truncation without implementing an adaptive policy.

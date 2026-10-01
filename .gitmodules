@@ -1,3 +1,0 @@
-[submodule "examples/retrieval/evaluation/late-interaction/beir-ColBERT"]
-	path = examples/retrieval/evaluation/late-interaction/beir-ColBERT
-	url = https://github.com/NThakur20/beir-ColBERT.git

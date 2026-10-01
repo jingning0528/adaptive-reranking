@@ -21,10 +21,15 @@ evaluation framework, with SciFact as the initial benchmark.
 - Although calibration selected `lambda = 1.0`, uncertainty-aware selection
   produced exactly the same validation Top-10 rankings as predicted Top-20.
   The current disagreement heuristic therefore has no supported added value.
+- Method 2 feasibility test: `BAAI/bge-reranker-base` scored `0.68621`
+  NDCG@10 versus MiniLM-L6's `0.73644` on the identical validation Top-100.
+  The paired difference is `-0.05023` with 95% CI
+  `[-0.09056, -0.01094]`, so this model pair is a routing no-go.
 
 See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) for the controlled reranker
 comparison and error analysis, and [METHOD1_REPORT.md](METHOD1_REPORT.md) for
-the first candidate-selection result.
+the first candidate-selection result. [METHOD2_REPORT.md](METHOD2_REPORT.md)
+records the strong-reranker feasibility test.
 
 ## Setup
 
@@ -87,3 +92,19 @@ for later work.
 - Teacher-score prediction is distinct from relevance prediction. Final
   quality is always evaluated with qrels.
 - Test data is reserved for reporting fixed methods, not model selection.
+
+## Method 2: model-routing feasibility
+
+The first routing prerequisite test intentionally implements no router. It
+scores the frozen validation Top-100 with one preselected, larger reranker and
+compares it with the existing MiniLM-L6 cache under the same 256-token input
+contract:
+
+```bash
+python run_strong_reranker.py
+```
+
+The tested BGE-base reranker is worse than MiniLM-L6 on this validation set,
+so the current pair does not justify routing work. The script is resumable and
+pins the model revision, candidate pool, split, device, and preprocessing in a
+cache fingerprint.

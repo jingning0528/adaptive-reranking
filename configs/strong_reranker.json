@@ -1,0 +1,10 @@
+{
+  "model": "BAAI/bge-reranker-base",
+  "model_revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+  "device": "mps",
+  "max_length": 256,
+  "batch_size": 16,
+  "query_chunk_size": 8,
+  "candidate_top_k": 100,
+  "input_format": "[query, title + space + abstract]"
+}

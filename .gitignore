@@ -7,6 +7,7 @@ results/baseline/retrieval.json
 results/rerank/retrieval.json
 results/validation/*_retrieval.json
 results/method1/*_retrieval.json
+results/method2/*_retrieval.json
 examples/**/datasets/
 examples/**/results/
 examples/**/embeddings/

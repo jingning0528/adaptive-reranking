@@ -1,0 +1,1798 @@
+{
+  "input_format": "[query, title + space + abstract]",
+  "models": {
+    "tinybert_l2": {
+      "extreme_cases": [
+        {
+          "direction": "worsened",
+          "query_id": "1208",
+          "query": "The cytokine receptor which regulates chemotaxis and formation of lymph nodes is involved in production of myeloperoxidase in the left atrium.",
+          "baseline_ndcg_at_10": 1.0,
+          "rerank_ndcg_at_10": 0.0,
+          "delta": -1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "10284593",
+              "title": "Myeloperoxidase acts as a profibrotic mediator of atrial fibrillation",
+              "text_preview": "Observational clinical and ex vivo studies have established a strong association between atrial fibrillation and inflammation. However, whether inflammation is the cause or the consequence of atrial fibrillation and which specific inflammatory mediators may increase the atria's susceptibility to fibrillation remain elusive. Here we provide experimental and clinical evidence for the mechanistic inv"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "10284593",
+              "relevance": 1,
+              "title": "Myeloperoxidase acts as a profibrotic mediator of atrial fibrillation",
+              "text_preview": "Observational clinical and ex vivo studies have established a strong association between atrial fibrillation and inflammation. However, whether inflammation is the cause or the consequence of atrial fibrillation and which specific inflammatory mediators may increase the atria's susceptibility to fibrillation remain elusive. Here we provide experimental and clinical evidence for the mechanistic inv"
+            },
+            {
+              "rank": 2,
+              "doc_id": "6270720",
+              "relevance": 0,
+              "title": "Myeloid differentiation factor-88/interleukin-1 signaling controls cardiac fibrosis and heart failure progression in inflammatory dilated cardiomyopathy.",
+              "text_preview": "RATIONALE The myeloid differentiation factor (MyD)88/interleukin (IL)-1 axis activates self-antigen-presenting cells and promotes autoreactive CD4(+) T-cell expansion in experimental autoimmune myocarditis, a mouse model of inflammatory heart disease. OBJECTIVE The aim of this study was to determine the role of MyD88 and IL-1 in the progression of acute myocarditis to an end-stage heart failure. M"
+            },
+            {
+              "rank": 3,
+              "doc_id": "11902109",
+              "relevance": 0,
+              "title": "Direct sensing of systemic and nutritional signals by hematopoietic progenitors in Drosophila",
+              "text_preview": "The Drosophila lymph gland is a haematopoietic organ in which progenitor cells, which are most akin to the common myeloid progenitor in mammals, proliferate and differentiate into three types of mature cell--plasmatocytes, crystal cells and lamellocytes--the functions of which are reminiscent of mammalian myeloid cells. During the first and early second instars of larval development, the lymph gla"
+            },
+            {
+              "rank": 4,
+              "doc_id": "4366738",
+              "relevance": 0,
+              "title": "Haematopoietic stem cells and early lymphoid progenitors occupy distinct bone marrow niches",
+              "text_preview": "Although haematopoietic stem cells (HSCs) are commonly assumed to reside within a specialized microenvironment, or niche, most published experimental manipulations of the HSC niche have affected the function of diverse restricted progenitors. This raises the fundamental question of whether HSCs and restricted progenitors reside within distinct, specialized niches or whether they share a common nic"
+            },
+            {
+              "rank": 5,
+              "doc_id": "12489688",
+              "relevance": 0,
+              "title": "Myeloperoxidase: friend and foe.",
+              "text_preview": "Neutrophilic polymorphonuclear leukocytes (neutrophils) are highly specialized for their primary function, the phagocytosis and destruction of microorganisms. When coated with opsonins (generally complement and/or antibody), microorganisms bind to specific receptors on the surface of the phagocyte and invagination of the cell membrane occurs with the incorporation of the microorganism into an intr"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "40367499",
+              "relevance": 0,
+              "title": "Interplay between the dividing cell and its neighbors regulates adherens junction formation during cytokinesis in epithelial tissue.",
+              "text_preview": "How adherens junctions (AJs) are formed upon cell division is largely unexplored. Here, we found that AJ formation is coordinated with cytokinesis and relies on an interplay between the dividing cell and its neighbors. During contraction of the cytokinetic ring, the neighboring cells locally accumulate Myosin II and produce the cortical tension necessary to set the initial geometry of the daughter"
+            },
+            {
+              "rank": 2,
+              "doc_id": "14386505",
+              "relevance": 0,
+              "title": "Regulation of myeloid cell function through the CD200 receptor.",
+              "text_preview": "Myeloid cells play pivotal roles in chronic inflammatory diseases through their broad proinflammatory, destructive, and remodeling capacities. CD200 is widely expressed on a variety of cell types, while the recently identified CD200R is expressed on myeloid cells and T cells. CD200 deletion in vivo results in myeloid cell dysregulation and enhanced susceptibility to autoimmune inflammation, sugges"
+            },
+            {
+              "rank": 3,
+              "doc_id": "12489688",
+              "relevance": 0,
+              "title": "Myeloperoxidase: friend and foe.",
+              "text_preview": "Neutrophilic polymorphonuclear leukocytes (neutrophils) are highly specialized for their primary function, the phagocytosis and destruction of microorganisms. When coated with opsonins (generally complement and/or antibody), microorganisms bind to specific receptors on the surface of the phagocyte and invagination of the cell membrane occurs with the incorporation of the microorganism into an intr"
+            },
+            {
+              "rank": 4,
+              "doc_id": "34537906",
+              "relevance": 0,
+              "title": "The molecular requirements for cytokinesis.",
+              "text_preview": "After anaphase onset, animal cells build an actomyosin contractile ring that constricts the plasma membrane to generate two daughter cells connected by a cytoplasmic bridge. The bridge is ultimately severed to complete cytokinesis. Myriad techniques have been used to identify proteins that participate in cytokinesis in vertebrates, insects, and nematodes. A conserved core of about 20 proteins are "
+            },
+            {
+              "rank": 5,
+              "doc_id": "30774694",
+              "relevance": 0,
+              "title": "T helper 2 cytokines inhibit autophagic control of intracellular Mycobacterium tuberculosis.",
+              "text_preview": "Autophagy is a recently recognized immune effector mechanism against intracellular pathogens. The role of autophagy in innate immunity has been well established, but the extent of its regulation by the adaptive immune response is less well understood. The T helper 1 (Th1) cell cytokine IFN-gamma induces autophagy in macrophages to eliminate Mycobacterium tuberculosis. Here, we report that Th2 cyto"
+            }
+          ]
+        },
+        {
+          "direction": "worsened",
+          "query_id": "55",
+          "query": "AMP-activated protein kinase (AMPK) activation reduces inflammation-related fibrosis in the lungs.",
+          "baseline_ndcg_at_10": 1.0,
+          "rerank_ndcg_at_10": 0.0,
+          "delta": -1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "49556906",
+              "title": "Metformin reverses established lung fibrosis in a bleomycin model",
+              "text_preview": "Fibrosis is a pathological result of a dysfunctional repair response to tissue injury and occurs in a number of organs, including the lungs1. Cellular metabolism regulates tissue repair and remodelling responses to injury2-4. AMPK is a critical sensor of cellular bioenergetics and controls the switch from anabolic to catabolic metabolism5. However, the role of AMPK in fibrosis is not well understo"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "49556906",
+              "relevance": 1,
+              "title": "Metformin reverses established lung fibrosis in a bleomycin model",
+              "text_preview": "Fibrosis is a pathological result of a dysfunctional repair response to tissue injury and occurs in a number of organs, including the lungs1. Cellular metabolism regulates tissue repair and remodelling responses to injury2-4. AMPK is a critical sensor of cellular bioenergetics and controls the switch from anabolic to catabolic metabolism5. However, the role of AMPK in fibrosis is not well understo"
+            },
+            {
+              "rank": 2,
+              "doc_id": "3973445",
+              "relevance": 0,
+              "title": "Phosphorylation of Janus kinase 1 (JAK1) by AMP-activated protein kinase (AMPK) links energy sensing to anti-inflammatory signaling",
+              "text_preview": "Adenosine 5\u2032-monophosphate\u2013activated protein kinase (AMPK) is a pivotal regulator of metabolism at cellular and organismal levels. AMPK also suppresses inflammation. We found that pharmacological activation of AMPK rapidly inhibited the Janus kinase (JAK)\u2013signal transducer and activator of transcription (STAT) pathway in various cells. In vitro kinase assays revealed that AMPK directly phosphoryla"
+            },
+            {
+              "rank": 3,
+              "doc_id": "1590744",
+              "relevance": 0,
+              "title": "AMP-Activated Protein Kinase: An Ubiquitous Signaling Pathway With Key Roles in the Cardiovascular System",
+              "text_preview": "The AMP-activated protein kinase (AMPK) is a key regulator of cellular and whole-body energy homeostasis, which acts to restore energy homoeostasis whenever cellular energy charge is depleted. Over the last 2 decades, it has become apparent that AMPK regulates several other cellular functions and has specific roles in cardiovascular tissues, acting to regulate cardiac metabolism and contractile fu"
+            },
+            {
+              "rank": 4,
+              "doc_id": "24721866",
+              "relevance": 0,
+              "title": "Activation of AMP-activated protein kinase suppresses oxidized low-density lipoprotein-induced macrophage proliferation.",
+              "text_preview": "Macrophage-derived foam cells play important roles in the progression of atherosclerosis. We reported previously that ERK1/2-dependent granulocyte/macrophage colony-stimulating factor (GM-CSF) expression, leading to p38 MAPK/ Akt signaling, is important for oxidized low density lipoprotein (Ox-LDL)-induced macrophage proliferation. Here, we investigated whether activation of AMP-activated protein "
+            },
+            {
+              "rank": 5,
+              "doc_id": "38533515",
+              "relevance": 0,
+              "title": "AMP-activated/SNF1 protein kinases: conserved guardians of cellular energy",
+              "text_preview": "The SNF1/AMP-activated protein kinase (AMPK) family maintains the balance between ATP production and consumption in all eukaryotic cells. The kinases are heterotrimers that comprise a catalytic subunit and regulatory subunits that sense cellular energy levels. When energy status is compromised, the system activates catabolic pathways and switches off protein, carbohydrate and lipid biosynthesis, a"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "3973445",
+              "relevance": 0,
+              "title": "Phosphorylation of Janus kinase 1 (JAK1) by AMP-activated protein kinase (AMPK) links energy sensing to anti-inflammatory signaling",
+              "text_preview": "Adenosine 5\u2032-monophosphate\u2013activated protein kinase (AMPK) is a pivotal regulator of metabolism at cellular and organismal levels. AMPK also suppresses inflammation. We found that pharmacological activation of AMPK rapidly inhibited the Janus kinase (JAK)\u2013signal transducer and activator of transcription (STAT) pathway in various cells. In vitro kinase assays revealed that AMPK directly phosphoryla"
+            },
+            {
+              "rank": 2,
+              "doc_id": "1590744",
+              "relevance": 0,
+              "title": "AMP-Activated Protein Kinase: An Ubiquitous Signaling Pathway With Key Roles in the Cardiovascular System",
+              "text_preview": "The AMP-activated protein kinase (AMPK) is a key regulator of cellular and whole-body energy homeostasis, which acts to restore energy homoeostasis whenever cellular energy charge is depleted. Over the last 2 decades, it has become apparent that AMPK regulates several other cellular functions and has specific roles in cardiovascular tissues, acting to regulate cardiac metabolism and contractile fu"
+            },
+            {
+              "rank": 3,
+              "doc_id": "9752604",
+              "relevance": 0,
+              "title": "Activated AMPK boosts the Nrf2/HO-1 signaling axis\u2014A role for the unfolded protein response",
+              "text_preview": "In light of the emerging interplay between redox and metabolic signaling pathways we investigated the potential cross talk between nuclear factor E2-related factor 2 (Nrf2) and AMP-activated kinase (AMPK), central regulators of the cellular redox and energy balance, respectively. Making use of xanthohumol (XN) as an activator of both the AMPK and the Nrf2 signaling pathway we show that AMPK exerts"
+            },
+            {
+              "rank": 4,
+              "doc_id": "23974474",
+              "relevance": 0,
+              "title": "PKD1 Inhibits AMPK\u03b12 through Phosphorylation of Serine 491 and Impairs Insulin Signaling in Skeletal Muscle Cells.",
+              "text_preview": "AMP-activated protein kinase (AMPK) is an energy-sensing enzyme whose activity is inhibited in settings of insulin resistance. Exposure to a high glucose concentration has recently been shown to increase phosphorylation of AMPK at Ser(485/491) of its \u03b11/\u03b12 subunit; however, the mechanism by which it does so is not known. Diacylglycerol (DAG), which is also increased in muscle exposed to high gluco"
+            },
+            {
+              "rank": 5,
+              "doc_id": "24721866",
+              "relevance": 0,
+              "title": "Activation of AMP-activated protein kinase suppresses oxidized low-density lipoprotein-induced macrophage proliferation.",
+              "text_preview": "Macrophage-derived foam cells play important roles in the progression of atherosclerosis. We reported previously that ERK1/2-dependent granulocyte/macrophage colony-stimulating factor (GM-CSF) expression, leading to p38 MAPK/ Akt signaling, is important for oxidized low density lipoprotein (Ox-LDL)-induced macrophage proliferation. Here, we investigated whether activation of AMP-activated protein "
+            }
+          ]
+        },
+        {
+          "direction": "worsened",
+          "query_id": "1165",
+          "query": "The G34R/V mutation does not create a hypomethylated phenotype at the H3K36 histone.",
+          "baseline_ndcg_at_10": 1.0,
+          "rerank_ndcg_at_10": 0.3333333333333333,
+          "delta": -0.6666666666666667,
+          "relevant_documents": [
+            {
+              "doc_id": "4455466",
+              "title": "ZMYND11 links histone H3.3K36me3 to transcription elongation and tumour suppression",
+              "text_preview": "Recognition of modified histones by \u2018reader\u2019 proteins plays a critical role in the regulation of chromatin. H3K36 trimethylation (H3K36me3) is deposited onto the nucleosomes in the transcribed regions after RNA polymerase II elongation. In yeast, this mark in turn recruits epigenetic regulators to reset the chromatin to a relatively repressive state, thus suppressing cryptic transcription. However"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "4455466",
+              "relevance": 1,
+              "title": "ZMYND11 links histone H3.3K36me3 to transcription elongation and tumour suppression",
+              "text_preview": "Recognition of modified histones by \u2018reader\u2019 proteins plays a critical role in the regulation of chromatin. H3K36 trimethylation (H3K36me3) is deposited onto the nucleosomes in the transcribed regions after RNA polymerase II elongation. In yeast, this mark in turn recruits epigenetic regulators to reset the chromatin to a relatively repressive state, thus suppressing cryptic transcription. However"
+            },
+            {
+              "rank": 2,
+              "doc_id": "4312169",
+              "relevance": 0,
+              "title": "Driver mutations in histone H3.3 and chromatin remodelling genes in paediatric glioblastoma",
+              "text_preview": "Glioblastoma multiforme (GBM) is a lethal brain tumour in adults and children. However, DNA copy number and gene expression signatures indicate differences between adult and paediatric cases. To explore the genetic events underlying this distinction, we sequenced the exomes of 48 paediatric GBM samples. Somatic mutations in the H3.3-ATRX-DAXX chromatin remodelling pathway were identified in 44% of"
+            },
+            {
+              "rank": 3,
+              "doc_id": "13790144",
+              "relevance": 0,
+              "title": "Histone structure and nucleosome stability.",
+              "text_preview": "Histone proteins play essential structural and functional roles in the transition between active and inactive chromatin states. Although histones have a high degree of conservation due to constraints to maintain the overall structure of the nucleosomal octameric core, variants have evolved to assume diverse roles in gene regulation and epigenetic silencing. Histone variants, post-translational mod"
+            },
+            {
+              "rank": 4,
+              "doc_id": "3230361",
+              "relevance": 0,
+              "title": "Generation and characterization of methyl-lysine histone antibodies.",
+              "text_preview": "Publisher Summary This chapter summarizes the development and characterization of rabbit polyclonal antibodies named histone that are directed against the methylated H3-K9 position. It provides protocols for peptide design, rabbit immunizations, and quality controls of methyl-lysine histone antibodies, followed by their in vivo characterization using indirect IF of inter-and metaphase chromatin in"
+            },
+            {
+              "rank": 5,
+              "doc_id": "42009630",
+              "relevance": 0,
+              "title": "Molecular regulation of histone H3 trimethylation by COMPASS and the regulation of gene expression.",
+              "text_preview": "The Set1-containing complex COMPASS, which is the yeast homolog of the human MLL complex, is required for mono-, di-, and trimethylation of lysine 4 of histone H3. We have performed a comparative global proteomic screen to better define the role of COMPASS in histone trimethylation. We report that both Cps60 and Cps40 components of COMPASS are required for proper histone H3 trimethylation, but not"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "12887068",
+              "relevance": 0,
+              "title": "Use of human embryonic stem cells to model pediatric gliomas with H3.3K27M histone mutation",
+              "text_preview": "Over 70% of diffuse intrinsic pediatric gliomas, an aggressive brainstem tumor, harbor heterozygous mutations that create a K27M amino acid substitution (methionine replaces lysine 27) in the tail of histone H3.3. The role of the H3.3K27M mutation in tumorigenesis is not fully understood. Here, we use a human embryonic stem cell system to model this tumor. We show that H3.3K27M expression synergiz"
+            },
+            {
+              "rank": 2,
+              "doc_id": "4312169",
+              "relevance": 0,
+              "title": "Driver mutations in histone H3.3 and chromatin remodelling genes in paediatric glioblastoma",
+              "text_preview": "Glioblastoma multiforme (GBM) is a lethal brain tumour in adults and children. However, DNA copy number and gene expression signatures indicate differences between adult and paediatric cases. To explore the genetic events underlying this distinction, we sequenced the exomes of 48 paediatric GBM samples. Somatic mutations in the H3.3-ATRX-DAXX chromatin remodelling pathway were identified in 44% of"
+            },
+            {
+              "rank": 3,
+              "doc_id": "41293601",
+              "relevance": 0,
+              "title": "Hotspot mutations in H3F3A and IDH1 define distinct epigenetic and biological subgroups of glioblastoma.",
+              "text_preview": "Glioblastoma (GBM) is a brain tumor that carries a dismal prognosis and displays considerable heterogeneity. We have recently identified recurrent H3F3A mutations affecting two critical amino acids (K27 and G34) of histone H3.3 in one-third of pediatric GBM. Here, we show that each H3F3A mutation defines an epigenetic subgroup of GBM with a distinct global methylation pattern, and that they are mu"
+            },
+            {
+              "rank": 4,
+              "doc_id": "3052213",
+              "relevance": 0,
+              "title": "Genome-Wide Profiling of H3K56 Acetylation and Transcription Factor Binding Sites in Human Adipocytes",
+              "text_preview": "The growing epidemic of obesity and metabolic diseases calls for a better understanding of adipocyte biology. The regulation of transcription in adipocytes is particularly important, as it is a target for several therapeutic approaches. Transcriptional outcomes are influenced by both histone modifications and transcription factor binding. Although the epigenetic states and binding sites of several"
+            },
+            {
+              "rank": 5,
+              "doc_id": "28614776",
+              "relevance": 0,
+              "title": "Identification of functional cooperative mutations of SETD2 in human acute leukemia",
+              "text_preview": "Acute leukemia characterized by chromosomal rearrangements requires additional molecular disruptions to develop into full-blown malignancy, yet the cooperative mechanisms remain elusive. Using whole-genome sequencing of a pair of monozygotic twins discordant for MLL (also called KMT2A) gene\u2013rearranged leukemia, we identified a transforming MLL-NRIP3 fusion gene and biallelic mutations in SETD2 (en"
+            }
+          ]
+        },
+        {
+          "direction": "worsened",
+          "query_id": "766",
+          "query": "Medications to treat obesity have unwanted side effects.",
+          "baseline_ndcg_at_10": 1.0,
+          "rerank_ndcg_at_10": 0.3333333333333333,
+          "delta": -0.6666666666666667,
+          "relevant_documents": [
+            {
+              "doc_id": "7552215",
+              "title": "Long term pharmacotherapy for obesity and overweight: updated meta-analysis.",
+              "text_preview": "OBJECTIVE To summarise the long term efficacy of anti-obesity drugs in reducing weight and improving health status. DESIGN Updated meta-analysis of randomised trials. DATA SOURCES Medline, Embase, the Cochrane controlled trials register, the Current Science meta-register of controlled trials, and reference lists of identified articles. All data sources were searched from December 2002 (end date of"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "7552215",
+              "relevance": 1,
+              "title": "Long term pharmacotherapy for obesity and overweight: updated meta-analysis.",
+              "text_preview": "OBJECTIVE To summarise the long term efficacy of anti-obesity drugs in reducing weight and improving health status. DESIGN Updated meta-analysis of randomised trials. DATA SOURCES Medline, Embase, the Cochrane controlled trials register, the Current Science meta-register of controlled trials, and reference lists of identified articles. All data sources were searched from December 2002 (end date of"
+            },
+            {
+              "rank": 2,
+              "doc_id": "5839365",
+              "relevance": 0,
+              "title": "Anti-obesity drugs: past, present and future",
+              "text_preview": "The ideal anti-obesity drug would produce sustained weight loss with minimal side effects. The mechanisms that regulate energy balance have substantial built-in redundancy, overlap considerably with other physiological functions, and are influenced by social, hedonic and psychological factors that limit the effectiveness of pharmacological interventions. It is therefore unsurprising that anti-obes"
+            },
+            {
+              "rank": 3,
+              "doc_id": "12994780",
+              "relevance": 0,
+              "title": "No effect of dietary fat on short-term weight gain in mice treated with atypical antipsychotic drugs",
+              "text_preview": "Rationale:Atypical antipsychotic drugs (AAD) induce significant weight gain in female C57BL/6J mice. The effect of dietary fat on weight gain and serum lipids in this model is unknown. Objectives: Test the hypothesis that the obesigenic effects of these drugs are greater in the presence of a high-fat diet. Methods:Female C57BL/6J mice were treated with atypical antipsychotics for 3 weeks and fed e"
+            },
+            {
+              "rank": 4,
+              "doc_id": "1428830",
+              "relevance": 0,
+              "title": "The atypical antipsychotic olanzapine causes weight gain by targeting serotonin receptor 2C.",
+              "text_preview": "Atypical antipsychotics such as olanzapine often induce excessive weight gain and type 2 diabetes. However, the mechanisms underlying these drug-induced metabolic perturbations remain poorly understood. Here, we used an experimental model that reproduces olanzapine-induced hyperphagia and obesity in female C57BL/6 mice. We found that olanzapine treatment acutely increased food intake, impaired glu"
+            },
+            {
+              "rank": 5,
+              "doc_id": "40949706",
+              "relevance": 0,
+              "title": "Preoperative Predictors of Weight Loss Following Bariatric Surgery: Systematic Review",
+              "text_preview": "Obesity affects 32% of adults in the USA. Surgery generates substantial weight loss, but 20\u201330% fails to achieve successful weight loss. Our objective was to identify preoperative psychosocial factors associated with weight loss following bariatric surgery. We performed a literature search of PubMed\u00ae and the Cochrane Database of Reviews of Effectiveness between 1988 and April 2010. Articles were s"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "5839365",
+              "relevance": 0,
+              "title": "Anti-obesity drugs: past, present and future",
+              "text_preview": "The ideal anti-obesity drug would produce sustained weight loss with minimal side effects. The mechanisms that regulate energy balance have substantial built-in redundancy, overlap considerably with other physiological functions, and are influenced by social, hedonic and psychological factors that limit the effectiveness of pharmacological interventions. It is therefore unsurprising that anti-obes"
+            },
+            {
+              "rank": 2,
+              "doc_id": "12672066",
+              "relevance": 0,
+              "title": "Behavioral treatment of obesity in patients encountered in primary care settings: a systematic review.",
+              "text_preview": "IMPORTANCE In 2011, the Centers for Medicare & Medicaid Services (CMS) approved intensive behavioral weight loss counseling for approximately 14 face-to-face, 10- to 15-minute sessions over 6 months for obese beneficiaries in primary care settings, when delivered by physicians and other CMS-defined primary care practitioners. OBJECTIVE To conduct a systematic review of behavioral counseling for ov"
+            },
+            {
+              "rank": 3,
+              "doc_id": "5108807",
+              "relevance": 0,
+              "title": "CNTF reverses obesity-induced insulin resistance by activating skeletal muscle AMPK",
+              "text_preview": "Ciliary neurotrophic factor (CNTF) induces weight loss and improves glucose tolerance in humans and rodents. CNTF is thought to act centrally by inducing hypothalamic neurogenesis to modulate food intake and peripherally by altering hepatic gene expression, in a manner similar to that of leptin. Here, we show that CNTF signals through the CNTFR\u03b1\u2013IL-6R\u2013gp130\u03b2 receptor complex to increase fatty-acid"
+            },
+            {
+              "rank": 4,
+              "doc_id": "33918970",
+              "relevance": 0,
+              "title": "Interactive effects of oligofructose and obesity predisposition on gut hormones and microbiota in diet-induced obese rats.",
+              "text_preview": "OBJECTIVE Oligofructose (OFS) is a prebiotic that reduces energy intake and fat mass via changes in gut satiety hormones and microbiota. The effects of OFS may vary depending on predisposition to obesity. The aim of this study was to examine the effect of OFS in diet-induced obese (DIO) and diet-resistant (DR) rats. METHODS Adult, male DIO, and DR rats were randomized to: high-fat/high-sucrose (HF"
+            },
+            {
+              "rank": 5,
+              "doc_id": "5824985",
+              "relevance": 0,
+              "title": "Bariatric Surgery in the United Kingdom: A Cohort Study of Weight Loss and Clinical Outcomes in Routine Clinical Care.",
+              "text_preview": "BACKGROUND Bariatric surgery is becoming a more widespread treatment for obesity. Comprehensive evidence of the long-term effects of contemporary surgery on a broad range of clinical outcomes in large populations treated in routine clinical practice is lacking. The objective of this study was to measure the association between bariatric surgery, weight, body mass index, and obesity-related co-morb"
+            }
+          ]
+        },
+        {
+          "direction": "worsened",
+          "query_id": "965",
+          "query": "Prescribed exercise training improves quality of life.",
+          "baseline_ndcg_at_10": 1.0,
+          "rerank_ndcg_at_10": 0.3562071871080222,
+          "delta": -0.6437928128919779,
+          "relevant_documents": [
+            {
+              "doc_id": "40817021",
+              "title": "Effects of exercise training on health status in patients with chronic heart failure: HF-ACTION randomized controlled trial.",
+              "text_preview": "CONTEXT Findings from previous studies of the effects of exercise training on patient-reported health status have been inconsistent. OBJECTIVE To test the effects of exercise training on health status among patients with heart failure. DESIGN, SETTING, AND PATIENTS Multicenter, randomized controlled trial among 2331 medically stable outpatients with heart failure with left ventricular ejection fra"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "40817021",
+              "relevance": 1,
+              "title": "Effects of exercise training on health status in patients with chronic heart failure: HF-ACTION randomized controlled trial.",
+              "text_preview": "CONTEXT Findings from previous studies of the effects of exercise training on patient-reported health status have been inconsistent. OBJECTIVE To test the effects of exercise training on health status among patients with heart failure. DESIGN, SETTING, AND PATIENTS Multicenter, randomized controlled trial among 2331 medically stable outpatients with heart failure with left ventricular ejection fra"
+            },
+            {
+              "rank": 2,
+              "doc_id": "2028532",
+              "relevance": 0,
+              "title": "High-intensity functional exercise program and protein-enriched energy supplement for older persons dependent in activities of daily living: a randomised controlled trial.",
+              "text_preview": "The aims of this randomised controlled trial were to determine if a high-intensity functional exercise program improves balance, gait ability, and lower-limb strength in older persons dependent in activities of daily living and if an intake of protein-enriched energy supplement immediately after the exercises increases the effects of the training. One hundred and ninety-one older persons dependent"
+            },
+            {
+              "rank": 3,
+              "doc_id": "2820454",
+              "relevance": 0,
+              "title": "Exercise and respiratory training improve exercise capacity and quality of life in patients with severe chronic pulmonary hypertension.",
+              "text_preview": "BACKGROUND Pulmonary hypertension (PH) is associated with restricted physical capacity, limited quality of life, and a poor prognosis because of right heart failure. The present study is the first prospective randomized study to evaluate the effects of exercise and respiratory training in patients with severe symptomatic PH. METHODS AND RESULTS Thirty patients with PH (21 women; mean age, 50+/-13 "
+            },
+            {
+              "rank": 4,
+              "doc_id": "69045262",
+              "relevance": 0,
+              "title": "Children's Exercise Physiology",
+              "text_preview": "The reorganized and newly revised \"Children's Exercise Physiology, Second Edition, \" presents the most up-to-date research, methodology, and approaches related to children's physiologic responses to exercise. The book examines not only the current major issues that separate children from adults, but also the underlying mechanisms of these differences. Readers will learn what makes children differe"
+            },
+            {
+              "rank": 5,
+              "doc_id": "17691617",
+              "relevance": 0,
+              "title": "Effects of a High-Intensity Functional Exercise Program on Dependence in Activities of Daily Living and Balance in Older Adults with Dementia",
+              "text_preview": "OBJECTIVES To investigate the effects of a high-intensity functional exercise program on independence in activities of daily living (ADLs) and balance in older people with dementia and whether exercise effects differed between dementia types. DESIGN Cluster-randomized controlled trial: Ume\u00e5 Dementia and Exercise (UMDEX) study. SETTING Residential care facilities, Ume\u00e5, Sweden. PARTICIPANTS Individ"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "2820454",
+              "relevance": 0,
+              "title": "Exercise and respiratory training improve exercise capacity and quality of life in patients with severe chronic pulmonary hypertension.",
+              "text_preview": "BACKGROUND Pulmonary hypertension (PH) is associated with restricted physical capacity, limited quality of life, and a poor prognosis because of right heart failure. The present study is the first prospective randomized study to evaluate the effects of exercise and respiratory training in patients with severe symptomatic PH. METHODS AND RESULTS Thirty patients with PH (21 women; mean age, 50+/-13 "
+            },
+            {
+              "rank": 2,
+              "doc_id": "40631095",
+              "relevance": 0,
+              "title": "The Combination of Exercise and Respiratory Training Improves Respiratory Muscle Function in Pulmonary Hypertension",
+              "text_preview": "Increased dyspnea and reduced exercise capacity in pulmonary arterial hypertension (PAH) can be partly attributed to impaired respiratory muscle function. This prospective study was designed to assess the impact of exercise and respiratory training on respiratory muscle strength and 6-min walking distance (6MWD) in PAH patients. Patients with invasively confirmed PAH underwent 3 weeks of in-hospit"
+            },
+            {
+              "rank": 3,
+              "doc_id": "2028532",
+              "relevance": 0,
+              "title": "High-intensity functional exercise program and protein-enriched energy supplement for older persons dependent in activities of daily living: a randomised controlled trial.",
+              "text_preview": "The aims of this randomised controlled trial were to determine if a high-intensity functional exercise program improves balance, gait ability, and lower-limb strength in older persons dependent in activities of daily living and if an intake of protein-enriched energy supplement immediately after the exercises increases the effects of the training. One hundred and ninety-one older persons dependent"
+            },
+            {
+              "rank": 4,
+              "doc_id": "4200695",
+              "relevance": 0,
+              "title": "Effect of specific exercise strategy on need for surgery in patients with subacromial impingement syndrome: randomised controlled study",
+              "text_preview": "OBJECTIVE To evaluate if a specific exercise strategy, targeting the rotator cuff and scapula stabilisers, improves shoulder function and pain more than unspecific exercises in patients with subacromial impingement syndrome, thereby decreasing the need for arthroscopic subacromial decompression. DESIGN Randomised, participant and single assessor blinded, controlled study. SETTING Department of ort"
+            },
+            {
+              "rank": 5,
+              "doc_id": "53779698",
+              "relevance": 0,
+              "title": "Exercise as a therapeutic approach to improve blood pressure in patients with peripheral arterial disease: current literature and future directions.",
+              "text_preview": "INTRODUCTION Patients with symptomatic peripheral artery disease (PAD) exhibit reduced functional capacity and increased mortality due to cardiovascular disease. Although exercise has been a cornerstone for clinical treatment to improve walking capacity in patients with symptomatic PAD, its effects on cardiovascular parameters have been poorly explored. Areas covered: This review examines the role"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "492",
+          "query": "HOXB4 facilitates HSC expansion when co-cultured with HSCs.",
+          "baseline_ndcg_at_10": 0.0,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "19583924",
+              "title": "Angiopoietin-like proteins stimulate ex vivo expansion of hematopoietic stem cells",
+              "text_preview": "Successful ex vivo expansion of hematopoietic stem cells (HSCs) would greatly benefit the treatment of disease and the understanding of crucial questions of stem cell biology. Here we show, using microarray studies, that the HSC-supportive mouse fetal liver CD3+ cells specifically express the proteins angiopoietin-like 2 (Angptl2) and angiopoietin-like 3 (Angptl3). We observed a 24- or 30-fold net"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "7645565",
+              "relevance": 0,
+              "title": "Identifying and Characterizing Interplay between Hepatitis B Virus X Protein and Smc5/6",
+              "text_preview": "Hepatitis B X protein (HBx) plays an essential role in the hepatitis B virus (HBV) replication cycle, but the function of HBx has been elusive until recently. It was recently shown that transcription from the HBV genome (covalently-closed circular DNA, cccDNA) is inhibited by the structural maintenance of chromosome 5/6 complex (Smc5/6), and that a key function of HBx is to redirect the DNA-damage"
+            },
+            {
+              "rank": 2,
+              "doc_id": "24498673",
+              "relevance": 0,
+              "title": "Coordinated actions of SLX1-SLX4 and MUS81-EME1 for Holliday junction resolution in human cells.",
+              "text_preview": "Holliday junctions (HJs) are four-way DNA intermediates that form during homologous recombination, and their efficient resolution is essential for chromosome segregation. Here, we show that three structure-selective endonucleases, namely SLX1-SLX4, MUS81-EME1, and GEN1, define two pathways of HJ resolution in human cells. One pathway is mediated by GEN1, whereas SLX1-SLX4 and MUS81-EME1 provide a "
+            },
+            {
+              "rank": 3,
+              "doc_id": "18806488",
+              "relevance": 0,
+              "title": "Hoxa9 transforms primary bone marrow cells through specific collaboration with Meis1a but not Pbx1b.",
+              "text_preview": "Hoxa9, Meis1 and Pbx1 encode homeodomaincontaining proteins implicated in leukemic transformation in both mice and humans. Hoxa9, Meis1 and Pbx1 proteins have been shown to physically interact with each other, as Hoxa9 cooperatively binds consensus DNA sequences with Meis1 and with Pbx1, while Meis1 and Pbx1 form heterodimers in both the presence and absence of DNA. In this study, we sought to det"
+            },
+            {
+              "rank": 4,
+              "doc_id": "92499",
+              "relevance": 0,
+              "title": "The journey of developing hematopoietic stem cells.",
+              "text_preview": "Hematopoietic stem cells (HSCs) develop during embryogenesis in a complex process that involves multiple anatomical sites. Once HSC precursors have been specified from mesoderm, they have to mature into functional HSCs and undergo self-renewing divisions to generate a pool of HSCs. During this process, developing HSCs migrate through various embryonic niches, which provide signals for their establ"
+            },
+            {
+              "rank": 5,
+              "doc_id": "17768946",
+              "relevance": 0,
+              "title": "XRCC4's interaction with XLF is required for coding (but not signal) end joining",
+              "text_preview": "XRCC4 and XLF are structurally related proteins important for DNA Ligase IV function. XRCC4 forms a tight complex with DNA Ligase IV while XLF interacts directly with XRCC4. Both XRCC4 and XLF form homodimers that can polymerize as heterotypic filaments independently of DNA Ligase IV. Emerging structural and in vitro biochemical data suggest that XRCC4 and XLF together generate a filamentous struc"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "19583924",
+              "relevance": 1,
+              "title": "Angiopoietin-like proteins stimulate ex vivo expansion of hematopoietic stem cells",
+              "text_preview": "Successful ex vivo expansion of hematopoietic stem cells (HSCs) would greatly benefit the treatment of disease and the understanding of crucial questions of stem cell biology. Here we show, using microarray studies, that the HSC-supportive mouse fetal liver CD3+ cells specifically express the proteins angiopoietin-like 2 (Angptl2) and angiopoietin-like 3 (Angptl3). We observed a 24- or 30-fold net"
+            },
+            {
+              "rank": 2,
+              "doc_id": "18374364",
+              "relevance": 0,
+              "title": "In vivo proliferation and cell cycle kinetics of long-term self-renewing hematopoietic stem cells.",
+              "text_preview": "A rare set of hematopoietic stem cells (HSC) must undergo a massive expansion to produce mature blood cells. The phenotypic isolation of HSC from mice offers the opportunity to determine directly their proliferation kinetics. We analyzed the proliferation and cell cycle kinetics of long-term self-renewing HSC (LT-HSC) in normal adult mice. At any one time, approximately 5% of LT-HSC were in S/G2/M"
+            },
+            {
+              "rank": 3,
+              "doc_id": "92499",
+              "relevance": 0,
+              "title": "The journey of developing hematopoietic stem cells.",
+              "text_preview": "Hematopoietic stem cells (HSCs) develop during embryogenesis in a complex process that involves multiple anatomical sites. Once HSC precursors have been specified from mesoderm, they have to mature into functional HSCs and undergo self-renewing divisions to generate a pool of HSCs. During this process, developing HSCs migrate through various embryonic niches, which provide signals for their establ"
+            },
+            {
+              "rank": 4,
+              "doc_id": "4366738",
+              "relevance": 0,
+              "title": "Haematopoietic stem cells and early lymphoid progenitors occupy distinct bone marrow niches",
+              "text_preview": "Although haematopoietic stem cells (HSCs) are commonly assumed to reside within a specialized microenvironment, or niche, most published experimental manipulations of the HSC niche have affected the function of diverse restricted progenitors. This raises the fundamental question of whether HSCs and restricted progenitors reside within distinct, specialized niches or whether they share a common nic"
+            },
+            {
+              "rank": 5,
+              "doc_id": "13116880",
+              "relevance": 0,
+              "title": "Hematopoietic stem cell: self-renewal versus differentiation.",
+              "text_preview": "The mammalian blood system, containing more than 10 distinct mature cell types, stands on one specific cell type, hematopoietic stem cell (HSC). Within the system, only HSCs possess the ability of both multipotency and self-renewal. Multipotency is the ability to differentiate into all functional blood cells. Self-renewal is the ability to give rise to HSC itself without differentiation. Since mat"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "1111",
+          "query": "Sudden death can occur in patients with complex ventricular arrhythmias.",
+          "baseline_ndcg_at_10": 0.0,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "1686881",
+              "title": "Myocardial muscarinic receptor upregulation and normal response to isoproterenol in denervated hearts by familial amyloid polyneuropathy.",
+              "text_preview": "BACKGROUND Patients with familial amyloid polyneuropathy, a rare hereditary form of amyloidosis, have progressive autonomic neuropathy. The disease usually does not induce heart failure but is associated with sudden death, conduction disturbances, and an increased risk of complications during anesthesia. Although cardiac sympathetic denervation has been clearly demonstrated, the postsynaptic statu"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "43483151",
+              "relevance": 0,
+              "title": "QT and QTc dispersion are accurate predictors of cardiac death in newly diagnosed non-insulin dependent diabetes: cohort study.",
+              "text_preview": "Patients with non-insulin dependent diabetes mellitus have an excess risk of dying from cardiovascular disease. One small study suggested that a prolonged QT interval could predict cardiac death in patients with diabetic nephropathy who have received insulin treatment. The question now is whether the same is true in newly diagnosed diabetes in patients who have no apparent complications. In additi"
+            },
+            {
+              "rank": 2,
+              "doc_id": "8509018",
+              "relevance": 0,
+              "title": "Diastolic heart failure--abnormalities in active relaxation and passive stiffness of the left ventricle.",
+              "text_preview": "BACKGROUND Patients with signs and symptoms of heart failure and a normal left ventricular ejection fraction are said to have diastolic heart failure. It has traditionally been thought that the pathophysiological cause of heart failure in these patients is an abnormality in the diastolic properties of the left ventricle; however, this hypothesis remains largely unproven. METHODS We prospectively i"
+            },
+            {
+              "rank": 3,
+              "doc_id": "23117378",
+              "relevance": 0,
+              "title": "Sudden infant death syndrome and unclassified sudden infant deaths: a definitional and diagnostic approach.",
+              "text_preview": "The definition of sudden infant death syndrome (SIDS) originally appeared in 1969 and was modified 2 decades later. During the following 15 years, an enormous amount of additional information has emerged, justifying additional refinement of the definition of SIDS to incorporate epidemiologic features, risk factors, pathologic features, and ancillary test findings. An expert panel of pediatric and "
+            },
+            {
+              "rank": 4,
+              "doc_id": "20945963",
+              "relevance": 0,
+              "title": "Clinical epidemiology of heart failure.",
+              "text_preview": "The aim of this paper is to review the clinical epidemiology of heart failure. The last paper comprehensively addressing the epidemiology of heart failure in Heart appeared in 2000. Despite an increase in manuscripts describing epidemiological aspects of heart failure since the 1990s, additional information is still needed, as indicated by various editorials."
+            },
+            {
+              "rank": 5,
+              "doc_id": "26341063",
+              "relevance": 0,
+              "title": "Effect of enalapril on 12-year survival and life expectancy in patients with left ventricular systolic dysfunction: a follow-up study.",
+              "text_preview": "BACKGROUND In the studies of left ventricular dysfunction (SOLVD), enalapril reduced mortality in patients with symptomatic but not asymptomatic left ventricular systolic dysfunction during the trial. We did a 12-year follow-up of SOLVD to establish if the mortality reduction with enalapril among patients with heart failure was sustained, and whether a subsequent reduction in mortality would emerg"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "1686881",
+              "relevance": 1,
+              "title": "Myocardial muscarinic receptor upregulation and normal response to isoproterenol in denervated hearts by familial amyloid polyneuropathy.",
+              "text_preview": "BACKGROUND Patients with familial amyloid polyneuropathy, a rare hereditary form of amyloidosis, have progressive autonomic neuropathy. The disease usually does not induce heart failure but is associated with sudden death, conduction disturbances, and an increased risk of complications during anesthesia. Although cardiac sympathetic denervation has been clearly demonstrated, the postsynaptic statu"
+            },
+            {
+              "rank": 2,
+              "doc_id": "26341063",
+              "relevance": 0,
+              "title": "Effect of enalapril on 12-year survival and life expectancy in patients with left ventricular systolic dysfunction: a follow-up study.",
+              "text_preview": "BACKGROUND In the studies of left ventricular dysfunction (SOLVD), enalapril reduced mortality in patients with symptomatic but not asymptomatic left ventricular systolic dysfunction during the trial. We did a 12-year follow-up of SOLVD to establish if the mortality reduction with enalapril among patients with heart failure was sustained, and whether a subsequent reduction in mortality would emerg"
+            },
+            {
+              "rank": 3,
+              "doc_id": "21789744",
+              "relevance": 0,
+              "title": "Effect of exercise-induced ischemia on QT interval dispersion.",
+              "text_preview": "An increased spatial dispersion of ventricular repolarization duration (QT dispersion) is associated with an increased vulnerability to arrhythmias. This study was designed to examine the effect of exercise on QT dispersion in ischemic heart disease (IHD). QT dispersion, corrected QT dispersion, and percentage change in uncorrected and corrected QT dispersion between rest and peak exercise were ex"
+            },
+            {
+              "rank": 4,
+              "doc_id": "19332616",
+              "relevance": 0,
+              "title": "Coronary plaque disruption.",
+              "text_preview": "Coronary atherosclerosis is by far the most frequent cause of ischemic heart disease, and plaque disruption with superimposed thrombosis is the main cause of the acute coronary syndromes of unstable angina, myocardial infarction, and sudden death.1 2 3 4 5 Therefore, for event-free survival, the vital question is not why atherosclerosis develops but rather why, after years of indolent growth, it s"
+            },
+            {
+              "rank": 5,
+              "doc_id": "6993046",
+              "relevance": 0,
+              "title": "Breathing more with weaker respiratory muscles in pulmonary arterial hypertension.",
+              "text_preview": "Exertional fatigue and dyspnoea limit the daily activities of patients with pulmonary arterial hypertension 1. These symptoms are usually explained by the inability of the overloaded right ventricle to perfuse the lungs and to adapt systemic oxygen delivery to oxygen demand. Accordingly, pulmonary hypertension patients present with reductions in peak oxygen uptake, anaerobic threshold, oxygen puls"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "1047",
+          "query": "Ribosome-inactivating protein-2 (RIP-2) interacts with the p75 NTR death domain",
+          "baseline_ndcg_at_10": 0.0,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "14706752",
+              "title": "Gamma-Secretase Represents a Therapeutic Target for the Treatment of Invasive Glioma Mediated by the p75 Neurotrophin Receptor",
+              "text_preview": "The multifunctional signaling protein p75 neurotrophin receptor (p75(NTR)) is a central regulator and major contributor to the highly invasive nature of malignant gliomas. Here, we show that neurotrophin-dependent regulated intramembrane proteolysis (RIP) of p75(NTR) is required for p75(NTR)-mediated glioma invasion, and identify a previously unnamed process for targeted glioma therapy. Expression"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "25251625",
+              "relevance": 0,
+              "title": "Caspase inhibitors promote alternative cell death pathways.",
+              "text_preview": "The use of caspase inhibitors has revealed the existence of alternative backup cell death programs for apoptosis. The broad-spectrum caspase inhibitor zVAD-fmk modulates the three major types of cell death. Addition of zVAD-fmk blocks apoptotic cell death, sensitizes cells to necrotic cell death, and induces autophagic cell death. Several studies have shown a crucial role for the kinase RIP1 and t"
+            },
+            {
+              "rank": 2,
+              "doc_id": "26112624",
+              "relevance": 0,
+              "title": "The complexity of human ribosome biogenesis revealed by systematic nucleolar screening of Pre-rRNA processing factors.",
+              "text_preview": "Mature ribosomal RNAs (rRNAs) are produced from polycistronic precursors following complex processing. Precursor (pre)-rRNA processing has been extensively characterized in yeast and was assumed to be conserved in humans. We functionally characterized 625 nucleolar proteins in HeLa cells and identified 286 required for processing, including 74 without a yeast homolog. For selected candidates, we d"
+            },
+            {
+              "rank": 3,
+              "doc_id": "20725212",
+              "relevance": 0,
+              "title": "Chaperoning 5S RNA assembly.",
+              "text_preview": "In eukaryotes, three of the four ribosomal RNAs (rRNAs)\u2014the 5.8S, 18S, and 25S/28S rRNAs\u2014are processed from a single pre-rRNA transcript and assembled into ribosomes. The fourth rRNA, the 5S rRNA, is transcribed by RNA polymerase III and is assembled into the 5S ribonucleoprotein particle (RNP), containing ribosomal proteins Rpl5/uL18 and Rpl11/uL5, prior to its incorporation into preribosomes. In"
+            },
+            {
+              "rank": 4,
+              "doc_id": "2582169",
+              "relevance": 0,
+              "title": "Inhibition of HDM2 and activation of p53 by ribosomal protein L23.",
+              "text_preview": "The importance of coordinating cell growth with proliferation has been recognized for a long time. The molecular basis of this relationship, however, is poorly understood. Here we show that the ribosomal protein L23 interacts with HDM2. The interaction involves the central acidic domain of HDM2 and an N-terminal domain of L23. L23 and L11, another HDM2-interacting ribosomal protein, can simultaneo"
+            },
+            {
+              "rank": 5,
+              "doc_id": "24737389",
+              "relevance": 0,
+              "title": "Growth control and ribosomopathies.",
+              "text_preview": "Ribosome biogenesis and protein synthesis are two of the most energy consuming processes in a growing cell. Moreover, defects in their molecular components can alter the pattern of gene expression. Thus it is understandable that cells have developed a surveillance system to monitor the status of the translational machinery. Recent discoveries of causative mutations and deletions in genes linked to"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "14706752",
+              "relevance": 1,
+              "title": "Gamma-Secretase Represents a Therapeutic Target for the Treatment of Invasive Glioma Mediated by the p75 Neurotrophin Receptor",
+              "text_preview": "The multifunctional signaling protein p75 neurotrophin receptor (p75(NTR)) is a central regulator and major contributor to the highly invasive nature of malignant gliomas. Here, we show that neurotrophin-dependent regulated intramembrane proteolysis (RIP) of p75(NTR) is required for p75(NTR)-mediated glioma invasion, and identify a previously unnamed process for targeted glioma therapy. Expression"
+            },
+            {
+              "rank": 2,
+              "doc_id": "2582169",
+              "relevance": 0,
+              "title": "Inhibition of HDM2 and activation of p53 by ribosomal protein L23.",
+              "text_preview": "The importance of coordinating cell growth with proliferation has been recognized for a long time. The molecular basis of this relationship, however, is poorly understood. Here we show that the ribosomal protein L23 interacts with HDM2. The interaction involves the central acidic domain of HDM2 and an N-terminal domain of L23. L23 and L11, another HDM2-interacting ribosomal protein, can simultaneo"
+            },
+            {
+              "rank": 3,
+              "doc_id": "12240507",
+              "relevance": 0,
+              "title": "Disruption of the 5S RNP\u2013Mdm2 interaction significantly improves the erythroid defect in a mouse model for Diamond-Blackfan anemia",
+              "text_preview": "Diamond-Blackfan anemia (DBA) is a congenital erythroid hypoplasia caused by haploinsufficiency of genes encoding ribosomal proteins (RPs). Perturbed ribosome biogenesis in DBA has been shown to induce a p53-mediated ribosomal stress response. However, the mechanisms of p53 activation and its relevance for the erythroid defect remain elusive. Previous studies have indicated that activation of p53 "
+            },
+            {
+              "rank": 4,
+              "doc_id": "8496132",
+              "relevance": 0,
+              "title": "Regulation of Bcl-2 expression by HuR in HL60 leukemia cells and A431 carcinoma cells.",
+              "text_preview": "Overexpression of the proto-oncogene bcl-2 promotes abnormal cell survival by inhibiting apoptosis. Expression of bcl-2 is determined, in part, by regulatory mechanisms that control the stability of bcl-2 mRNA. Elements in the 3'-untranslated region of bcl-2 mRNA have been shown to play a role in regulating the stability of the message. Previously, it was found that the RNA binding proteins nucleo"
+            },
+            {
+              "rank": 5,
+              "doc_id": "4306711",
+              "relevance": 0,
+              "title": "The Human Mitochondrial DEAD-Box Protein DDX28 Resides in RNA Granules and Functions in Mitoribosome Assembly.",
+              "text_preview": "Human mitochondrial ribosomes are specialized in the synthesis of 13 proteins, which are fundamental components of the oxidative phosphorylation system. The pathway of mitoribosome biogenesis, the compartmentalization of the process, and factors involved remain largely unknown. Here, we have identified the DEAD-box protein DDX28 as an RNA granule component essential for the biogenesis of the mitor"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "200",
+          "query": "CD28 initiates tonic signaling in conventional T cells, which causes an exhaustion phenotype and limited efficiency.",
+          "baseline_ndcg_at_10": 0.31546487678572877,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 0.6845351232142712,
+          "relevant_documents": [
+            {
+              "doc_id": "18231807",
+              "title": "4-1BB Costimulation Ameliorates T Cell Exhaustion Induced by Tonic Signaling of Chimeric Antigen Receptors",
+              "text_preview": "Chimeric antigen receptors (CARs) targeting CD19 have mediated dramatic antitumor responses in hematologic malignancies, but tumor regression has rarely occurred using CARs targeting other antigens. It remains unknown whether the impressive effects of CD19 CARs relate to greater susceptibility of hematologic malignancies to CAR therapies, or superior functionality of the CD19 CAR itself. We show t"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "13868795",
+              "relevance": 0,
+              "title": "CD28 Costimulation: From Mechanism to Therapy.",
+              "text_preview": "Ligation of the CD28 receptor on T cells provides a critical second signal alongside T cell receptor (TCR) ligation for naive T cell activation. Here, we discuss the expression, structure, and biochemistry of CD28 and its ligands. CD28 signals play a key role in many T cell processes, including cytoskeletal remodeling, production of cytokines, survival, and differentiation. CD28 ligation leads to "
+            },
+            {
+              "rank": 2,
+              "doc_id": "28006126",
+              "relevance": 0,
+              "title": "CD28 delivers a unique signal leading to the selective recruitment of RelA and p52 NF-kappaB subunits on IL-8 and Bcl-xL gene promoters.",
+              "text_preview": "CD28 is one of the most important costimulatory receptors necessary for full T lymphocyte activation. The CD28 receptor can enhance T cell antigen receptor (TCR) signals, as well as deliver independent signals. Indeed, CD28 engagement by B7 can generate TCR-independent signals leading to IkappaB kinase and NF-kappaB activation. Here we demonstrate that the TCR-independent CD28 signal leads to the "
+            },
+            {
+              "rank": 3,
+              "doc_id": "35651106",
+              "relevance": 0,
+              "title": "Critical role of CD28 in protective immunity against Salmonella typhimurium.",
+              "text_preview": "Efficient T cell activation requires both TCR signals and costimulatory signals. CD28 is one of the molecules that provide costimulatory signals for T cells. We used mice deficient in CD28 expression (CD28-/- mice) to analyze the role of CD28 in the immune response against the intracellular bacterium Salmonella typhimurium, the causative agent of murine typhoid fever. CD28-/- mice were highly susc"
+            },
+            {
+              "rank": 4,
+              "doc_id": "2462673",
+              "relevance": 0,
+              "title": "CD28 and ITK signals regulate autoreactive T cell trafficking",
+              "text_preview": "Activation of self-reactive T cells and their trafficking to target tissues leads to autoimmune organ destruction. Mice lacking the co-inhibitory receptor cytotoxic T lymphocyte antigen-4 (CTLA-4) develop fatal autoimmunity characterized by lymphocytic infiltration into nonlymphoid tissues. Here, we demonstrate that the CD28 co-stimulatory pathway regulates the trafficking of self-reactive Ctla4(-"
+            },
+            {
+              "rank": 5,
+              "doc_id": "8038329",
+              "relevance": 0,
+              "title": "Role of CD28-B7 interactions in generation and maintenance of CD8 T cell memory.",
+              "text_preview": "Although the role of CD28-B7 interaction in the activation of naive T cells is well established, its importance in the generation and maintenance of T cell memory is not well understood. In this study, we examined the requirement for CD28-B7 interactions in primary T cell activation and immune memory. Ag-specific CD8 T cell responses were compared between wild-type (+/+) and CD28-deficient (CD28(-"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "18231807",
+              "relevance": 1,
+              "title": "4-1BB Costimulation Ameliorates T Cell Exhaustion Induced by Tonic Signaling of Chimeric Antigen Receptors",
+              "text_preview": "Chimeric antigen receptors (CARs) targeting CD19 have mediated dramatic antitumor responses in hematologic malignancies, but tumor regression has rarely occurred using CARs targeting other antigens. It remains unknown whether the impressive effects of CD19 CARs relate to greater susceptibility of hematologic malignancies to CAR therapies, or superior functionality of the CD19 CAR itself. We show t"
+            },
+            {
+              "rank": 2,
+              "doc_id": "14657344",
+              "relevance": 0,
+              "title": "CD8 Cells of Patients with Diffuse Cutaneous Leishmaniasis Display Functional Exhaustion: The Latter Is Reversed, In Vitro, by TLR2 Agonists",
+              "text_preview": "Leishmania mexicana (Lm) causes localized (LCL) and diffuse (DCL) cutaneous leishmaniasis. DCL patients have a poor cellular immune response leading to chronicity. It has been proposed that CD8 T lymphocytes (CD8) play a crucial role in infection clearance, although the role of CD8 cytotoxicity in disease control has not been elucidated. Lesions of DCL patients have been shown to harbor low number"
+            },
+            {
+              "rank": 3,
+              "doc_id": "35651106",
+              "relevance": 0,
+              "title": "Critical role of CD28 in protective immunity against Salmonella typhimurium.",
+              "text_preview": "Efficient T cell activation requires both TCR signals and costimulatory signals. CD28 is one of the molecules that provide costimulatory signals for T cells. We used mice deficient in CD28 expression (CD28-/- mice) to analyze the role of CD28 in the immune response against the intracellular bacterium Salmonella typhimurium, the causative agent of murine typhoid fever. CD28-/- mice were highly susc"
+            },
+            {
+              "rank": 4,
+              "doc_id": "34905328",
+              "relevance": 0,
+              "title": "Membrane association of the CD3\u03b5 signaling domain is required for optimal T cell development and function.",
+              "text_preview": "The TCR:CD3 complex transduces signals that are critical for optimal T cell development and adaptive immunity. In resting T cells, the CD3\u03b5 cytoplasmic tail associates with the plasma membrane via a proximal basic-rich stretch (BRS). In this study, we show that mice lacking a functional CD3\u03b5-BRS exhibited substantial reductions in thymic cellularity and limited CD4- CD8- double-negative (DN) 3 to "
+            },
+            {
+              "rank": 5,
+              "doc_id": "2714623",
+              "relevance": 0,
+              "title": "Recruitment of Nck by CD3\u03f5 Reveals a Ligand-Induced Conformational Change Essential for T Cell Receptor Signaling and Synapse Formation",
+              "text_preview": "How membrane receptors initiate signal transduction upon ligand binding is a matter of intense scrutiny. The T cell receptor complex (TCR-CD3) is composed of TCR alpha/beta ligand binding subunits bound to the CD3 subunits responsible for signal transduction. Although it has long been speculated that TCR-CD3 may undergo a conformational change, confirmation is still lacking. We present strong evid"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "122",
+          "query": "Antimicrobial agents are more effective due to the pressure of antimicrobial usage.",
+          "baseline_ndcg_at_10": 0.3333333333333333,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 0.6666666666666667,
+          "relevant_documents": [
+            {
+              "doc_id": "31460499",
+              "title": "Resistance to antimicrobials in humans and animals.",
+              "text_preview": "Overusing antibiotics is not the only cause and reducing use is not the only solution   W arning signs of antimicrobial resistance, chinks in the antimicrobial armour, began to appear in the middle of the last century, and by the 1990s various reports had signalled the dangers of excessive or inappropriate use of antibiotics in clinical medicine and of the use of antibiotics in animal feed as grow"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "4695107",
+              "relevance": 0,
+              "title": "The challenges of overcoming antibiotic resistance: Plant extracts as potential sources of antimicrobial and resistance modifying agents",
+              "text_preview": "The problem of antibiotic resistance, which has limited the use of cheap and old antibiotics, has necessitated the need for a continued search for new antimicrobial compounds. Understanding the mechanisms of resistance is important in the development of strategies to solving the problem. Active efflux of drugs, alteration of target sites and enzymatic degradations are the strategies by which patho"
+            },
+            {
+              "rank": 2,
+              "doc_id": "24746892",
+              "relevance": 0,
+              "title": "Killing by bactericidal antibiotics does not depend on reactive oxygen species.",
+              "text_preview": "Bactericidal antibiotics kill by modulating their respective targets. This traditional view has been challenged by studies that propose an alternative, unified mechanism of killing, whereby toxic reactive oxygen species (ROS) are produced in the presence of antibiotics. We found no correlation between an individual cell's probability of survival in the presence of antibiotic and its level of ROS. "
+            },
+            {
+              "rank": 3,
+              "doc_id": "3272084",
+              "relevance": 0,
+              "title": "Characterisation of antibiotic prescriptions for acute respiratory tract infections in Danish general practice: a retrospective registry based cohort study",
+              "text_preview": "Inappropriate use of antibiotics is contributing to the increasing rates of antimicrobial resistance. Several Danish guidelines on antibiotic prescribing for acute respiratory tract infections in general practice have been issued to promote rational prescribing of antibiotics, however it is unclear if these recommendations are followed. We aimed to characterise the pattern of antibiotic prescripti"
+            },
+            {
+              "rank": 4,
+              "doc_id": "36497180",
+              "relevance": 0,
+              "title": "Drug-resistant Salmonella in the United States: an epidemiologic perspective.",
+              "text_preview": "Salmonellosis poses a health problem of large proportions in the United States. Annually, it accounts for more than 40,000 reported cases, 500 deaths, and financial costs well in excess of $50 million. Antimicrobial resistance is increasing in Salmonella strains, a finding that has important public health implications. Although the chain of transmission of the bacteria is often complex, combined e"
+            },
+            {
+              "rank": 5,
+              "doc_id": "1234098",
+              "relevance": 0,
+              "title": "Dynamic capsule restructuring by the main pneumococcal autolysin LytA in response to the epithelium",
+              "text_preview": "Bacterial pathogens produce complex carbohydrate capsules to protect against bactericidal immune molecules. Paradoxically, the pneumococcal capsule sensitizes the bacterium to antimicrobial peptides found on epithelial surfaces. Here we show that upon interaction with antimicrobial peptides, encapsulated pneumococci survive by removing capsule from the cell surface within minutes in a process depe"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "31460499",
+              "relevance": 1,
+              "title": "Resistance to antimicrobials in humans and animals.",
+              "text_preview": "Overusing antibiotics is not the only cause and reducing use is not the only solution   W arning signs of antimicrobial resistance, chinks in the antimicrobial armour, began to appear in the middle of the last century, and by the 1990s various reports had signalled the dangers of excessive or inappropriate use of antibiotics in clinical medicine and of the use of antibiotics in animal feed as grow"
+            },
+            {
+              "rank": 2,
+              "doc_id": "12801438",
+              "relevance": 0,
+              "title": "Plant products as antimicrobial agents.",
+              "text_preview": "The use of and search for drugs and dietary supplements derived from plants have accelerated in recent years. Ethnopharmacologists, botanists, microbiologists, and natural-products chemists are combing the Earth for phytochemicals and \"leads\" which could be developed for treatment of infectious diseases. While 25 to 50% of current pharmaceuticals are derived from plants, none are used as antimicro"
+            },
+            {
+              "rank": 3,
+              "doc_id": "4695107",
+              "relevance": 0,
+              "title": "The challenges of overcoming antibiotic resistance: Plant extracts as potential sources of antimicrobial and resistance modifying agents",
+              "text_preview": "The problem of antibiotic resistance, which has limited the use of cheap and old antibiotics, has necessitated the need for a continued search for new antimicrobial compounds. Understanding the mechanisms of resistance is important in the development of strategies to solving the problem. Active efflux of drugs, alteration of target sites and enzymatic degradations are the strategies by which patho"
+            },
+            {
+              "rank": 4,
+              "doc_id": "24157077",
+              "relevance": 0,
+              "title": "Cationic host defense (antimicrobial) peptides.",
+              "text_preview": "Members of the cationic host defense (antimicrobial) peptide family are widely distributed in nature, existing in organisms from insects to plants to mammals and non-mammalian vertebrates. Although many demonstrate direct antimicrobial activity against bacteria, fungi, eukaryotic parasites and/or viruses, it has been established that cationic peptides have a key modulatory role in the innate immun"
+            },
+            {
+              "rank": 5,
+              "doc_id": "36497180",
+              "relevance": 0,
+              "title": "Drug-resistant Salmonella in the United States: an epidemiologic perspective.",
+              "text_preview": "Salmonellosis poses a health problem of large proportions in the United States. Annually, it accounts for more than 40,000 reported cases, 500 deaths, and financial costs well in excess of $50 million. Antimicrobial resistance is increasing in Salmonella strains, a finding that has important public health implications. Although the chain of transmission of the bacteria is often complex, combined e"
+            }
+          ]
+        }
+      ]
+    },
+    "minilm_l6": {
+      "extreme_cases": [
+        {
+          "direction": "worsened",
+          "query_id": "767",
+          "query": "Men are more susceptible to death due to pneumonia when compared to women.",
+          "baseline_ndcg_at_10": 1.0,
+          "rerank_ndcg_at_10": 0.3010299956639812,
+          "delta": -0.6989700043360187,
+          "relevant_documents": [
+            {
+              "doc_id": "2488880",
+              "title": "Gender-dependent differences in outcome after the treatment of infection in hospitalized patients.",
+              "text_preview": "CONTEXT While it is established that management strategies and outcomes differ by gender for many diseases, its effect on infection has not been adequately studied. OBJECTIVE To investigate the role of gender among hospitalized patients treated for infection. DESIGN Observational cohort study conducted during a 26-month period from December 1996 through January 1999. SETTING University-affiliated "
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "2488880",
+              "relevance": 1,
+              "title": "Gender-dependent differences in outcome after the treatment of infection in hospitalized patients.",
+              "text_preview": "CONTEXT While it is established that management strategies and outcomes differ by gender for many diseases, its effect on infection has not been adequately studied. OBJECTIVE To investigate the role of gender among hospitalized patients treated for infection. DESIGN Observational cohort study conducted during a 26-month period from December 1996 through January 1999. SETTING University-affiliated "
+            },
+            {
+              "rank": 2,
+              "doc_id": "3552753",
+              "relevance": 0,
+              "title": "Defining community acquired pneumonia severity on presentation to hospital: an international derivation and validation study.",
+              "text_preview": "BACKGROUND In the assessment of severity in community acquired pneumonia (CAP), the modified British Thoracic Society (mBTS) rule identifies patients with severe pneumonia but not patients who might be suitable for home management. A multicentre study was conducted to derive and validate a practical severity assessment model for stratifying adults hospitalised with CAP into different management gr"
+            },
+            {
+              "rank": 3,
+              "doc_id": "29253460",
+              "relevance": 0,
+              "title": "Sex-related differences in the presentation, treatment and outcomes among patients with acute coronary syndromes: the Global Registry of Acute Coronary Events.",
+              "text_preview": "OBJECTIVE To assess whether sex differences exist in the angiographic severity, management and outcomes of acute coronary syndromes (ACS). METHODS The study comprised 7638 women and 19 117 men with ACS who underwent coronary angiography and were included in GRACE (Global Registry of Acute Coronary Events) from 1999-2006. Normal vessels/mild disease was defined as <50% stenosis in all epicardial ve"
+            },
+            {
+              "rank": 4,
+              "doc_id": "7640792",
+              "relevance": 0,
+              "title": "Sex differences in mortality following acute coronary syndromes.",
+              "text_preview": "CONTEXT Conflicting information exists about whether sex differences modulate short-term mortality following acute coronary syndromes (ACS). OBJECTIVES To investigate the relationship between sex and 30-day mortality in ACS, and to determine whether this relationship was modified by clinical syndrome or coronary anatomy using a large database across the spectrum of ACS and adjusting for potentiall"
+            },
+            {
+              "rank": 5,
+              "doc_id": "34228604",
+              "relevance": 0,
+              "title": "Why females live longer than males: control of longevity by sex hormones.",
+              "text_preview": "Females live longer than males in many species, including humans. We have traced a possible explanation for this phenomenon to the beneficial action of estrogens, which bind to estrogen receptors and increase the expression of longevity-associated genes, including those encoding the antioxidant enzymes superoxide dismutase and glutathione peroxidase. As a result, mitochondria from females produce "
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "20526907",
+              "relevance": 0,
+              "title": "How much alcohol and how often? Population based case-control study of alcohol consumption and risk of a major coronary event.",
+              "text_preview": "OBJECTIVE To quantify the effects of quantity and frequency of alcohol consumption on risk of acute myocardial infarction and coronary death. DESIGN Case-control study. SETTING Lower Hunter region of New South Wales, Australia, 1983-94. SUBJECTS Men and women aged 35-69 years. MAIN OUTCOME MEASURE Acute myocardial infarction or coronary death. RESULTS Alcohol consumption patterns were compared bet"
+            },
+            {
+              "rank": 2,
+              "doc_id": "12794099",
+              "relevance": 0,
+              "title": "Combined Impact of Health Behaviours and Mortality in Men and Women: The EPIC-Norfolk Prospective Population Study",
+              "text_preview": "BACKGROUND There is overwhelming evidence that behavioural factors influence health, but their combined impact on the general population is less well documented. We aimed to quantify the potential combined impact of four health behaviours on mortality in men and women living in the general community. METHODS AND FINDINGS We examined the prospective relationship between lifestyle and mortality in a"
+            },
+            {
+              "rank": 3,
+              "doc_id": "33835579",
+              "relevance": 0,
+              "title": "Pathology of postprimary tuberculosis in humans and mice: contradiction of long-held beliefs.",
+              "text_preview": "Tuberculosis remains one of the world's leading infectious causes of death. Approximately 80% of all disease is due to postprimary (secondary) tuberculosis in the lung. Unfortunately, tissues of developing lesions are seldom available and there are no recognized models of postprimary tuberculosis. In the preantibiotic era when tissues were more abundant, several investigators described early postp"
+            },
+            {
+              "rank": 4,
+              "doc_id": "13481731",
+              "relevance": 0,
+              "title": "Gender, age, and heart failure with preserved left ventricular systolic function.",
+              "text_preview": "OBJECTIVES This study was designed to determine if women are more likely than men to have heart failure (HF) with preserved systolic function after adjustment for potential confounders, including age. BACKGROUND Although prior evidence suggests an independent association between female gender and preserved left ventricular systolic function (LVSF) in patients with HF, existing studies are limited "
+            },
+            {
+              "rank": 5,
+              "doc_id": "29253460",
+              "relevance": 0,
+              "title": "Sex-related differences in the presentation, treatment and outcomes among patients with acute coronary syndromes: the Global Registry of Acute Coronary Events.",
+              "text_preview": "OBJECTIVE To assess whether sex differences exist in the angiographic severity, management and outcomes of acute coronary syndromes (ACS). METHODS The study comprised 7638 women and 19 117 men with ACS who underwent coronary angiography and were included in GRACE (Global Registry of Acute Coronary Events) from 1999-2006. Normal vessels/mild disease was defined as <50% stenosis in all epicardial ve"
+            }
+          ]
+        },
+        {
+          "direction": "worsened",
+          "query_id": "1165",
+          "query": "The G34R/V mutation does not create a hypomethylated phenotype at the H3K36 histone.",
+          "baseline_ndcg_at_10": 1.0,
+          "rerank_ndcg_at_10": 0.3333333333333333,
+          "delta": -0.6666666666666667,
+          "relevant_documents": [
+            {
+              "doc_id": "4455466",
+              "title": "ZMYND11 links histone H3.3K36me3 to transcription elongation and tumour suppression",
+              "text_preview": "Recognition of modified histones by \u2018reader\u2019 proteins plays a critical role in the regulation of chromatin. H3K36 trimethylation (H3K36me3) is deposited onto the nucleosomes in the transcribed regions after RNA polymerase II elongation. In yeast, this mark in turn recruits epigenetic regulators to reset the chromatin to a relatively repressive state, thus suppressing cryptic transcription. However"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "4455466",
+              "relevance": 1,
+              "title": "ZMYND11 links histone H3.3K36me3 to transcription elongation and tumour suppression",
+              "text_preview": "Recognition of modified histones by \u2018reader\u2019 proteins plays a critical role in the regulation of chromatin. H3K36 trimethylation (H3K36me3) is deposited onto the nucleosomes in the transcribed regions after RNA polymerase II elongation. In yeast, this mark in turn recruits epigenetic regulators to reset the chromatin to a relatively repressive state, thus suppressing cryptic transcription. However"
+            },
+            {
+              "rank": 2,
+              "doc_id": "4312169",
+              "relevance": 0,
+              "title": "Driver mutations in histone H3.3 and chromatin remodelling genes in paediatric glioblastoma",
+              "text_preview": "Glioblastoma multiforme (GBM) is a lethal brain tumour in adults and children. However, DNA copy number and gene expression signatures indicate differences between adult and paediatric cases. To explore the genetic events underlying this distinction, we sequenced the exomes of 48 paediatric GBM samples. Somatic mutations in the H3.3-ATRX-DAXX chromatin remodelling pathway were identified in 44% of"
+            },
+            {
+              "rank": 3,
+              "doc_id": "13790144",
+              "relevance": 0,
+              "title": "Histone structure and nucleosome stability.",
+              "text_preview": "Histone proteins play essential structural and functional roles in the transition between active and inactive chromatin states. Although histones have a high degree of conservation due to constraints to maintain the overall structure of the nucleosomal octameric core, variants have evolved to assume diverse roles in gene regulation and epigenetic silencing. Histone variants, post-translational mod"
+            },
+            {
+              "rank": 4,
+              "doc_id": "3230361",
+              "relevance": 0,
+              "title": "Generation and characterization of methyl-lysine histone antibodies.",
+              "text_preview": "Publisher Summary This chapter summarizes the development and characterization of rabbit polyclonal antibodies named histone that are directed against the methylated H3-K9 position. It provides protocols for peptide design, rabbit immunizations, and quality controls of methyl-lysine histone antibodies, followed by their in vivo characterization using indirect IF of inter-and metaphase chromatin in"
+            },
+            {
+              "rank": 5,
+              "doc_id": "42009630",
+              "relevance": 0,
+              "title": "Molecular regulation of histone H3 trimethylation by COMPASS and the regulation of gene expression.",
+              "text_preview": "The Set1-containing complex COMPASS, which is the yeast homolog of the human MLL complex, is required for mono-, di-, and trimethylation of lysine 4 of histone H3. We have performed a comparative global proteomic screen to better define the role of COMPASS in histone trimethylation. We report that both Cps60 and Cps40 components of COMPASS are required for proper histone H3 trimethylation, but not"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "12887068",
+              "relevance": 0,
+              "title": "Use of human embryonic stem cells to model pediatric gliomas with H3.3K27M histone mutation",
+              "text_preview": "Over 70% of diffuse intrinsic pediatric gliomas, an aggressive brainstem tumor, harbor heterozygous mutations that create a K27M amino acid substitution (methionine replaces lysine 27) in the tail of histone H3.3. The role of the H3.3K27M mutation in tumorigenesis is not fully understood. Here, we use a human embryonic stem cell system to model this tumor. We show that H3.3K27M expression synergiz"
+            },
+            {
+              "rank": 2,
+              "doc_id": "4312169",
+              "relevance": 0,
+              "title": "Driver mutations in histone H3.3 and chromatin remodelling genes in paediatric glioblastoma",
+              "text_preview": "Glioblastoma multiforme (GBM) is a lethal brain tumour in adults and children. However, DNA copy number and gene expression signatures indicate differences between adult and paediatric cases. To explore the genetic events underlying this distinction, we sequenced the exomes of 48 paediatric GBM samples. Somatic mutations in the H3.3-ATRX-DAXX chromatin remodelling pathway were identified in 44% of"
+            },
+            {
+              "rank": 3,
+              "doc_id": "41293601",
+              "relevance": 0,
+              "title": "Hotspot mutations in H3F3A and IDH1 define distinct epigenetic and biological subgroups of glioblastoma.",
+              "text_preview": "Glioblastoma (GBM) is a brain tumor that carries a dismal prognosis and displays considerable heterogeneity. We have recently identified recurrent H3F3A mutations affecting two critical amino acids (K27 and G34) of histone H3.3 in one-third of pediatric GBM. Here, we show that each H3F3A mutation defines an epigenetic subgroup of GBM with a distinct global methylation pattern, and that they are mu"
+            },
+            {
+              "rank": 4,
+              "doc_id": "28614776",
+              "relevance": 0,
+              "title": "Identification of functional cooperative mutations of SETD2 in human acute leukemia",
+              "text_preview": "Acute leukemia characterized by chromosomal rearrangements requires additional molecular disruptions to develop into full-blown malignancy, yet the cooperative mechanisms remain elusive. Using whole-genome sequencing of a pair of monozygotic twins discordant for MLL (also called KMT2A) gene\u2013rearranged leukemia, we identified a transforming MLL-NRIP3 fusion gene and biallelic mutations in SETD2 (en"
+            },
+            {
+              "rank": 5,
+              "doc_id": "2888272",
+              "relevance": 0,
+              "title": "Detection of Histone Modifications at Specific Gene Loci in Single Cells in Histological Sections",
+              "text_preview": "Chromatin immunoprecipitation assays have contributed greatly to our understanding of the role of histone modifications in gene regulation. However, they do not permit analysis with single-cell resolution, thus confounding analyses of heterogeneous cell populations. Here we present a method that permits visualization of histone modifications of single genomic loci with single-cell resolution in fo"
+            }
+          ]
+        },
+        {
+          "direction": "worsened",
+          "query_id": "463",
+          "query": "Genomic aberrations of metastases provide information for targeted therapy.",
+          "baseline_ndcg_at_10": 0.6309297535714575,
+          "rerank_ndcg_at_10": 0.0,
+          "delta": -0.6309297535714575,
+          "relevant_documents": [
+            {
+              "doc_id": "19736671",
+              "title": "Evolution of metastasis revealed by mutational landscapes of chemically induced skin cancers",
+              "text_preview": "Human tumors show a high level of genetic heterogeneity, but the processes that influence the timing and route of metastatic dissemination of the subclones are unknown. Here we have used whole-exome sequencing of 103 matched benign, malignant and metastatic skin tumors from genetically heterogeneous mice to demonstrate that most metastases disseminate synchronously from the primary tumor, supporti"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "31634628",
+              "relevance": 0,
+              "title": "Circulating tumor DNA as a non-invasive substitute to metastasis biopsy for tumor genotyping and personalized medicine in a prospective trial across all tumor types.",
+              "text_preview": "Cell-free tumor DNA (ctDNA) has the potential to enable non-invasive diagnostic tests for personalized medicine in providing similar molecular information as that derived from invasive tumor biopsies. The histology-independent phase II SHIVA trial matches patients with targeted therapeutics based on previous screening of multiple somatic mutations using metastatic biopsies. To evaluate the utility"
+            },
+            {
+              "rank": 2,
+              "doc_id": "19736671",
+              "relevance": 1,
+              "title": "Evolution of metastasis revealed by mutational landscapes of chemically induced skin cancers",
+              "text_preview": "Human tumors show a high level of genetic heterogeneity, but the processes that influence the timing and route of metastatic dissemination of the subclones are unknown. Here we have used whole-exome sequencing of 103 matched benign, malignant and metastatic skin tumors from genetically heterogeneous mice to demonstrate that most metastases disseminate synchronously from the primary tumor, supporti"
+            },
+            {
+              "rank": 3,
+              "doc_id": "13952658",
+              "relevance": 0,
+              "title": "Immune cell promotion of metastasis",
+              "text_preview": "Metastatic disease is the major cause of death from cancer, and immunotherapy and chemotherapy have had limited success in reversing its progression. Data from mouse models suggest that the recruitment of immunosuppressive cells to tumours protects metastatic cancer cells from surveillance by killer cells, which nullifies the effects of immunotherapy and thus establishes metastasis. Furthermore, i"
+            },
+            {
+              "rank": 4,
+              "doc_id": "13256155",
+              "relevance": 0,
+              "title": "Molecularly targeted therapy based on tumour molecular profiling versus conventional therapy for advanced cancer (SHIVA): a multicentre, open-label, proof-of-concept, randomised, controlled phase 2 trial.",
+              "text_preview": "BACKGROUND Molecularly targeted agents have been reported to have anti-tumour activity for patients whose tumours harbour the matching molecular alteration. These results have led to increased off-label use of molecularly targeted agents on the basis of identified molecular alterations. We assessed the efficacy of several molecularly targeted agents marketed in France, which were chosen on the bas"
+            },
+            {
+              "rank": 5,
+              "doc_id": "11335781",
+              "relevance": 0,
+              "title": "Is autoimmunity the Achilles' heel of cancer immunotherapy?",
+              "text_preview": "The emergence of immuno-oncology as the first broadly successful strategy for metastatic cancer will require clinicians to integrate this new pillar of medicine with chemotherapy, radiation, and targeted small-molecule compounds. Of equal importance is gaining an understanding of the limitations and toxicities of immunotherapy. Immunotherapy was initially perceived to be a relatively less toxic ap"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "14717213",
+              "relevance": 0,
+              "title": "Corresponding author:",
+              "text_preview": "Over the years, methods of cytogenetic analysis evolved and became part of routine laboratory testing, providing valuable diagnostic and prognostic information in hematologic disorders. Karyotypic aberrations contribute to the understanding of the molecular pathogenesis of disease and thereby to rational application of therapeutic modalities. Most of the progress in this field stems from the appli"
+            },
+            {
+              "rank": 2,
+              "doc_id": "31634628",
+              "relevance": 0,
+              "title": "Circulating tumor DNA as a non-invasive substitute to metastasis biopsy for tumor genotyping and personalized medicine in a prospective trial across all tumor types.",
+              "text_preview": "Cell-free tumor DNA (ctDNA) has the potential to enable non-invasive diagnostic tests for personalized medicine in providing similar molecular information as that derived from invasive tumor biopsies. The histology-independent phase II SHIVA trial matches patients with targeted therapeutics based on previous screening of multiple somatic mutations using metastatic biopsies. To evaluate the utility"
+            },
+            {
+              "rank": 3,
+              "doc_id": "25504006",
+              "relevance": 0,
+              "title": "Molecular analysis of circulating tumour cells\u2014biology and biomarkers",
+              "text_preview": "Growing evidence for intratumour heterogeneity informs us that single-site biopsies fall short of revealing the complete genomic landscape of a tumour. With an expanding repertoire of targeted agents entering the clinic, screening tumours for genomic aberrations is increasingly important, as is interrogating the tumours for resistance mechanisms upon disease progression. Multiple biopsies separate"
+            },
+            {
+              "rank": 4,
+              "doc_id": "1389264",
+              "relevance": 0,
+              "title": "Combination inhibition of PI3K and mTORC1 yields durable remissions in orthotopic patient-derived xenografts of HER2-positive breast cancer brain metastases",
+              "text_preview": "Brain metastases represent the greatest clinical challenge in treating HER2-positive breast cancer. We report the development of orthotopic patient-derived xenografts (PDXs) of HER2-expressing breast cancer brain metastases (BCBM), and their use for the identification of targeted combination therapies. Combined inhibition of PI3K and mTOR resulted in durable tumor regressions in three of five PDXs"
+            },
+            {
+              "rank": 5,
+              "doc_id": "13952658",
+              "relevance": 0,
+              "title": "Immune cell promotion of metastasis",
+              "text_preview": "Metastatic disease is the major cause of death from cancer, and immunotherapy and chemotherapy have had limited success in reversing its progression. Data from mouse models suggest that the recruitment of immunosuppressive cells to tumours protects metastatic cancer cells from surveillance by killer cells, which nullifies the effects of immunotherapy and thus establishes metastasis. Furthermore, i"
+            }
+          ]
+        },
+        {
+          "direction": "worsened",
+          "query_id": "55",
+          "query": "AMP-activated protein kinase (AMPK) activation reduces inflammation-related fibrosis in the lungs.",
+          "baseline_ndcg_at_10": 1.0,
+          "rerank_ndcg_at_10": 0.38685280723454163,
+          "delta": -0.6131471927654584,
+          "relevant_documents": [
+            {
+              "doc_id": "49556906",
+              "title": "Metformin reverses established lung fibrosis in a bleomycin model",
+              "text_preview": "Fibrosis is a pathological result of a dysfunctional repair response to tissue injury and occurs in a number of organs, including the lungs1. Cellular metabolism regulates tissue repair and remodelling responses to injury2-4. AMPK is a critical sensor of cellular bioenergetics and controls the switch from anabolic to catabolic metabolism5. However, the role of AMPK in fibrosis is not well understo"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "49556906",
+              "relevance": 1,
+              "title": "Metformin reverses established lung fibrosis in a bleomycin model",
+              "text_preview": "Fibrosis is a pathological result of a dysfunctional repair response to tissue injury and occurs in a number of organs, including the lungs1. Cellular metabolism regulates tissue repair and remodelling responses to injury2-4. AMPK is a critical sensor of cellular bioenergetics and controls the switch from anabolic to catabolic metabolism5. However, the role of AMPK in fibrosis is not well understo"
+            },
+            {
+              "rank": 2,
+              "doc_id": "3973445",
+              "relevance": 0,
+              "title": "Phosphorylation of Janus kinase 1 (JAK1) by AMP-activated protein kinase (AMPK) links energy sensing to anti-inflammatory signaling",
+              "text_preview": "Adenosine 5\u2032-monophosphate\u2013activated protein kinase (AMPK) is a pivotal regulator of metabolism at cellular and organismal levels. AMPK also suppresses inflammation. We found that pharmacological activation of AMPK rapidly inhibited the Janus kinase (JAK)\u2013signal transducer and activator of transcription (STAT) pathway in various cells. In vitro kinase assays revealed that AMPK directly phosphoryla"
+            },
+            {
+              "rank": 3,
+              "doc_id": "1590744",
+              "relevance": 0,
+              "title": "AMP-Activated Protein Kinase: An Ubiquitous Signaling Pathway With Key Roles in the Cardiovascular System",
+              "text_preview": "The AMP-activated protein kinase (AMPK) is a key regulator of cellular and whole-body energy homeostasis, which acts to restore energy homoeostasis whenever cellular energy charge is depleted. Over the last 2 decades, it has become apparent that AMPK regulates several other cellular functions and has specific roles in cardiovascular tissues, acting to regulate cardiac metabolism and contractile fu"
+            },
+            {
+              "rank": 4,
+              "doc_id": "24721866",
+              "relevance": 0,
+              "title": "Activation of AMP-activated protein kinase suppresses oxidized low-density lipoprotein-induced macrophage proliferation.",
+              "text_preview": "Macrophage-derived foam cells play important roles in the progression of atherosclerosis. We reported previously that ERK1/2-dependent granulocyte/macrophage colony-stimulating factor (GM-CSF) expression, leading to p38 MAPK/ Akt signaling, is important for oxidized low density lipoprotein (Ox-LDL)-induced macrophage proliferation. Here, we investigated whether activation of AMP-activated protein "
+            },
+            {
+              "rank": 5,
+              "doc_id": "38533515",
+              "relevance": 0,
+              "title": "AMP-activated/SNF1 protein kinases: conserved guardians of cellular energy",
+              "text_preview": "The SNF1/AMP-activated protein kinase (AMPK) family maintains the balance between ATP production and consumption in all eukaryotic cells. The kinases are heterotrimers that comprise a catalytic subunit and regulatory subunits that sense cellular energy levels. When energy status is compromised, the system activates catabolic pathways and switches off protein, carbohydrate and lipid biosynthesis, a"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "3973445",
+              "relevance": 0,
+              "title": "Phosphorylation of Janus kinase 1 (JAK1) by AMP-activated protein kinase (AMPK) links energy sensing to anti-inflammatory signaling",
+              "text_preview": "Adenosine 5\u2032-monophosphate\u2013activated protein kinase (AMPK) is a pivotal regulator of metabolism at cellular and organismal levels. AMPK also suppresses inflammation. We found that pharmacological activation of AMPK rapidly inhibited the Janus kinase (JAK)\u2013signal transducer and activator of transcription (STAT) pathway in various cells. In vitro kinase assays revealed that AMPK directly phosphoryla"
+            },
+            {
+              "rank": 2,
+              "doc_id": "1590744",
+              "relevance": 0,
+              "title": "AMP-Activated Protein Kinase: An Ubiquitous Signaling Pathway With Key Roles in the Cardiovascular System",
+              "text_preview": "The AMP-activated protein kinase (AMPK) is a key regulator of cellular and whole-body energy homeostasis, which acts to restore energy homoeostasis whenever cellular energy charge is depleted. Over the last 2 decades, it has become apparent that AMPK regulates several other cellular functions and has specific roles in cardiovascular tissues, acting to regulate cardiac metabolism and contractile fu"
+            },
+            {
+              "rank": 3,
+              "doc_id": "24721866",
+              "relevance": 0,
+              "title": "Activation of AMP-activated protein kinase suppresses oxidized low-density lipoprotein-induced macrophage proliferation.",
+              "text_preview": "Macrophage-derived foam cells play important roles in the progression of atherosclerosis. We reported previously that ERK1/2-dependent granulocyte/macrophage colony-stimulating factor (GM-CSF) expression, leading to p38 MAPK/ Akt signaling, is important for oxidized low density lipoprotein (Ox-LDL)-induced macrophage proliferation. Here, we investigated whether activation of AMP-activated protein "
+            },
+            {
+              "rank": 4,
+              "doc_id": "9899292",
+              "relevance": 0,
+              "title": "Role of AMP-activated protein kinase in mechanism of metformin action.",
+              "text_preview": "Metformin is a widely used drug for treatment of type 2 diabetes with no defined cellular mechanism of action. Its glucose-lowering effect results from decreased hepatic glucose production and increased glucose utilization. Metformin's beneficial effects on circulating lipids have been linked to reduced fatty liver. AMP-activated protein kinase (AMPK) is a major cellular regulator of lipid and glu"
+            },
+            {
+              "rank": 5,
+              "doc_id": "49556906",
+              "relevance": 1,
+              "title": "Metformin reverses established lung fibrosis in a bleomycin model",
+              "text_preview": "Fibrosis is a pathological result of a dysfunctional repair response to tissue injury and occurs in a number of organs, including the lungs1. Cellular metabolism regulates tissue repair and remodelling responses to injury2-4. AMPK is a critical sensor of cellular bioenergetics and controls the switch from anabolic to catabolic metabolism5. However, the role of AMPK in fibrosis is not well understo"
+            }
+          ]
+        },
+        {
+          "direction": "worsened",
+          "query_id": "1224",
+          "query": "The latent infection of myeloid cells with human cytomegalovirus induces a number of changes in gene expression.",
+          "baseline_ndcg_at_10": 0.8065735963827293,
+          "rerank_ndcg_at_10": 0.3065735963827292,
+          "delta": -0.5000000000000001,
+          "relevant_documents": [
+            {
+              "doc_id": "21932050",
+              "title": "Microarrays for the study of viral gene expression during human cytomegalovirus latent infection.",
+              "text_preview": "Human cytomegalovirus (HCMV) is one of the largest known DNA viruses. It is ubiquitous, and following resolution of primary productive infection, it persists in the human host by establishing a lifelong latent infection in myeloid lineage cells such as monocytes and their progenitors. Most adults with HCMV infection are healthy but it can cause neurologic deficits in infants, and remains an import"
+            },
+            {
+              "doc_id": "34016987",
+              "title": "Transcriptome analysis reveals human cytomegalovirus reprograms monocyte differentiation toward an M1 macrophage.",
+              "text_preview": "Monocytes are primary targets for human CMV (HCMV) infection and are proposed to be responsible for hematogenous dissemination of the virus. Monocytes acquire different functional traits during polarization to the classical proinflammatory M1 macrophage or the alternative antiinflammatory M2 macrophage. We hypothesized that HCMV induced a proinflammatory M1 macrophage following infection to promot"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "21932050",
+              "relevance": 1,
+              "title": "Microarrays for the study of viral gene expression during human cytomegalovirus latent infection.",
+              "text_preview": "Human cytomegalovirus (HCMV) is one of the largest known DNA viruses. It is ubiquitous, and following resolution of primary productive infection, it persists in the human host by establishing a lifelong latent infection in myeloid lineage cells such as monocytes and their progenitors. Most adults with HCMV infection are healthy but it can cause neurologic deficits in infants, and remains an import"
+            },
+            {
+              "rank": 2,
+              "doc_id": "26873988",
+              "relevance": 0,
+              "title": "Viral interleukin-10 expressed by human cytomegalovirus during the latent phase of infection modulates latently infected myeloid cell differentiation.",
+              "text_preview": "The human cytomegalovirus UL111A gene is expressed during latent and productive infections, and it codes for homologs of interleukin-10 (IL-10). We examined whether viral IL-10 expressed during latency altered differentiation of latently infected myeloid progenitors. In comparison to infection with parental virus or mock infection, latent infection with a virus in which the gene encoding viral IL-"
+            },
+            {
+              "rank": 3,
+              "doc_id": "26133404",
+              "relevance": 0,
+              "title": "A novel viral transcript with homology to human interleukin-10 is expressed during latent human cytomegalovirus infection.",
+              "text_preview": "Human cytomegalovirus (CMV) establishes latent infections in hematopoietic cells such as granulocyte-macrophage progenitors (GM-Ps). During latency the virus is sequestered in a nonreplicating state, although limited transcriptional activity has been previously reported. In this study we sought to further examine viral gene expression during the latent phase of infection. Using an experimental mod"
+            },
+            {
+              "rank": 4,
+              "doc_id": "30933307",
+              "relevance": 0,
+              "title": "The myeloid transcription factor GATA-2 regulates the viral UL144 gene during human cytomegalovirus latency in an isolate-specific manner.",
+              "text_preview": "It is generally accepted that, following primary infection, human cytomegalovirus (HCMV) establishes lifelong latency in CD34(+) progenitor cells and other derivative cells of the myeloid lineage. In this study, we show that the viral UL144 gene is expressed during latent infection in two cell types of the myeloid lineage, CD34(+) and CD14(+) monocytes, and that the UL144 protein is functional in "
+            },
+            {
+              "rank": 5,
+              "doc_id": "10450300",
+              "relevance": 0,
+              "title": "Human Cytomegalovirus Latency-Associated Proteins Elicit Immune-Suppressive IL-10 Producing CD4+ T Cells",
+              "text_preview": "Human cytomegalovirus (HCMV) is a widely prevalent human herpesvirus, which, after primary infection, persists in the host for life. In healthy individuals, the virus is well controlled by the HCMV-specific T cell response. A key feature of this persistence, in the face of a normally robust host immune response, is the establishment of viral latency. In contrast to lytic infection, which is charac"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "30933307",
+              "relevance": 0,
+              "title": "The myeloid transcription factor GATA-2 regulates the viral UL144 gene during human cytomegalovirus latency in an isolate-specific manner.",
+              "text_preview": "It is generally accepted that, following primary infection, human cytomegalovirus (HCMV) establishes lifelong latency in CD34(+) progenitor cells and other derivative cells of the myeloid lineage. In this study, we show that the viral UL144 gene is expressed during latent infection in two cell types of the myeloid lineage, CD34(+) and CD14(+) monocytes, and that the UL144 protein is functional in "
+            },
+            {
+              "rank": 2,
+              "doc_id": "26873988",
+              "relevance": 0,
+              "title": "Viral interleukin-10 expressed by human cytomegalovirus during the latent phase of infection modulates latently infected myeloid cell differentiation.",
+              "text_preview": "The human cytomegalovirus UL111A gene is expressed during latent and productive infections, and it codes for homologs of interleukin-10 (IL-10). We examined whether viral IL-10 expressed during latency altered differentiation of latently infected myeloid progenitors. In comparison to infection with parental virus or mock infection, latent infection with a virus in which the gene encoding viral IL-"
+            },
+            {
+              "rank": 3,
+              "doc_id": "21932050",
+              "relevance": 1,
+              "title": "Microarrays for the study of viral gene expression during human cytomegalovirus latent infection.",
+              "text_preview": "Human cytomegalovirus (HCMV) is one of the largest known DNA viruses. It is ubiquitous, and following resolution of primary productive infection, it persists in the human host by establishing a lifelong latent infection in myeloid lineage cells such as monocytes and their progenitors. Most adults with HCMV infection are healthy but it can cause neurologic deficits in infants, and remains an import"
+            },
+            {
+              "rank": 4,
+              "doc_id": "26133404",
+              "relevance": 0,
+              "title": "A novel viral transcript with homology to human interleukin-10 is expressed during latent human cytomegalovirus infection.",
+              "text_preview": "Human cytomegalovirus (CMV) establishes latent infections in hematopoietic cells such as granulocyte-macrophage progenitors (GM-Ps). During latency the virus is sequestered in a nonreplicating state, although limited transcriptional activity has been previously reported. In this study we sought to further examine viral gene expression during the latent phase of infection. Using an experimental mod"
+            },
+            {
+              "rank": 5,
+              "doc_id": "25141908",
+              "relevance": 0,
+              "title": "Expression of a human cytomegalovirus latency-associated homolog of interleukin-10 during the productive phase of infection.",
+              "text_preview": "The human cytomegalovirus UL111A region is active during both productive and latent phases of infection. During productive infection, the virus expresses ORF79, a protein with oncogenic properties, and cmvIL-10, a functional homolog of human IL-10. During latent infection of myeloid progenitor cells, an alternately spliced variant of cmvIL-10, termed latency-associated (LA) cmvIL-10 has previously"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "492",
+          "query": "HOXB4 facilitates HSC expansion when co-cultured with HSCs.",
+          "baseline_ndcg_at_10": 0.0,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "19583924",
+              "title": "Angiopoietin-like proteins stimulate ex vivo expansion of hematopoietic stem cells",
+              "text_preview": "Successful ex vivo expansion of hematopoietic stem cells (HSCs) would greatly benefit the treatment of disease and the understanding of crucial questions of stem cell biology. Here we show, using microarray studies, that the HSC-supportive mouse fetal liver CD3+ cells specifically express the proteins angiopoietin-like 2 (Angptl2) and angiopoietin-like 3 (Angptl3). We observed a 24- or 30-fold net"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "7645565",
+              "relevance": 0,
+              "title": "Identifying and Characterizing Interplay between Hepatitis B Virus X Protein and Smc5/6",
+              "text_preview": "Hepatitis B X protein (HBx) plays an essential role in the hepatitis B virus (HBV) replication cycle, but the function of HBx has been elusive until recently. It was recently shown that transcription from the HBV genome (covalently-closed circular DNA, cccDNA) is inhibited by the structural maintenance of chromosome 5/6 complex (Smc5/6), and that a key function of HBx is to redirect the DNA-damage"
+            },
+            {
+              "rank": 2,
+              "doc_id": "24498673",
+              "relevance": 0,
+              "title": "Coordinated actions of SLX1-SLX4 and MUS81-EME1 for Holliday junction resolution in human cells.",
+              "text_preview": "Holliday junctions (HJs) are four-way DNA intermediates that form during homologous recombination, and their efficient resolution is essential for chromosome segregation. Here, we show that three structure-selective endonucleases, namely SLX1-SLX4, MUS81-EME1, and GEN1, define two pathways of HJ resolution in human cells. One pathway is mediated by GEN1, whereas SLX1-SLX4 and MUS81-EME1 provide a "
+            },
+            {
+              "rank": 3,
+              "doc_id": "18806488",
+              "relevance": 0,
+              "title": "Hoxa9 transforms primary bone marrow cells through specific collaboration with Meis1a but not Pbx1b.",
+              "text_preview": "Hoxa9, Meis1 and Pbx1 encode homeodomaincontaining proteins implicated in leukemic transformation in both mice and humans. Hoxa9, Meis1 and Pbx1 proteins have been shown to physically interact with each other, as Hoxa9 cooperatively binds consensus DNA sequences with Meis1 and with Pbx1, while Meis1 and Pbx1 form heterodimers in both the presence and absence of DNA. In this study, we sought to det"
+            },
+            {
+              "rank": 4,
+              "doc_id": "92499",
+              "relevance": 0,
+              "title": "The journey of developing hematopoietic stem cells.",
+              "text_preview": "Hematopoietic stem cells (HSCs) develop during embryogenesis in a complex process that involves multiple anatomical sites. Once HSC precursors have been specified from mesoderm, they have to mature into functional HSCs and undergo self-renewing divisions to generate a pool of HSCs. During this process, developing HSCs migrate through various embryonic niches, which provide signals for their establ"
+            },
+            {
+              "rank": 5,
+              "doc_id": "17768946",
+              "relevance": 0,
+              "title": "XRCC4's interaction with XLF is required for coding (but not signal) end joining",
+              "text_preview": "XRCC4 and XLF are structurally related proteins important for DNA Ligase IV function. XRCC4 forms a tight complex with DNA Ligase IV while XLF interacts directly with XRCC4. Both XRCC4 and XLF form homodimers that can polymerize as heterotypic filaments independently of DNA Ligase IV. Emerging structural and in vitro biochemical data suggest that XRCC4 and XLF together generate a filamentous struc"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "19583924",
+              "relevance": 1,
+              "title": "Angiopoietin-like proteins stimulate ex vivo expansion of hematopoietic stem cells",
+              "text_preview": "Successful ex vivo expansion of hematopoietic stem cells (HSCs) would greatly benefit the treatment of disease and the understanding of crucial questions of stem cell biology. Here we show, using microarray studies, that the HSC-supportive mouse fetal liver CD3+ cells specifically express the proteins angiopoietin-like 2 (Angptl2) and angiopoietin-like 3 (Angptl3). We observed a 24- or 30-fold net"
+            },
+            {
+              "rank": 2,
+              "doc_id": "18374364",
+              "relevance": 0,
+              "title": "In vivo proliferation and cell cycle kinetics of long-term self-renewing hematopoietic stem cells.",
+              "text_preview": "A rare set of hematopoietic stem cells (HSC) must undergo a massive expansion to produce mature blood cells. The phenotypic isolation of HSC from mice offers the opportunity to determine directly their proliferation kinetics. We analyzed the proliferation and cell cycle kinetics of long-term self-renewing HSC (LT-HSC) in normal adult mice. At any one time, approximately 5% of LT-HSC were in S/G2/M"
+            },
+            {
+              "rank": 3,
+              "doc_id": "92499",
+              "relevance": 0,
+              "title": "The journey of developing hematopoietic stem cells.",
+              "text_preview": "Hematopoietic stem cells (HSCs) develop during embryogenesis in a complex process that involves multiple anatomical sites. Once HSC precursors have been specified from mesoderm, they have to mature into functional HSCs and undergo self-renewing divisions to generate a pool of HSCs. During this process, developing HSCs migrate through various embryonic niches, which provide signals for their establ"
+            },
+            {
+              "rank": 4,
+              "doc_id": "4366738",
+              "relevance": 0,
+              "title": "Haematopoietic stem cells and early lymphoid progenitors occupy distinct bone marrow niches",
+              "text_preview": "Although haematopoietic stem cells (HSCs) are commonly assumed to reside within a specialized microenvironment, or niche, most published experimental manipulations of the HSC niche have affected the function of diverse restricted progenitors. This raises the fundamental question of whether HSCs and restricted progenitors reside within distinct, specialized niches or whether they share a common nic"
+            },
+            {
+              "rank": 5,
+              "doc_id": "54561384",
+              "relevance": 0,
+              "title": "Reprogramming committed murine blood cells to induced hematopoietic stem cells with defined factors.",
+              "text_preview": "Hematopoietic stem cells (HSCs) sustain blood formation throughout life and are the functional units of bone marrow transplantation. We show that transient expression of six transcription factors Run1t1, Hlf, Lmo2, Prdm5, Pbx1, and Zfp37 imparts multilineage transplantation potential onto otherwise committed lymphoid and myeloid progenitors and myeloid effector cells. Inclusion of Mycn and Meis1 a"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "1111",
+          "query": "Sudden death can occur in patients with complex ventricular arrhythmias.",
+          "baseline_ndcg_at_10": 0.0,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "1686881",
+              "title": "Myocardial muscarinic receptor upregulation and normal response to isoproterenol in denervated hearts by familial amyloid polyneuropathy.",
+              "text_preview": "BACKGROUND Patients with familial amyloid polyneuropathy, a rare hereditary form of amyloidosis, have progressive autonomic neuropathy. The disease usually does not induce heart failure but is associated with sudden death, conduction disturbances, and an increased risk of complications during anesthesia. Although cardiac sympathetic denervation has been clearly demonstrated, the postsynaptic statu"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "43483151",
+              "relevance": 0,
+              "title": "QT and QTc dispersion are accurate predictors of cardiac death in newly diagnosed non-insulin dependent diabetes: cohort study.",
+              "text_preview": "Patients with non-insulin dependent diabetes mellitus have an excess risk of dying from cardiovascular disease. One small study suggested that a prolonged QT interval could predict cardiac death in patients with diabetic nephropathy who have received insulin treatment. The question now is whether the same is true in newly diagnosed diabetes in patients who have no apparent complications. In additi"
+            },
+            {
+              "rank": 2,
+              "doc_id": "8509018",
+              "relevance": 0,
+              "title": "Diastolic heart failure--abnormalities in active relaxation and passive stiffness of the left ventricle.",
+              "text_preview": "BACKGROUND Patients with signs and symptoms of heart failure and a normal left ventricular ejection fraction are said to have diastolic heart failure. It has traditionally been thought that the pathophysiological cause of heart failure in these patients is an abnormality in the diastolic properties of the left ventricle; however, this hypothesis remains largely unproven. METHODS We prospectively i"
+            },
+            {
+              "rank": 3,
+              "doc_id": "23117378",
+              "relevance": 0,
+              "title": "Sudden infant death syndrome and unclassified sudden infant deaths: a definitional and diagnostic approach.",
+              "text_preview": "The definition of sudden infant death syndrome (SIDS) originally appeared in 1969 and was modified 2 decades later. During the following 15 years, an enormous amount of additional information has emerged, justifying additional refinement of the definition of SIDS to incorporate epidemiologic features, risk factors, pathologic features, and ancillary test findings. An expert panel of pediatric and "
+            },
+            {
+              "rank": 4,
+              "doc_id": "20945963",
+              "relevance": 0,
+              "title": "Clinical epidemiology of heart failure.",
+              "text_preview": "The aim of this paper is to review the clinical epidemiology of heart failure. The last paper comprehensively addressing the epidemiology of heart failure in Heart appeared in 2000. Despite an increase in manuscripts describing epidemiological aspects of heart failure since the 1990s, additional information is still needed, as indicated by various editorials."
+            },
+            {
+              "rank": 5,
+              "doc_id": "26341063",
+              "relevance": 0,
+              "title": "Effect of enalapril on 12-year survival and life expectancy in patients with left ventricular systolic dysfunction: a follow-up study.",
+              "text_preview": "BACKGROUND In the studies of left ventricular dysfunction (SOLVD), enalapril reduced mortality in patients with symptomatic but not asymptomatic left ventricular systolic dysfunction during the trial. We did a 12-year follow-up of SOLVD to establish if the mortality reduction with enalapril among patients with heart failure was sustained, and whether a subsequent reduction in mortality would emerg"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "1686881",
+              "relevance": 1,
+              "title": "Myocardial muscarinic receptor upregulation and normal response to isoproterenol in denervated hearts by familial amyloid polyneuropathy.",
+              "text_preview": "BACKGROUND Patients with familial amyloid polyneuropathy, a rare hereditary form of amyloidosis, have progressive autonomic neuropathy. The disease usually does not induce heart failure but is associated with sudden death, conduction disturbances, and an increased risk of complications during anesthesia. Although cardiac sympathetic denervation has been clearly demonstrated, the postsynaptic statu"
+            },
+            {
+              "rank": 2,
+              "doc_id": "26341063",
+              "relevance": 0,
+              "title": "Effect of enalapril on 12-year survival and life expectancy in patients with left ventricular systolic dysfunction: a follow-up study.",
+              "text_preview": "BACKGROUND In the studies of left ventricular dysfunction (SOLVD), enalapril reduced mortality in patients with symptomatic but not asymptomatic left ventricular systolic dysfunction during the trial. We did a 12-year follow-up of SOLVD to establish if the mortality reduction with enalapril among patients with heart failure was sustained, and whether a subsequent reduction in mortality would emerg"
+            },
+            {
+              "rank": 3,
+              "doc_id": "21789744",
+              "relevance": 0,
+              "title": "Effect of exercise-induced ischemia on QT interval dispersion.",
+              "text_preview": "An increased spatial dispersion of ventricular repolarization duration (QT dispersion) is associated with an increased vulnerability to arrhythmias. This study was designed to examine the effect of exercise on QT dispersion in ischemic heart disease (IHD). QT dispersion, corrected QT dispersion, and percentage change in uncorrected and corrected QT dispersion between rest and peak exercise were ex"
+            },
+            {
+              "rank": 4,
+              "doc_id": "7711685",
+              "relevance": 0,
+              "title": "Lessons from sudden coronary death: a comprehensive morphological classification scheme for atherosclerotic lesions.",
+              "text_preview": "This review will reconsider the current paradigm for understanding the critical, final steps in the progression of atherosclerotic lesions. That scheme, largely an outgrowth of observations of autopsy tissues by Davies and colleagues,1 2 asserts that the cause of death in atherosclerotic coronary artery disease is rupture of an advanced atherosclerotic lesion. Although this assumption may be parti"
+            },
+            {
+              "rank": 5,
+              "doc_id": "8509018",
+              "relevance": 0,
+              "title": "Diastolic heart failure--abnormalities in active relaxation and passive stiffness of the left ventricle.",
+              "text_preview": "BACKGROUND Patients with signs and symptoms of heart failure and a normal left ventricular ejection fraction are said to have diastolic heart failure. It has traditionally been thought that the pathophysiological cause of heart failure in these patients is an abnormality in the diastolic properties of the left ventricle; however, this hypothesis remains largely unproven. METHODS We prospectively i"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "1075",
+          "query": "Sequence conservation in gene regulatory regions between species is a poor predictor of conserved functionality.",
+          "baseline_ndcg_at_10": 0.0,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "14658685",
+              "title": "Enhancer Evolution across 20 Mammalian Species",
+              "text_preview": "The mammalian radiation has corresponded with rapid changes in noncoding regions of the genome, but we lack a comprehensive understanding of regulatory evolution in mammals. Here, we track the evolution of promoters and enhancers active in liver across 20 mammalian species from six diverse orders by profiling genomic enrichment of H3K27 acetylation and H3K4 trimethylation. We report that rapid evo"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "31902059",
+              "relevance": 0,
+              "title": "Large-scale candidate gene scan reveals the role of chemoreceptor genes in host plant specialization and speciation in the pea aphid.",
+              "text_preview": "Understanding the drivers of speciation is critical to interpreting patterns of biodiversity. The identification of the genetic changes underlying adaptation and reproductive isolation is necessary to link barriers to gene flow to the causal origins of divergence. Here, we present a novel approach to the genetics of speciation, which should complement the commonly used approaches of quantitative t"
+            },
+            {
+              "rank": 2,
+              "doc_id": "1332250",
+              "relevance": 0,
+              "title": "The First Myriapod Genome Sequence Reveals Conservative Arthropod Gene Content and Genome Organisation in the Centipede Strigamia maritima ",
+              "text_preview": "Myriapods (e.g., centipedes and millipedes) display a simple homonomous body plan relative to other arthropods. All members of the class are terrestrial, but they attained terrestriality independently of insects. Myriapoda is the only arthropod class not represented by a sequenced genome. We present an analysis of the genome of the centipede Strigamia maritima. It retains a compact genome that has"
+            },
+            {
+              "rank": 3,
+              "doc_id": "1852826",
+              "relevance": 0,
+              "title": "Host\u2013Parasite Interactions and the Evolution of Gene Expression",
+              "text_preview": "Interactions between hosts and parasites provide an ongoing source of selection that promotes the evolution of a variety of features in the interacting species. Here, we use a genetically explicit mathematical model to explore how patterns of gene expression evolve at genetic loci responsible for host resistance and parasite infection. Our results reveal the striking yet intuitive conclusion that "
+            },
+            {
+              "rank": 4,
+              "doc_id": "12271486",
+              "relevance": 0,
+              "title": "MotifMap: integrative genome-wide maps of regulatory motif sites for model species",
+              "text_preview": "BACKGROUND A central challenge of biology is to map and understand gene regulation on a genome-wide scale. For any given genome, only a small fraction of the regulatory elements embedded in the DNA sequence have been characterized, and there is great interest in developing computational methods to systematically map all these elements and understand their relationships. Such computational efforts,"
+            },
+            {
+              "rank": 5,
+              "doc_id": "14185503",
+              "relevance": 0,
+              "title": "The miniature genome of a carnivorous plant Genlisea aurea contains a low number of genes and short non-coding sequences",
+              "text_preview": "BACKGROUND Genlisea aurea (Lentibulariaceae) is a carnivorous plant with unusually small genome size - 63.6 Mb - one of the smallest known among higher plants. Data on the genome sizes and the phylogeny of Genlisea suggest that this is a derived state within the genus. Thus, G. aurea is an excellent model organism for studying evolutionary mechanisms of genome contraction. RESULTS Here we report s"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "14658685",
+              "relevance": 1,
+              "title": "Enhancer Evolution across 20 Mammalian Species",
+              "text_preview": "The mammalian radiation has corresponded with rapid changes in noncoding regions of the genome, but we lack a comprehensive understanding of regulatory evolution in mammals. Here, we track the evolution of promoters and enhancers active in liver across 20 mammalian species from six diverse orders by profiling genomic enrichment of H3K27 acetylation and H3K4 trimethylation. We report that rapid evo"
+            },
+            {
+              "rank": 2,
+              "doc_id": "23244529",
+              "relevance": 0,
+              "title": "A core subunit of Polycomb repressive complex 1 is broadly conserved in function but not primary sequence.",
+              "text_preview": "Polycomb Group (PcG) proteins mediate heritable gene silencing by modifying chromatin structure. An essential PcG complex, PRC1, compacts chromatin and inhibits chromatin remodeling. In Drosophila melanogaster, the intrinsically disordered C-terminal region of PSC (PSC-CTR) mediates these noncovalent effects on chromatin, and is essential for viability. Because the PSC-CTR sequence is poorly conse"
+            },
+            {
+              "rank": 3,
+              "doc_id": "3823862",
+              "relevance": 0,
+              "title": "Integrated maps in quail (Coturnix japonica) confirm the high degree of synteny conservation with chicken (Gallus gallus) despite 35 million years of divergence",
+              "text_preview": "BackgroundBy comparing the quail genome with that of chicken, chromosome rearrangements that have occurred in these two galliform species over 35 million years of evolution can be detected. From a more practical point of view, the definition of conserved syntenies helps to predict the position of genes in quail, based on information taken from the chicken sequence, thus enhancing the utility of th"
+            },
+            {
+              "rank": 4,
+              "doc_id": "5373138",
+              "relevance": 0,
+              "title": "3D Chromosome Regulatory Landscape of Human Pluripotent Cells.",
+              "text_preview": "In this study, we describe the 3D chromosome regulatory landscape of human naive and primed embryonic stem cells. To devise this map, we identified transcriptional enhancers and insulators in these cells and placed them within the context of cohesin-associated CTCF-CTCF loops using cohesin ChIA-PET data. The CTCF-CTCF loops we identified form a chromosomal framework of insulated neighborhoods, whi"
+            },
+            {
+              "rank": 5,
+              "doc_id": "12271486",
+              "relevance": 0,
+              "title": "MotifMap: integrative genome-wide maps of regulatory motif sites for model species",
+              "text_preview": "BACKGROUND A central challenge of biology is to map and understand gene regulation on a genome-wide scale. For any given genome, only a small fraction of the regulatory elements embedded in the DNA sequence have been characterized, and there is great interest in developing computational methods to systematically map all these elements and understand their relationships. Such computational efforts,"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "1047",
+          "query": "Ribosome-inactivating protein-2 (RIP-2) interacts with the p75 NTR death domain",
+          "baseline_ndcg_at_10": 0.0,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 1.0,
+          "relevant_documents": [
+            {
+              "doc_id": "14706752",
+              "title": "Gamma-Secretase Represents a Therapeutic Target for the Treatment of Invasive Glioma Mediated by the p75 Neurotrophin Receptor",
+              "text_preview": "The multifunctional signaling protein p75 neurotrophin receptor (p75(NTR)) is a central regulator and major contributor to the highly invasive nature of malignant gliomas. Here, we show that neurotrophin-dependent regulated intramembrane proteolysis (RIP) of p75(NTR) is required for p75(NTR)-mediated glioma invasion, and identify a previously unnamed process for targeted glioma therapy. Expression"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "25251625",
+              "relevance": 0,
+              "title": "Caspase inhibitors promote alternative cell death pathways.",
+              "text_preview": "The use of caspase inhibitors has revealed the existence of alternative backup cell death programs for apoptosis. The broad-spectrum caspase inhibitor zVAD-fmk modulates the three major types of cell death. Addition of zVAD-fmk blocks apoptotic cell death, sensitizes cells to necrotic cell death, and induces autophagic cell death. Several studies have shown a crucial role for the kinase RIP1 and t"
+            },
+            {
+              "rank": 2,
+              "doc_id": "26112624",
+              "relevance": 0,
+              "title": "The complexity of human ribosome biogenesis revealed by systematic nucleolar screening of Pre-rRNA processing factors.",
+              "text_preview": "Mature ribosomal RNAs (rRNAs) are produced from polycistronic precursors following complex processing. Precursor (pre)-rRNA processing has been extensively characterized in yeast and was assumed to be conserved in humans. We functionally characterized 625 nucleolar proteins in HeLa cells and identified 286 required for processing, including 74 without a yeast homolog. For selected candidates, we d"
+            },
+            {
+              "rank": 3,
+              "doc_id": "20725212",
+              "relevance": 0,
+              "title": "Chaperoning 5S RNA assembly.",
+              "text_preview": "In eukaryotes, three of the four ribosomal RNAs (rRNAs)\u2014the 5.8S, 18S, and 25S/28S rRNAs\u2014are processed from a single pre-rRNA transcript and assembled into ribosomes. The fourth rRNA, the 5S rRNA, is transcribed by RNA polymerase III and is assembled into the 5S ribonucleoprotein particle (RNP), containing ribosomal proteins Rpl5/uL18 and Rpl11/uL5, prior to its incorporation into preribosomes. In"
+            },
+            {
+              "rank": 4,
+              "doc_id": "2582169",
+              "relevance": 0,
+              "title": "Inhibition of HDM2 and activation of p53 by ribosomal protein L23.",
+              "text_preview": "The importance of coordinating cell growth with proliferation has been recognized for a long time. The molecular basis of this relationship, however, is poorly understood. Here we show that the ribosomal protein L23 interacts with HDM2. The interaction involves the central acidic domain of HDM2 and an N-terminal domain of L23. L23 and L11, another HDM2-interacting ribosomal protein, can simultaneo"
+            },
+            {
+              "rank": 5,
+              "doc_id": "24737389",
+              "relevance": 0,
+              "title": "Growth control and ribosomopathies.",
+              "text_preview": "Ribosome biogenesis and protein synthesis are two of the most energy consuming processes in a growing cell. Moreover, defects in their molecular components can alter the pattern of gene expression. Thus it is understandable that cells have developed a surveillance system to monitor the status of the translational machinery. Recent discoveries of causative mutations and deletions in genes linked to"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "14706752",
+              "relevance": 1,
+              "title": "Gamma-Secretase Represents a Therapeutic Target for the Treatment of Invasive Glioma Mediated by the p75 Neurotrophin Receptor",
+              "text_preview": "The multifunctional signaling protein p75 neurotrophin receptor (p75(NTR)) is a central regulator and major contributor to the highly invasive nature of malignant gliomas. Here, we show that neurotrophin-dependent regulated intramembrane proteolysis (RIP) of p75(NTR) is required for p75(NTR)-mediated glioma invasion, and identify a previously unnamed process for targeted glioma therapy. Expression"
+            },
+            {
+              "rank": 2,
+              "doc_id": "2582169",
+              "relevance": 0,
+              "title": "Inhibition of HDM2 and activation of p53 by ribosomal protein L23.",
+              "text_preview": "The importance of coordinating cell growth with proliferation has been recognized for a long time. The molecular basis of this relationship, however, is poorly understood. Here we show that the ribosomal protein L23 interacts with HDM2. The interaction involves the central acidic domain of HDM2 and an N-terminal domain of L23. L23 and L11, another HDM2-interacting ribosomal protein, can simultaneo"
+            },
+            {
+              "rank": 3,
+              "doc_id": "12240507",
+              "relevance": 0,
+              "title": "Disruption of the 5S RNP\u2013Mdm2 interaction significantly improves the erythroid defect in a mouse model for Diamond-Blackfan anemia",
+              "text_preview": "Diamond-Blackfan anemia (DBA) is a congenital erythroid hypoplasia caused by haploinsufficiency of genes encoding ribosomal proteins (RPs). Perturbed ribosome biogenesis in DBA has been shown to induce a p53-mediated ribosomal stress response. However, the mechanisms of p53 activation and its relevance for the erythroid defect remain elusive. Previous studies have indicated that activation of p53 "
+            },
+            {
+              "rank": 4,
+              "doc_id": "26596106",
+              "relevance": 0,
+              "title": "Genetic and biochemical interactions among Yar1, Ltv1 and Rps3 define novel links between environmental stress and ribosome biogenesis in Saccharomyces cerevisiae.",
+              "text_preview": "In the yeast S. cerevisiae, ribosome assembly is linked to environmental conditions by the coordinate transcriptional regulation of genes required for ribosome biogenesis. In this study we show that two nonessential stress-responsive genes, YAR1 and LTV1, function in 40S subunit production. We provide genetic and biochemical evidence that Yar1, a small ankyrin-repeat protein, physically interacts "
+            },
+            {
+              "rank": 5,
+              "doc_id": "5702790",
+              "relevance": 0,
+              "title": "Phosphate and R2D2 restrict the substrate specificity of Dicer-2, an ATP-driven ribonuclease.",
+              "text_preview": "Drosophila Dicer-2 generates small interfering RNAs (siRNAs) from long double-stranded RNA (dsRNA), whereas Dicer-1 produces microRNAs (miRNAs) from pre-miRNA. What makes the two Dicers specific for their biological substrates? We find that purified Dicer-2 can efficiently cleave pre-miRNA, but that inorganic phosphate and the Dicer-2 partner protein R2D2 inhibit pre-miRNA cleavage. Dicer-2 contai"
+            }
+          ]
+        },
+        {
+          "direction": "improved",
+          "query_id": "996",
+          "query": "Pyridostatin induces checkpoint activation.",
+          "baseline_ndcg_at_10": 0.31546487678572877,
+          "rerank_ndcg_at_10": 1.0,
+          "delta": 0.6845351232142712,
+          "relevant_documents": [
+            {
+              "doc_id": "16472469",
+              "title": "Targeting BRCA1 and BRCA2 Deficiencies with G-Quadruplex-Interacting Compounds",
+              "text_preview": "G-quadruplex (G4)-forming genomic sequences, including telomeres, represent natural replication fork barriers. Stalled replication forks can be stabilized and restarted by homologous recombination (HR), which also repairs DNA double-strand breaks (DSBs) arising at collapsed forks. We have previously shown that HR facilitates telomere replication. Here, we demonstrate that the replication efficienc"
+            }
+          ],
+          "baseline_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "16839245",
+              "relevance": 0,
+              "title": "Physiological relevance of cell cycle kinases.",
+              "text_preview": "The basic biology of the cell division cycle and its control by protein kinases was originally studied through genetic and biochemical studies in yeast and other model organisms. The major regulatory mechanisms identified in this pioneer work are conserved in mammals. However, recent studies in different cell types or genetic models are now providing a new perspective on the function of these majo"
+            },
+            {
+              "rank": 2,
+              "doc_id": "14367469",
+              "relevance": 0,
+              "title": "The circadian factor Period 2 modulates p53 stability and transcriptional activity in unstressed cells",
+              "text_preview": "Human Period 2 (hPer2) is a transcriptional regulator at the core of the circadian clock mechanism that is responsible for generating the negative feedback loop that sustains the clock. Its relevance to human disease is underlined by alterations in its function that affect numerous biochemical and physiological processes. When absent, it results in the development of various cancers and an increas"
+            },
+            {
+              "rank": 3,
+              "doc_id": "600808",
+              "relevance": 0,
+              "title": "Anaphase-Promoting Complex/Cyclosome\u2013Dependent Proteolysis of Human Cyclin a Starts at the Beginning of Mitosis and Is Not Subject to the Spindle Assembly Checkpoint",
+              "text_preview": "Cyclin A is a stable protein in S and G2 phases, but is destabilized when cells enter mitosis and is almost completely degraded before the metaphase to anaphase transition. Microinjection of antibodies against subunits of the anaphase-promoting complex/cyclosome (APC/C) or against human Cdc20 (fizzy) arrested cells at metaphase and stabilized both cyclins A and B1. Cyclin A was efficiently polyubi"
+            },
+            {
+              "rank": 4,
+              "doc_id": "28697248",
+              "relevance": 0,
+              "title": "E2F3 is a mediator of DNA damage-induced apoptosis.",
+              "text_preview": "The E2F transcription factors have emerged as critical apoptotic effectors. Herein we report that the E2F family member E2F3a can be induced by DNA damage through transcriptional and posttranslational mechanisms. We demonstrate that the posttranslational induction of human E2F3a is dependent on the checkpoint kinases. Moreover, we show that human E2F3a is a substrate for the checkpoint kinases (ch"
+            },
+            {
+              "rank": 5,
+              "doc_id": "14178995",
+              "relevance": 0,
+              "title": "Summary",
+              "text_preview": "The genetic diseases Hutchinson-Gilford progeria syndrome (HGPS) and restrictive dermopathy (RD) arise from accumulation of farnesylated prelamin A because of defects in the lamin A maturation pathway. Both of these diseases exhibit symptoms that can be viewed as accelerated aging. The mechanism by which accumulation of farnesylated prelamin A leads to these accelerated aging phenotypes is not und"
+            }
+          ],
+          "rerank_top_5": [
+            {
+              "rank": 1,
+              "doc_id": "16472469",
+              "relevance": 1,
+              "title": "Targeting BRCA1 and BRCA2 Deficiencies with G-Quadruplex-Interacting Compounds",
+              "text_preview": "G-quadruplex (G4)-forming genomic sequences, including telomeres, represent natural replication fork barriers. Stalled replication forks can be stabilized and restarted by homologous recombination (HR), which also repairs DNA double-strand breaks (DSBs) arising at collapsed forks. We have previously shown that HR facilitates telomere replication. Here, we demonstrate that the replication efficienc"
+            },
+            {
+              "rank": 2,
+              "doc_id": "12909503",
+              "relevance": 0,
+              "title": "Distinct roles for DNA-PK, ATM and ATR in RPA phosphorylation and checkpoint activation in response to replication stress",
+              "text_preview": "DNA damage encountered by DNA replication forks poses risks of genome destabilization, a precursor to carcinogenesis. Damage checkpoint systems cause cell cycle arrest, promote repair and induce programed cell death when damage is severe. Checkpoints are critical parts of the DNA damage response network that act to suppress cancer. DNA damage and perturbation of replication machinery causes replic"
+            },
+            {
+              "rank": 3,
+              "doc_id": "5386514",
+              "relevance": 0,
+              "title": "Activation of the NLRP3 inflammasome in dendritic cells induces IL-1\u03b2\u2013dependent adaptive immunity against tumors",
+              "text_preview": "The therapeutic efficacy of anticancer chemotherapies may depend on dendritic cells (DCs), which present antigens from dying cancer cells to prime tumor-specific interferon-\u03b3 (IFN-\u03b3)\u2013producing T lymphocytes. Here we show that dying tumor cells release ATP, which then acts on P2X7 purinergic receptors from DCs and triggers the NOD-like receptor family, pyrin domain containing-3 protein (NLRP3)-depe"
+            },
+            {
+              "rank": 4,
+              "doc_id": "21521236",
+              "relevance": 0,
+              "title": "p53 induces formation of NEAT1 lncRNA-containing paraspeckles that modulate replication stress response and chemosensitivity",
+              "text_preview": "In a search for mediators of the p53 tumor suppressor pathway, which induces pleiotropic and often antagonistic cellular responses, we identified the long noncoding RNA (lncRNA) NEAT1. NEAT1 is an essential architectural component of paraspeckle nuclear bodies, whose pathophysiological relevance remains unclear. Activation of p53, pharmacologically or by oncogene-induced replication stress, stimul"
+            },
+            {
+              "rank": 5,
+              "doc_id": "9169645",
+              "relevance": 0,
+              "title": "Identification of a novel p53 functional domain that is necessary for mediating apoptosis.",
+              "text_preview": "The ability of p53 to induce apoptosis requires its sequence-specific DNA binding activity; however, the transactivation-deficient p53(Gln22-Ser23) can still induce apoptosis. Previously, we have shown that the region between residues 23 and 97 in p53 is necessary for such activity. In an effort to more precisely map a domain necessary for apoptosis within the N terminus, we found that deletion of"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

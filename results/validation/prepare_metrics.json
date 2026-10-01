@@ -1,0 +1,91 @@
+{
+  "dataset": "scifact",
+  "split": "held-out validation from train",
+  "base_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "device": "cpu",
+  "candidate_top_k": 100,
+  "input_format": "[query, title + space + abstract]",
+  "counts": {
+    "documents": 5183,
+    "train_queries": 809,
+    "validation_queries": 162,
+    "candidate_pairs": 16200
+  },
+  "timings_seconds": {
+    "model_load": 2.3057873328216374,
+    "validation_retrieval": 114.74826929206029
+  },
+  "token_lengths": {
+    "tokenizer": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "p50": 336,
+    "p90": 521,
+    "p95": 593,
+    "p99": 821,
+    "max": 1963,
+    "over_256_count": 12682,
+    "over_256_fraction": 0.7828395061728395,
+    "over_512_count": 1750,
+    "over_512_fraction": 0.10802469135802469
+  },
+  "baseline": {
+    "ndcg": {
+      "NDCG@1": 0.60494,
+      "NDCG@3": 0.68193,
+      "NDCG@5": 0.69654,
+      "NDCG@10": 0.71294,
+      "NDCG@100": 0.74121
+    },
+    "map": {
+      "MAP@1": 0.56276,
+      "MAP@3": 0.6501,
+      "MAP@5": 0.66294,
+      "MAP@10": 0.67092,
+      "MAP@100": 0.67759
+    },
+    "recall": {
+      "Recall@1": 0.56276,
+      "Recall@3": 0.73272,
+      "Recall@5": 0.76996,
+      "Recall@10": 0.81749,
+      "Recall@100": 0.94136
+    },
+    "precision": {
+      "P@1": 0.60494,
+      "P@3": 0.27366,
+      "P@5": 0.17654,
+      "P@10": 0.09444,
+      "P@100": 0.01105
+    }
+  },
+  "oracle_top_100": {
+    "ndcg": {
+      "NDCG@1": 0.94444,
+      "NDCG@3": 0.94206,
+      "NDCG@5": 0.94206,
+      "NDCG@10": 0.94206,
+      "NDCG@100": 0.94206
+    },
+    "map": {
+      "MAP@1": 0.88189,
+      "MAP@3": 0.9358,
+      "MAP@5": 0.94136,
+      "MAP@10": 0.94136,
+      "MAP@100": 0.94136
+    },
+    "recall": {
+      "Recall@1": 0.88189,
+      "Recall@3": 0.9358,
+      "Recall@5": 0.94136,
+      "Recall@10": 0.94136,
+      "Recall@100": 0.94136
+    },
+    "precision": {
+      "P@1": 0.94444,
+      "P@3": 0.36008,
+      "P@5": 0.22099,
+      "P@10": 0.11049,
+      "P@100": 0.01105
+    }
+  },
+  "oracle_note": "Diagnostic only: judged relevant Top-100 candidates are placed first."
+}

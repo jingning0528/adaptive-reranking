@@ -3,6 +3,7 @@
   "source_split": "train",
   "retriever_model": "sentence-transformers/all-MiniLM-L6-v2",
   "teacher_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "teacher_model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
   "device": "cpu",
   "teacher_cache_device": "mps",
   "candidate_top_k": 100,

@@ -15,9 +15,16 @@ evaluation framework, with SciFact as the initial benchmark.
 - MiniLM-L6 Top-100 reference: `NDCG@10 = 0.73826` on validation.
 - Top-100 oracle: `NDCG@10 = 0.94206`, indicating substantial ranking headroom.
 - 78.28% of validation query-document inputs exceed 256 tokens.
+- Method 1 cached simulation: predicted Top-20 reaches `NDCG@10 = 0.73501`
+  versus `0.73184` for retrieval Top-20, but the paired 95% bootstrap CI
+  `[-0.01879, 0.02837]` includes zero.
+- Although calibration selected `lambda = 1.0`, uncertainty-aware selection
+  produced exactly the same validation Top-10 rankings as predicted Top-20.
+  The current disagreement heuristic therefore has no supported added value.
 
 See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) for the controlled reranker
-comparison and error analysis.
+comparison and error analysis, and [METHOD1_REPORT.md](METHOD1_REPORT.md) for
+the first candidate-selection result.
 
 ## Setup
 
@@ -62,10 +69,12 @@ python train_score_predictor.py
 python evaluate_candidate_selection.py
 ```
 
-`prepare_teacher_scores.py` is resumable because CPU teacher scoring is the
-expensive stage. On Apple Silicon, the checked-in configuration uses MPS only
-to generate the offline teacher cache; reported online latency remains a CPU
-measurement. This first version performs one candidate-selection decision
+`prepare_teacher_scores.py` is resumable because teacher scoring is the
+expensive stage. A configuration fingerprint prevents resuming with a
+different model revision, input contract, candidate order, or scoring device.
+On Apple Silicon, the checked-in configuration uses MPS to generate the
+offline teacher cache. The cached simulation does not report online latency.
+This first version performs one candidate-selection decision
 and one batched reranking call; iterative selection and stopping are reserved
 for later work.
 

@@ -1,0 +1,42 @@
+{
+  "model": "ensemble of HistGradientBoostingRegressor",
+  "ensemble_size": 7,
+  "query_sampling_fraction": 0.8,
+  "counts": {
+    "training_queries": 522,
+    "training_rows": 52200,
+    "calibration_rows": 12500
+  },
+  "fit_seconds_total": 34.8234588727355,
+  "calibration": {
+    "rmse": 2.235163058325195,
+    "mae": 1.7067533228728042,
+    "r2": 0.5804635216650311,
+    "spearman": 0.7072799747986102,
+    "disagreement_absolute_error_pearson": 0.2726288299086989,
+    "mean_disagreement": 0.252005707742037,
+    "error_by_retrieval_rank": {
+      "1-10": {
+        "count": 1250,
+        "mae": 2.2589876811434038,
+        "rmse": 2.828433050845513
+      },
+      "11-20": {
+        "count": 1250,
+        "mae": 1.9897775566914737,
+        "rmse": 2.5284435509486807
+      },
+      "21-50": {
+        "count": 3750,
+        "mae": 1.7347914116290921,
+        "rmse": 2.2634534438218274
+      },
+      "51-100": {
+        "count": 6250,
+        "mae": 1.5228787512011777,
+        "rmse": 2.009816617630598
+      }
+    }
+  },
+  "artifact": "artifacts/method1/score_predictor.joblib"
+}

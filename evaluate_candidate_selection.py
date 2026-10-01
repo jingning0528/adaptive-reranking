@@ -1,5 +1,6 @@
 import time
 from collections import defaultdict
+import math
 
 import joblib
 import numpy as np
@@ -15,11 +16,45 @@ BUNDLE = joblib.load("artifacts/method1/score_predictor.joblib")
 ROWS = DATA["rows"]
 BUDGET = CONFIG["selection_budget"]
 OUTPUT_TOP_K = CONFIG["output_top_k"]
+SPLIT = load_json("results/method1/split.json")
 
 _, _, all_qrels = GenericDataLoader("datasets/scifact").load(split="train")
 rows_by_query = defaultdict(list)
 for row in ROWS:
     rows_by_query[row["query_id"]].append(row)
+
+
+def per_query_quality(query_ids, results, k=10):
+    ndcg, recall = {}, {}
+    for query_id in query_ids:
+        relevant = all_qrels[query_id]
+        ranked = sorted(results[query_id].items(), key=lambda item: item[1], reverse=True)[:k]
+        gains = [relevant.get(doc_id, 0) for doc_id, _ in ranked]
+        ideal = sorted(relevant.values(), reverse=True)[:k]
+        dcg = sum((2**rel - 1) / math.log2(rank + 2) for rank, rel in enumerate(gains))
+        idcg = sum((2**rel - 1) / math.log2(rank + 2) for rank, rel in enumerate(ideal))
+        ndcg[query_id] = dcg / idcg if idcg else 0.0
+        recall[query_id] = sum(rel > 0 for rel in gains) / sum(rel > 0 for rel in relevant.values())
+    return {"ndcg_at_10": ndcg, "recall_at_10": recall}
+
+
+def paired_bootstrap(left, right, query_ids, seed, samples=10_000):
+    differences = np.asarray([left[query_id] - right[query_id] for query_id in query_ids])
+    rng = np.random.default_rng(seed)
+    sample_means = np.empty(samples)
+    for index in range(samples):
+        sample_means[index] = differences[rng.integers(0, len(differences), len(differences))].mean()
+    return {
+        "mean_difference": float(differences.mean()),
+        "ci_95_percentile": [
+            float(np.quantile(sample_means, 0.025)),
+            float(np.quantile(sample_means, 0.975)),
+        ],
+        "improved_queries": int(np.sum(differences > 1e-12)),
+        "unchanged_queries": int(np.sum(np.abs(differences) <= 1e-12)),
+        "worsened_queries": int(np.sum(differences < -1e-12)),
+        "bootstrap_samples": samples,
+    }
 
 start = time.perf_counter()
 features = feature_matrix(ROWS)
@@ -84,7 +119,7 @@ def evaluate(query_ids, policy: str, uncertainty_lambda: float = 0.0):
         "strong_model_calls_per_query": len(rows_by_query[query_ids[0]])
         if policy == "teacher_top100"
         else BUDGET,
-    }, selected
+    }, selected, per_query_quality(query_ids, results)
 
 
 calibration_ids = sorted(
@@ -93,14 +128,21 @@ calibration_ids = sorted(
 validation_ids = sorted(
     query_id for query_id, rows in rows_by_query.items() if rows[0]["split"] == "validation"
 )
+if calibration_ids != sorted(SPLIT["calibration_query_ids"]):
+    raise RuntimeError("Calibration rows do not match the frozen calibration split")
+if validation_ids != sorted(SPLIT["validation_query_ids"]):
+    raise RuntimeError("Validation rows do not match the frozen validation split")
+if set(BUNDLE["fit_query_ids"]) != set(SPLIT["train_query_ids"]):
+    raise RuntimeError("Predictor was not fit exclusively on the frozen training split")
 lambda_scores = {}
 for value in CONFIG["lambda_grid"]:
-    metrics, _ = evaluate(calibration_ids, "uncertainty_top20", value)
+    metrics, _, _ = evaluate(calibration_ids, "uncertainty_top20", value)
     lambda_scores[str(value)] = metrics["ndcg"]["NDCG@10"]
 best_lambda = max(CONFIG["lambda_grid"], key=lambda value: (lambda_scores[str(value)], -value))
 
 validation_metrics = {}
 validation_selections = {}
+validation_per_query = {}
 for policy in (
     "fixed_top20",
     "predicted_top20",
@@ -108,9 +150,28 @@ for policy in (
     "random_top20",
     "teacher_top100",
 ):
-    metrics, selected = evaluate(validation_ids, policy, best_lambda)
+    metrics, selected, per_query = evaluate(validation_ids, policy, best_lambda)
     validation_metrics[policy] = metrics
     validation_selections[policy] = selected
+    validation_per_query[policy] = per_query
+
+comparisons = {}
+for left, right in (
+    ("predicted_top20", "fixed_top20"),
+    ("uncertainty_top20", "predicted_top20"),
+    ("uncertainty_top20", "fixed_top20"),
+    ("uncertainty_top20", "teacher_top100"),
+):
+    comparison_name = f"{left}_minus_{right}"
+    comparisons[comparison_name] = {
+        metric: paired_bootstrap(
+            validation_per_query[left][metric],
+            validation_per_query[right][metric],
+            validation_ids,
+            CONFIG["split_seed"],
+        )
+        for metric in ("ndcg_at_10", "recall_at_10")
+    }
 
 changed_candidates = np.mean(
     [
@@ -134,6 +195,7 @@ write_json(
         "validation": {
             "query_count": len(validation_ids),
             "methods": validation_metrics,
+            "paired_comparisons": comparisons,
             "mean_candidates_changed_by_uncertainty_vs_prediction": float(changed_candidates),
         },
         "cached_simulation_timings_seconds": {

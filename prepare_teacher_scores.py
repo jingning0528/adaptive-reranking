@@ -1,6 +1,8 @@
 import json
+import hashlib
 import logging
 import time
+from importlib.metadata import version
 from pathlib import Path
 
 import joblib
@@ -22,7 +24,23 @@ ARTIFACTS = Path("artifacts/method1")
 RESULTS = Path("results/method1")
 CANDIDATES_PATH = ARTIFACTS / "candidates.joblib"
 CHECKPOINT_PATH = ARTIFACTS / "teacher_scores_checkpoint.json"
+CACHE_METADATA_PATH = ARTIFACTS / "teacher_cache_metadata.json"
 DATASET_PATH = ARTIFACTS / "teacher_dataset.joblib"
+INPUT_FORMAT = "[query, title + space + abstract]"
+CACHE_CONTRACT = {
+    "teacher_model": CONFIG["teacher_model"],
+    "teacher_model_revision": CONFIG["teacher_model_revision"],
+    "sentence_transformers_version": version("sentence-transformers"),
+    "max_length": CONFIG["max_length"],
+    "input_format": INPUT_FORMAT,
+    "candidate_top_k": CONFIG["candidate_top_k"],
+    "candidate_order": "retrieval score descending; document id preserves stable sort ties",
+    "score_activation": "CrossEncoder model default",
+    "teacher_cache_device": CONFIG.get("teacher_cache_device", CONFIG["device"]),
+}
+CACHE_FINGERPRINT = hashlib.sha256(
+    json.dumps(CACHE_CONTRACT, sort_keys=True, separators=(",", ":")).encode("utf-8")
+).hexdigest()
 
 ARTIFACTS.mkdir(parents=True, exist_ok=True)
 RESULTS.mkdir(parents=True, exist_ok=True)
@@ -81,6 +99,26 @@ else:
         candidates.update(retriever.retrieve(corpus, missing_queries))
     joblib.dump(candidates, CANDIDATES_PATH, compress=3)
 
+if set(candidates) != set(queries):
+    raise RuntimeError("Candidate cache does not contain exactly the train-split queries")
+if any(len(scores) != CONFIG["candidate_top_k"] for scores in candidates.values()):
+    raise RuntimeError("Every query must have exactly candidate_top_k cached candidates")
+
+if CHECKPOINT_PATH.exists():
+    if not CACHE_METADATA_PATH.exists():
+        raise RuntimeError("Teacher checkpoint exists without cache metadata; refuse unsafe resume")
+    cached_metadata = load_json(CACHE_METADATA_PATH)
+    if cached_metadata["fingerprint"] != CACHE_FINGERPRINT:
+        raise RuntimeError(
+            "Teacher cache configuration mismatch: "
+            f"expected {CACHE_FINGERPRINT}, found {cached_metadata['fingerprint']}"
+        )
+else:
+    write_json(
+        CACHE_METADATA_PATH,
+        {"fingerprint": CACHE_FINGERPRINT, "contract": CACHE_CONTRACT},
+    )
+
 teacher_scores = load_json(CHECKPOINT_PATH) if CHECKPOINT_PATH.exists() else {}
 validation_teacher_path = Path("results/validation/minilm_l6_retrieval.json")
 if (
@@ -100,6 +138,7 @@ if pending_ids:
     start = time.perf_counter()
     teacher = CrossEncoder(
         CONFIG["teacher_model"],
+        revision=CONFIG["teacher_model_revision"],
         device=CONFIG.get("teacher_cache_device", CONFIG["device"]),
         max_length=CONFIG["max_length"],
     )
@@ -152,6 +191,8 @@ write_json(
     RESULTS / "teacher_manifest.json",
     {
         "config": CONFIG,
+        "teacher_cache_fingerprint": CACHE_FINGERPRINT,
+        "teacher_cache_contract": CACHE_CONTRACT,
         "counts": {
             "queries": len(queries),
             "candidate_rows": len(rows),

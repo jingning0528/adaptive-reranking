@@ -15,9 +15,17 @@ CONFIG = load_json("configs/teacher.json")
 DATA = joblib.load("artifacts/method1/teacher_dataset.joblib")
 ROWS = DATA["rows"]
 OUTPUT = Path("artifacts/method1/score_predictor.joblib")
+SPLIT = load_json("results/method1/split.json")
 
 train_rows = [row for row in ROWS if row["split"] == "train"]
 calibration_rows = [row for row in ROWS if row["split"] == "calibration"]
+validation_rows = [row for row in ROWS if row["split"] == "validation"]
+if {row["query_id"] for row in train_rows} != set(SPLIT["train_query_ids"]):
+    raise RuntimeError("Training rows do not match the frozen training split")
+if {row["query_id"] for row in calibration_rows} != set(SPLIT["calibration_query_ids"]):
+    raise RuntimeError("Calibration rows do not match the frozen calibration split")
+if {row["query_id"] for row in validation_rows} != set(SPLIT["validation_query_ids"]):
+    raise RuntimeError("Validation rows do not match the frozen validation split")
 train_by_query = defaultdict(list)
 for row in train_rows:
     train_by_query[row["query_id"]].append(row)
@@ -68,6 +76,7 @@ bundle = {
     "models": models,
     "feature_names": DATA["feature_names"],
     "config": CONFIG,
+    "fit_query_ids": train_query_ids,
 }
 joblib.dump(bundle, OUTPUT, compress=3)
 write_json(

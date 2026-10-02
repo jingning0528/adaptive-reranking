@@ -1,0 +1,17 @@
+{
+  "dataset": "scifact",
+  "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "device": "mps",
+  "max_length": 256,
+  "batch_size": 128,
+  "query_chunk_size": 10,
+  "candidate_top_k": 100,
+  "easy_budget": 5,
+  "available_budgets": [5, 10, 20, 30, 50, 100],
+  "target_average_budgets": [10, 20, 30, 50],
+  "signal": "bi-encoder Top-1 minus Top-10 score margin",
+  "policy": "K=hard_budget when margin <= threshold, otherwise K=5",
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 20261001
+}

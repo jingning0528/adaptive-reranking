@@ -1,0 +1,28 @@
+{
+  "fingerprint": "971a5df6af7161356f5ad1d3d081eb7f1fa2a6cfc99186509738a17be9ef9645",
+  "contract": {
+    "dataset": "scifact",
+    "split": "test",
+    "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "device": "mps",
+    "max_length": 256,
+    "batch_size": 128,
+    "candidate_top_k": 100,
+    "input_format": "[query, title + space + abstract]",
+    "candidate_source": "results/baseline/retrieval.json",
+    "candidate_order": "retrieval score descending; document id breaks ties"
+  },
+  "counts": {
+    "queries": 300,
+    "candidate_pairs": 30000,
+    "newly_scored_queries": 300
+  },
+  "timings_seconds": {
+    "model_load": 1.9210240000393242,
+    "scoring": 385.2333986251615
+  },
+  "artifacts": {
+    "teacher_checkpoint": "artifacts/method6/test_teacher_scores_checkpoint.json"
+  }
+}

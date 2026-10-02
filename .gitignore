@@ -10,6 +10,7 @@ results/method1/*_retrieval.json
 results/method2/*_retrieval.json
 results/method3/*_retrieval.json
 results/method4/*_retrieval.json
+results/method6/*_retrieval.json
 examples/**/datasets/
 examples/**/results/
 examples/**/embeddings/

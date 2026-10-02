@@ -338,14 +338,38 @@ validation qrels were used to inspect signals and select the margin hypothesis,
 the existing 162-query split is now exploratory for Direction C and cannot
 serve as untouched final evaluation for that policy.
 
+### C2 frozen adaptive-budget evaluation
+
+A two-tier policy was fixed before official-test evaluation. It uses the
+bi-encoder Top-1/Top-10 margin, routes easy queries to K=5, and routes hard
+queries to a higher budget selected on 522 training queries. Thresholds are
+set from 125 calibration-query margin quantiles; the 162 exploration queries
+are excluded.
+
+All four tested operating points improve mean test NDCG over their target
+fixed-K baselines. At mean K=32.45, adaptive reranking reaches NDCG@10 =
+0.69065 versus 0.68165 for full K=100. The paired difference is +0.00900 with
+95% CI [0.00150, 0.01721], while the score count is 67.5% lower. At mean
+K=54.72, the difference from full K=100 is +0.01232 with CI
+[0.00558, 0.01966].
+
+This is the first out-of-sample evidence that retrieval confidence can move
+the quality-cost frontier without an additional learned router. It also
+confirms that adaptive budgeting can avoid harmful over-reranking, since the
+fixed quality curve is non-monotonic.
+
+The official test split is now closed for this policy. The next experiment is
+controlled end-to-end timing of the frozen operating points; any policy change
+requires a new evaluation dataset or split.
+
 ## 9. Current Research Position
 
 The evidence suggests that the primary opportunity is not yet improving the
 maximum ranking quality. It is reducing the computation required to retain the
 quality already achieved by MiniLM-L6.
 
-The fixed budget-quality curve is now the reference for adaptive allocation.
-The next defensible experiment is a simple qrels-free budget or stopping signal
-compared with fixed K at the same average scoring budget. It should be tuned on
-training/calibration data and evaluated once on frozen validation data before
-any controlled latency benchmark.
+The fixed budget-quality curve is the reference for adaptive allocation, and
+the simple margin policy now has positive official-test evidence. The next
+defensible experiment is controlled end-to-end timing of the frozen policies,
+including dynamic batching and routing overhead. Score-count reductions must
+not be reported as latency reductions until that measurement is complete.

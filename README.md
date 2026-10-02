@@ -37,6 +37,9 @@ evaluation framework, with SciFact as the initial benchmark.
 - C1 oracle analysis: 143/162 queries select K=5, but 120 are tied across all
   budgets. Lower Top-1/Top-10 retrieval margin is the strongest exploratory
   signal for needing K>5 (AUC 0.788, bootstrap CI [0.697, 0.868]).
+- C2 frozen test: a two-tier margin rule at mean K=32.45 reaches `0.69065`
+  NDCG@10 versus `0.68165` for full K=100; the paired difference is `+0.00900`
+  with CI `[0.00150, 0.01721]`, while using 67.5% fewer teacher scores.
 
 See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) for the controlled reranker
 comparison and error analysis, and [METHOD1_REPORT.md](METHOD1_REPORT.md) for
@@ -48,6 +51,8 @@ token experiment.
 that prepares the budget-aware direction.
 [C1_ORACLE_BUDGET_ANALYSIS.md](C1_ORACLE_BUDGET_ANALYSIS.md) analyzes oracle
 budgets and qrels-free difficulty signals.
+[C2_ADAPTIVE_BUDGET_REPORT.md](C2_ADAPTIVE_BUDGET_REPORT.md) evaluates the
+frozen margin policy on the official SciFact test split.
 
 ## Setup
 
@@ -164,3 +169,18 @@ python analyze_oracle_budgets.py
 It writes a per-query CSV, JSON summary, and SVG histogram. This analysis uses
 validation qrels; its signal ranking is hypothesis generation, not final
 policy evaluation.
+
+## Direction C2: adaptive budget policy
+
+Prepare the pinned official-test teacher cache, then evaluate the frozen
+train/calibration protocol:
+
+```bash
+python prepare_c2_test_scores.py
+python evaluate_adaptive_budget.py
+```
+
+The policy uses only the bi-encoder Top-1/Top-10 score margin and routes each
+query to K=5 or a training-selected hard budget. The test result supports the
+quality-cost contribution; the next step is controlled online timing, not
+further test-driven policy tuning.

@@ -231,3 +231,34 @@ python benchmark_end_to_end.py
 The benchmark confirms that the scoring reduction survives full online-pipeline
 measurement: 3.38x higher batch throughput and 70.37% lower online batch time.
 No further policy tuning is performed on the closed official test split.
+
+
+
+Efficient Neural Search System
+│
+├── 1. Dense Retrieval
+│      └── BEIR + bi-encoder
+│
+├── 2. ANN Index
+│      └── FAISS
+│
+├── 3. Adaptive Reranking       ★ 你的核心贡献
+│      └── dynamic compute budget
+│
+├── 4. Efficient Inference
+│      ├── batching
+│      └── FP16 / INT8
+│
+├── 5. Caching
+│      └── query / embedding cache
+│
+├── 6. Serving
+│      └── FastAPI
+│
+└── 7. Benchmark
+       ├── NDCG@10
+       ├── Recall@10
+       ├── p50 / p95 latency
+       ├── QPS
+       ├── GPU memory
+       └── cost / 1K queries

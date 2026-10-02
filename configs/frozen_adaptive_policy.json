@@ -1,0 +1,23 @@
+{
+  "name": "adaptive_margin_target_30",
+  "frozen_from_commit": "26b6a12",
+  "signal": "bi-encoder Top-1 minus Top-10 cosine-score margin",
+  "easy_budget": 5,
+  "hard_budget": 50,
+  "margin_threshold": 0.18132317066192627,
+  "retriever_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "max_length": 256,
+  "candidate_top_k": 100,
+  "reranker_batch_size": 128,
+  "quality_result": {
+    "split": "SciFact official test",
+    "queries": 300,
+    "mean_budget": 32.45,
+    "NDCG@10": 0.69065,
+    "full_100_NDCG@10": 0.68165,
+    "difference": 0.009002665859823683,
+    "ci_95": [0.0015046613312757972, 0.017213594981420936]
+  }
+}

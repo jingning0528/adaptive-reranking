@@ -358,18 +358,47 @@ the quality-cost frontier without an additional learned router. It also
 confirms that adaptive budgeting can avoid harmful over-reranking, since the
 fixed quality curve is non-monotonic.
 
-The official test split is now closed for this policy. The next experiment is
-controlled end-to-end timing of the frozen operating points; any policy change
+The official test split is now closed for this policy. Any policy change
 requires a new evaluation dataset or split.
+
+### Frozen-policy end-to-end latency
+
+The selected mean-K=32.45 policy is frozen in
+`configs/frozen_adaptive_policy.json`. A controlled online benchmark compares
+it with Full-100 on all 300 official-test queries. Both strategies are run
+twice in alternating order after warm-up.
+
+Model loading and the offline corpus-index build are excluded. Online timing
+includes CPU query encoding, exact Top-100 retrieval, routing, pair
+construction, MPS cross-encoder inference, and final Top-10 ranking.
+
+| Metric | Full-100 | Adaptive |
+| --- | ---: | ---: |
+| Pairs scored | 30,000 | 9,735 |
+| Mean K | 100.00 | 32.45 |
+| Cross-encoder time | 367.38 s | 108.38 s |
+| Online total time | 368.36 s | 109.14 s |
+| Throughput | 0.81 queries/s | 2.75 queries/s |
+
+The adaptive policy achieves a 3.38x online speedup and reduces total online
+batch time by 70.37%. Routing takes roughly 0.0001 seconds per 300-query trial,
+so cross-encoder inference remains the dominant cost. The 67.55% reduction in
+pair scores therefore translates into a measured system-level improvement
+rather than being absorbed by routing overhead.
+
+This benchmark measures batch throughput on one Apple Silicon system, not
+interactive p50/p95 latency. Raw trials and the exact contract are stored in
+`results/method7/end_to_end_latency.json`.
 
 ## 9. Current Research Position
 
-The evidence suggests that the primary opportunity is not yet improving the
-maximum ranking quality. It is reducing the computation required to retain the
-quality already achieved by MiniLM-L6.
+The evidence supports retrieval confidence as a cheap control signal for
+reranking computation. The frozen two-tier margin policy improves held-out
+NDCG@10 while using 67.55% fewer cross-encoder scores, and the end-to-end
+benchmark confirms a 3.38x online speedup with negligible routing overhead.
 
-The fixed budget-quality curve is the reference for adaptive allocation, and
-the simple margin policy now has positive official-test evidence. The next
-defensible experiment is controlled end-to-end timing of the frozen policies,
-including dynamic batching and routing overhead. Score-count reductions must
-not be reported as latency reductions until that measurement is complete.
+The contribution is therefore a measured quality-cost improvement, not merely
+a cached-score simulation: query-dependent budgets can avoid harmful
+over-reranking while reducing the dominant inference cost. Generalization to
+other datasets, rerankers, hardware, and interactive latency regimes remains
+future work.

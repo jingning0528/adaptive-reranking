@@ -1,8 +1,38 @@
-# Adaptive Reranking for Efficient Search
+# Budget-Aware Adaptive Neural Reranking for Efficient Retrieval
 
-This project studies how to allocate a limited neural reranking budget. The
-first method selects 20 candidates from a retrieved Top-100, scores those 20
-once in a single cross-encoder batch, and returns their strongest Top-10.
+> A zero-router-overhead policy uses retrieval confidence to reduce
+> cross-encoder scoring by 67.5%, improve SciFact test NDCG@10 by 0.009, and
+> deliver a measured 3.38x end-to-end online speedup versus Top-100 reranking.
+
+```text
+Query -> bi-encoder Top-100 -> Top-1/Top-10 margin
+                                  | easy: K=5
+                                  | hard: K=50
+                                  v
+                         MiniLM cross-encoder -> Top-10
+```
+
+## Main result
+
+| Policy | Mean K | NDCG@10 | Online time / 300 queries | Throughput |
+| --- | ---: | ---: | ---: | ---: |
+| Full Top-100 | 100.00 | 0.68165 | 368.36 s | 0.81 queries/s |
+| Adaptive margin | 32.45 | **0.69065** | **109.14 s** | **2.75 queries/s** |
+
+The paired NDCG improvement is +0.00900 with 95% bootstrap CI
+`[0.00150, 0.01721]`. The frozen policy scores 9,735 instead of 30,000 pairs
+and achieves a 3.38x speedup (70.37% lower online batch time) on Apple Silicon.
+Model loading and the 133.90-second offline corpus-index build are excluded;
+online timing includes query encoding, exact Top-100 search, routing, pair
+construction, cross-encoder inference, and final Top-10 ranking. This is a
+batch-throughput benchmark, not interactive per-query latency.
+
+See [PAPER.md](PAPER.md) for the paper-style report and reproducibility details.
+
+This project studies how to allocate a limited neural reranking budget. Its
+final policy uses retrieval confidence to choose K=5 or K=50 from a retrieved
+Top-100, scores the selected candidates in one cross-encoder batch, and
+returns their strongest Top-10.
 
 The project is independent from BEIR. It uses
 [BEIR](https://github.com/beir-cellar/beir) as an installed dependency and
@@ -12,7 +42,7 @@ evaluation framework, with SciFact as the initial benchmark.
 
 - CPU bi-encoder baseline: `NDCG@10 = 0.64508` on the SciFact test split.
 - Frozen validation set: 162 queries held out from SciFact train.
-- MiniLM-L6 Top-100 reference: `NDCG@10 = 0.73826` on validation.
+- MiniLM-L6 Top-100 reference: `NDCG@10 = 0.73644` on validation.
 - Top-100 oracle: `NDCG@10 = 0.94206`, indicating substantial ranking headroom.
 - 78.28% of validation query-document inputs exceed 256 tokens.
 - Method 1 cached simulation: predicted Top-20 reaches `NDCG@10 = 0.73501`
@@ -182,5 +212,13 @@ python evaluate_adaptive_budget.py
 
 The policy uses only the bi-encoder Top-1/Top-10 score margin and routes each
 query to K=5 or a training-selected hard budget. The test result supports the
-quality-cost contribution; the next step is controlled online timing, not
-further test-driven policy tuning.
+quality-cost contribution. The frozen policy and its latency benchmark can be
+reproduced with:
+
+```bash
+python benchmark_end_to_end.py
+```
+
+The benchmark confirms that the scoring reduction survives full online-pipeline
+measurement: 3.38x higher batch throughput and 70.37% lower online batch time.
+No further policy tuning is performed on the closed official test split.

@@ -1,0 +1,132 @@
+{
+  "contract": {
+    "policy": {
+      "name": "adaptive_margin_target_30",
+      "frozen_from_commit": "26b6a12",
+      "signal": "bi-encoder Top-1 minus Top-10 cosine-score margin",
+      "easy_budget": 5,
+      "hard_budget": 50,
+      "margin_threshold": 0.18132317066192627,
+      "retriever_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+      "max_length": 256,
+      "candidate_top_k": 100,
+      "reranker_batch_size": 128,
+      "quality_result": {
+        "split": "SciFact official test",
+        "queries": 300,
+        "mean_budget": 32.45,
+        "NDCG@10": 0.69065,
+        "full_100_NDCG@10": 0.68165,
+        "difference": 0.009002665859823683,
+        "ci_95": [
+          0.0015046613312757972,
+          0.017213594981420936
+        ]
+      }
+    },
+    "trials": 2,
+    "corpus_index_excluded_from_online_timing": true,
+    "model_loading_excluded_from_online_timing": true,
+    "hardware": "macOS-14.3-arm64-arm-64bit"
+  },
+  "contract_fingerprint": "ced2bb101e5dae15c859b37cb05fda594460dfabd1523409742ff7ed8d62d8ec",
+  "offline_index_build_seconds": 133.89521249989048,
+  "raw_trials": {
+    "full_100": [
+      {
+        "strategy": "full_100",
+        "queries": 300,
+        "pairs_scored": 30000,
+        "mean_budget": 100.0,
+        "easy_queries": 0,
+        "hard_queries": null,
+        "timings_seconds": {
+          "query_encoding": 0.9028110411018133,
+          "top100_search": 0.037870584055781364,
+          "routing": 3.125052899122238e-06,
+          "pair_construction": 0.032902833074331284,
+          "cross_encoder": 367.6978266669903,
+          "final_ranking": 0.010241457959637046,
+          "online_total": 368.68190312501974
+        },
+        "throughput_queries_per_second": 0.8137095893699731
+      },
+      {
+        "strategy": "full_100",
+        "queries": 300,
+        "pairs_scored": 30000,
+        "mean_budget": 100.0,
+        "easy_queries": 0,
+        "hard_queries": null,
+        "timings_seconds": {
+          "query_encoding": 0.7024676657747477,
+          "top100_search": 0.03595583303831518,
+          "routing": 4.166970029473305e-06,
+          "pair_construction": 0.2316411251667887,
+          "cross_encoder": 367.06105199991725,
+          "final_ranking": 0.010163916042074561,
+          "online_total": 368.041551459115
+        },
+        "throughput_queries_per_second": 0.8151253542178549
+      }
+    ],
+    "adaptive": [
+      {
+        "strategy": "adaptive",
+        "queries": 300,
+        "pairs_scored": 9735,
+        "mean_budget": 32.45,
+        "easy_queries": 117,
+        "hard_queries": 183,
+        "timings_seconds": {
+          "query_encoding": 0.7120504998601973,
+          "top100_search": 0.037102541886270046,
+          "routing": 4.941597580909729e-05,
+          "pair_construction": 0.013656958006322384,
+          "cross_encoder": 108.09554850007407,
+          "final_ranking": 0.003132499987259507,
+          "online_total": 108.86182362493128
+        },
+        "throughput_queries_per_second": 2.7557870152314323
+      },
+      {
+        "strategy": "adaptive",
+        "queries": 300,
+        "pairs_scored": 9735,
+        "mean_budget": 32.45,
+        "easy_queries": 117,
+        "hard_queries": 183,
+        "timings_seconds": {
+          "query_encoding": 0.7088899160735309,
+          "top100_search": 0.0357075419742614,
+          "routing": 7.241708226501942e-05,
+          "pair_construction": 0.009631291031837463,
+          "cross_encoder": 108.66351916594431,
+          "final_ranking": 0.0031630839221179485,
+          "online_total": 109.42144487495534
+        },
+        "throughput_queries_per_second": 2.7416929135128316
+      }
+    ]
+  },
+  "summary": {
+    "full_100": {
+      "trials": 2,
+      "mean_budget": 100.0,
+      "median_online_total_seconds": 368.36172729206737,
+      "median_cross_encoder_seconds": 367.3794393334538,
+      "median_throughput_queries_per_second": 0.814417471793914
+    },
+    "adaptive": {
+      "trials": 2,
+      "mean_budget": 32.45,
+      "median_online_total_seconds": 109.14163424994331,
+      "median_cross_encoder_seconds": 108.37953383300919,
+      "median_throughput_queries_per_second": 2.748739964372132,
+      "online_speedup_vs_full": 3.37507982012152,
+      "online_latency_reduction_fraction": 0.7037107110657919
+    }
+  }
+}

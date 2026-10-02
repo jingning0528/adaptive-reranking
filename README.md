@@ -4,6 +4,15 @@
 > cross-encoder scoring by 67.5%, improve SciFact test NDCG@10 by 0.009, and
 > deliver a measured 3.38x end-to-end online speedup versus Top-100 reranking.
 
+<p align="center">
+  <img src="results/method6/quality_cost_curve.svg" width="680"
+       alt="Quality-cost curve comparing fixed and adaptive reranking budgets on the held-out SciFact test set">
+</p>
+
+**Production interpretation:** At roughly one-third of the reranking budget,
+the adaptive policy is both faster and more accurate than full Top-100
+reranking on the held-out SciFact test set.
+
 ```text
 Query -> bi-encoder Top-100 -> Top-1/Top-10 margin
                                   | easy: K=5

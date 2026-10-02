@@ -1,0 +1,13 @@
+{
+  "dataset": "scifact",
+  "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "teacher_cache_device": "mps",
+  "max_length": 256,
+  "candidate_top_k": 100,
+  "output_top_k": 10,
+  "budgets": [5, 10, 20, 30, 50, 100],
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 20261001,
+  "policy": "rerank retrieval Top-K; append unscored candidates in original retrieval order"
+}

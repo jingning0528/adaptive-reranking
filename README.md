@@ -30,6 +30,10 @@ evaluation framework, with SciFact as the initial benchmark.
   `[-0.01716, 0.02551]` includes zero and Recall@10 decreased. Longer input is
   not supported as a universal policy, although qrels-based diagnostics show
   heterogeneous effects when a relevant candidate was truncated.
+- Fixed budget curve: K=20 uses 20% of the teacher scores and reaches
+  `0.73184` NDCG@10, retaining 99.38% of the K=100 score. The curve is
+  non-monotonic, motivating query-dependent budgets but not yet providing a
+  deployable policy.
 
 See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) for the controlled reranker
 comparison and error analysis, and [METHOD1_REPORT.md](METHOD1_REPORT.md) for
@@ -37,6 +41,8 @@ the first candidate-selection result. [METHOD2_REPORT.md](METHOD2_REPORT.md)
 records the strong-reranker feasibility test.
 [METHOD3_REPORT.md](METHOD3_REPORT.md) reports the controlled 256-versus-512
 token experiment.
+[METHOD4_REPORT.md](METHOD4_REPORT.md) reports the fixed budget-quality curve
+that prepares the budget-aware direction.
 
 ## Setup
 
@@ -128,3 +134,16 @@ python run_length_experiment.py
 The overall NDCG gain is small and uncertain, while Recall@10 decreases, so
 512 tokens should not replace 256 globally. The stored diagnostics stratify
 queries by truncation without implementing an adaptive policy.
+
+## Direction D: fixed budget-quality curve
+
+The fixed-budget experiment uses cached MiniLM scores and introduces no new ML
+method:
+
+```bash
+python evaluate_budget_curve.py
+```
+
+It evaluates K = 5, 10, 20, 30, 50, and 100 and saves both full paired metrics
+and a plot-ready CSV. This is a quality simulation; online latency remains to
+be measured.

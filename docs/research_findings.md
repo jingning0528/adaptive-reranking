@@ -233,14 +233,56 @@ Direction 1 nevertheless reveals the clearest efficiency result: scoring only
 important next question is therefore not yet how to maximize reranking quality,
 but how much reranking computation is required to preserve it.
 
-## 7. New Research Direction — Budget-Aware Reranking
+## 7. Direction D — Fixed Budget-Quality Characterization
+
+### Hypothesis
+
+Before inventing an adaptive policy, how much full Top-100 reranking quality
+can be retained at fixed budgets `K = {5, 10, 20, 30, 50, 100}`?
+
+The no-learning policy reranks the retrieval Top-K with cached MiniLM scores
+and preserves all remaining candidates in their original retrieval order.
+
+### Results
+
+| K | Score budget | NDCG@10 | Recall@10 |
+| ---: | ---: | ---: | ---: |
+| 5 | 5% | 0.72479 | 0.81749 |
+| 10 | 10% | 0.72785 | 0.81749 |
+| 20 | 20% | 0.73184 | 0.83601 |
+| 30 | 30% | 0.72964 | 0.83189 |
+| 50 | 50% | 0.72978 | 0.83807 |
+| 100 | 100% | 0.73644 | 0.85041 |
+
+K=20 retains 99.38% of K=100 NDCG@10 with 20% of the teacher evaluations.
+Its paired NDCG difference from K=100 is `-0.00460`, with 95% CI
+`[-0.03048, 0.01754]`. This is strong descriptive retention, not proof of
+statistical equivalence.
+
+The curve is non-monotonic: K=30 and K=50 score below K=20. Scoring more
+candidates can expose useful documents, but it can also let additional
+non-relevant candidates displace relevant documents. Budget requirements are
+therefore query-dependent rather than a simple monotonic saturation process.
+
+A diagnostic qrels-based budget oracle selects a mean K of 7.62 and reaches
+NDCG@10 = 0.78229. This is an optimistic, non-deployable upper bound, but it
+shows substantial headroom for Direction C if budget can be predicted without
+relevance labels.
+
+### Decision
+
+Use this fixed curve as the required baseline for Direction C. Any adaptive
+method must outperform fixed K at the same mean teacher-score budget and must
+separate score-count savings from measured end-to-end speedup.
+
+## 8. New Research Direction — Budget-Aware Reranking
 
 ### Research Question
 
 How should a fixed inference budget be allocated to maximize retrieval quality,
 and what is the smallest budget that preserves the full-reranking result?
 
-### Phase 1 — Budget-Quality Characterization
+### Phase 1 — Budget-Quality Characterization (complete)
 
 Evaluate fixed candidate budgets:
 
@@ -256,9 +298,9 @@ For every budget, measure:
 - number and fraction of cross-encoder evaluations;
 - eventually, controlled wall-clock latency and throughput.
 
-The first deliverable is an empirical quality-budget curve. Cached scores can
-establish ranking quality, but real inference runs are required for latency
-claims because batching, feature computation, and framework overhead matter.
+The empirical fixed-budget curve is now established. Cached scores characterize
+ranking quality, but real inference runs are still required for latency claims
+because batching, feature computation, and framework overhead matter.
 
 ### Phase 2 — Budget-Aware Allocation
 
@@ -279,13 +321,14 @@ Required comparisons include:
 - quality loss versus Top-100 at matched latency;
 - score-count savings versus actual end-to-end speedup.
 
-## 8. Current Research Position
+## 9. Current Research Position
 
 The evidence suggests that the primary opportunity is not yet improving the
 maximum ranking quality. It is reducing the computation required to retain the
 quality already achieved by MiniLM-L6.
 
-The most defensible next experiment is therefore the fixed budget-quality
-curve. It directly tests the strongest observed result, requires no new model
-or router, and provides the reference needed for any later adaptive allocation
-method.
+The fixed budget-quality curve is now the reference for adaptive allocation.
+The next defensible experiment is a simple qrels-free budget or stopping signal
+compared with fixed K at the same average scoring budget. It should be tuned on
+training/calibration data and evaluated once on frozen validation data before
+any controlled latency benchmark.

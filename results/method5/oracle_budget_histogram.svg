@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="440" viewBox="0 0 760 440">
+<rect width="100%" height="100%" fill="white"/>
+<text x="380" y="25" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold">Oracle budget distribution</text>
+<line x1="80" y1="45" x2="80" y2="365" stroke="#333"/>
+<line x1="80" y1="365" x2="730" y2="365" stroke="#333"/>
+<line x1="80" y1="365.0" x2="730" y2="365.0" stroke="#ddd"/>
+<text x="70" y="370.0" text-anchor="end" font-family="sans-serif" font-size="12">0</text>
+<line x1="80" y1="258.3" x2="730" y2="258.3" stroke="#ddd"/>
+<text x="70" y="263.3" text-anchor="end" font-family="sans-serif" font-size="12">50</text>
+<line x1="80" y1="151.7" x2="730" y2="151.7" stroke="#ddd"/>
+<text x="70" y="156.7" text-anchor="end" font-family="sans-serif" font-size="12">100</text>
+<line x1="80" y1="45.0" x2="730" y2="45.0" stroke="#ddd"/>
+<text x="70" y="50.0" text-anchor="end" font-family="sans-serif" font-size="12">150</text>
+<rect x="102.8" y="59.9" width="62.8" height="305.1" fill="#2563eb"/>
+<text x="134.2" y="52.9" text-anchor="middle" font-family="sans-serif" font-size="13">143</text>
+<text x="134.2" y="389" text-anchor="middle" font-family="sans-serif" font-size="13">5</text>
+<rect x="211.1" y="350.1" width="62.8" height="14.9" fill="#2563eb"/>
+<text x="242.5" y="343.1" text-anchor="middle" font-family="sans-serif" font-size="13">7</text>
+<text x="242.5" y="389" text-anchor="middle" font-family="sans-serif" font-size="13">10</text>
+<rect x="319.4" y="350.1" width="62.8" height="14.9" fill="#2563eb"/>
+<text x="350.8" y="343.1" text-anchor="middle" font-family="sans-serif" font-size="13">7</text>
+<text x="350.8" y="389" text-anchor="middle" font-family="sans-serif" font-size="13">20</text>
+<rect x="427.8" y="360.7" width="62.8" height="4.3" fill="#2563eb"/>
+<text x="459.2" y="353.7" text-anchor="middle" font-family="sans-serif" font-size="13">2</text>
+<text x="459.2" y="389" text-anchor="middle" font-family="sans-serif" font-size="13">30</text>
+<rect x="536.1" y="362.9" width="62.8" height="2.1" fill="#2563eb"/>
+<text x="567.5" y="355.9" text-anchor="middle" font-family="sans-serif" font-size="13">1</text>
+<text x="567.5" y="389" text-anchor="middle" font-family="sans-serif" font-size="13">50</text>
+<rect x="644.4" y="360.7" width="62.8" height="4.3" fill="#2563eb"/>
+<text x="675.8" y="353.7" text-anchor="middle" font-family="sans-serif" font-size="13">2</text>
+<text x="675.8" y="389" text-anchor="middle" font-family="sans-serif" font-size="13">100</text>
+<text x="405.0" y="422" text-anchor="middle" font-family="sans-serif" font-size="14">Oracle K</text>
+<text x="18" y="205.0" text-anchor="middle" font-family="sans-serif" font-size="14" transform="rotate(-90 18 205.0)">Queries</text>
+</svg>

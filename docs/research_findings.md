@@ -321,6 +321,23 @@ Required comparisons include:
 - quality loss versus Top-100 at matched latency;
 - score-count savings versus actual end-to-end speedup.
 
+### C1 oracle-budget analysis
+
+The first analysis of the Direction D oracle labels finds K=5 for 143 of 162
+queries, K=10 for 7, K=20 for 7, K=30 for 2, K=50 for 1, and K=100 for 2.
+However, 120 queries tie at every tested budget and 142 have more than one
+best budget. The label is therefore dominated by budget-insensitive queries.
+
+Among qrels-free signals, a smaller bi-encoder Top-1/Top-10 score margin is the
+strongest indicator that a query's oracle K exceeds 5. Its exploratory AUC is
+0.788 with bootstrap CI [0.697, 0.868]. Top-10 score dispersion provides nearly
+the same separation; lexical candidate diversity and query length do not.
+
+This supports testing a simple margin policy before any learned router. Because
+validation qrels were used to inspect signals and select the margin hypothesis,
+the existing 162-query split is now exploratory for Direction C and cannot
+serve as untouched final evaluation for that policy.
+
 ## 9. Current Research Position
 
 The evidence suggests that the primary opportunity is not yet improving the

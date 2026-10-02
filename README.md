@@ -34,6 +34,9 @@ evaluation framework, with SciFact as the initial benchmark.
   `0.73184` NDCG@10, retaining 99.38% of the K=100 score. The curve is
   non-monotonic, motivating query-dependent budgets but not yet providing a
   deployable policy.
+- C1 oracle analysis: 143/162 queries select K=5, but 120 are tied across all
+  budgets. Lower Top-1/Top-10 retrieval margin is the strongest exploratory
+  signal for needing K>5 (AUC 0.788, bootstrap CI [0.697, 0.868]).
 
 See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) for the controlled reranker
 comparison and error analysis, and [METHOD1_REPORT.md](METHOD1_REPORT.md) for
@@ -43,6 +46,8 @@ records the strong-reranker feasibility test.
 token experiment.
 [METHOD4_REPORT.md](METHOD4_REPORT.md) reports the fixed budget-quality curve
 that prepares the budget-aware direction.
+[C1_ORACLE_BUDGET_ANALYSIS.md](C1_ORACLE_BUDGET_ANALYSIS.md) analyzes oracle
+budgets and qrels-free difficulty signals.
 
 ## Setup
 
@@ -147,3 +152,15 @@ python evaluate_budget_curve.py
 It evaluates K = 5, 10, 20, 30, 50, and 100 and saves both full paired metrics
 and a plot-ready CSV. This is a quality simulation; online latency remains to
 be measured.
+
+## Direction C1: oracle budget analysis
+
+Run the exploratory oracle-label and cheap-signal analysis with:
+
+```bash
+python analyze_oracle_budgets.py
+```
+
+It writes a per-query CSV, JSON summary, and SVG histogram. This analysis uses
+validation qrels; its signal ranking is hypothesis generation, not final
+policy evaluation.

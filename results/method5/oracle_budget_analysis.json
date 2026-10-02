@@ -1,0 +1,150 @@
+{
+  "definition": "oracle_k is the smallest tested K attaining the maximum per-query validation NDCG@10",
+  "warning": "Exploratory qrels-based validation analysis; do not tune a future policy on these labels and report the same queries as untouched final validation.",
+  "counts": {
+    "queries": 162,
+    "oracle_k_5": 143,
+    "oracle_k_gt_5": 19,
+    "all_budgets_tied": 120,
+    "multiple_best_budgets": 142
+  },
+  "oracle_budget_distribution": {
+    "5": 143,
+    "10": 7,
+    "20": 7,
+    "30": 2,
+    "50": 1,
+    "100": 2
+  },
+  "mean_oracle_k": 7.6234567901234565,
+  "signal_relationships": {
+    "query_token_count": {
+      "spearman_rho_with_oracle_k": -0.06246484824171196,
+      "spearman_p_value": 0.4297247524261375,
+      "mean_when_oracle_k_5": 11.531468531468532,
+      "mean_when_oracle_k_gt_5": 10.631578947368421,
+      "raw_auc_for_oracle_k_gt_5": 0.4481045270518955,
+      "best_direction_auc_for_oracle_k_gt_5": 0.5518954729481045,
+      "best_direction_auc_ci_95_percentile": [
+        0.4092703349282296,
+        0.6895472948104526
+      ],
+      "higher_values_indicate_k_gt_5": false
+    },
+    "retrieval_margin_1_2": {
+      "spearman_rho_with_oracle_k": -0.2574068187410151,
+      "spearman_p_value": 0.0009437284926245227,
+      "mean_when_oracle_k_5": 0.08005940028420695,
+      "mean_when_oracle_k_gt_5": 0.028551780863812094,
+      "raw_auc_for_oracle_k_gt_5": 0.2653662127346338,
+      "best_direction_auc_for_oracle_k_gt_5": 0.7346337872653662,
+      "best_direction_auc_ci_95_percentile": [
+        0.624953993375046,
+        0.8340172984909826
+      ],
+      "higher_values_indicate_k_gt_5": false
+    },
+    "retrieval_margin_1_10": {
+      "spearman_rho_with_oracle_k": -0.32166251758519315,
+      "spearman_p_value": 2.994734061885895e-05,
+      "mean_when_oracle_k_5": 0.18711867886823375,
+      "mean_when_oracle_k_gt_5": 0.0991796474707754,
+      "raw_auc_for_oracle_k_gt_5": 0.21163047478836952,
+      "best_direction_auc_for_oracle_k_gt_5": 0.7883695252116305,
+      "best_direction_auc_ci_95_percentile": [
+        0.697442031652558,
+        0.867868973132131
+      ],
+      "higher_values_indicate_k_gt_5": false
+    },
+    "retrieval_score_std_top10": {
+      "spearman_rho_with_oracle_k": -0.31951501850849945,
+      "spearman_p_value": 3.406478489715251e-05,
+      "mean_when_oracle_k_5": 0.05765512731936355,
+      "mean_when_oracle_k_gt_5": 0.03142896262067716,
+      "raw_auc_for_oracle_k_gt_5": 0.2131026867868973,
+      "best_direction_auc_for_oracle_k_gt_5": 0.7868973132131027,
+      "best_direction_auc_ci_95_percentile": [
+        0.687891056312109,
+        0.8711814501288185
+      ],
+      "higher_values_indicate_k_gt_5": false
+    },
+    "retrieval_score_std_top100": {
+      "spearman_rho_with_oracle_k": -0.15944549027075364,
+      "spearman_p_value": 0.04269520868664792,
+      "mean_when_oracle_k_5": 0.054602958530961095,
+      "mean_when_oracle_k_gt_5": 0.04499484885468072,
+      "raw_auc_for_oracle_k_gt_5": 0.3588516746411483,
+      "best_direction_auc_for_oracle_k_gt_5": 0.6411483253588517,
+      "best_direction_auc_ci_95_percentile": [
+        0.507177033492823,
+        0.7633419212366581
+      ],
+      "higher_values_indicate_k_gt_5": false
+    },
+    "retrieval_score_entropy_top100": {
+      "spearman_rho_with_oracle_k": 0.17055690314051714,
+      "spearman_p_value": 0.030010636575198736,
+      "mean_when_oracle_k_5": 0.9995946889294804,
+      "mean_when_oracle_k_gt_5": 0.9997419475018896,
+      "raw_auc_for_oracle_k_gt_5": 0.6510857563489143,
+      "best_direction_auc_for_oracle_k_gt_5": 0.6510857563489143,
+      "best_direction_auc_ci_95_percentile": [
+        0.520426941479573,
+        0.7736474052263526
+      ],
+      "higher_values_indicate_k_gt_5": true
+    },
+    "query_overlap_mean_top20": {
+      "spearman_rho_with_oracle_k": -0.11171021392359869,
+      "spearman_p_value": 0.15699153205125183,
+      "mean_when_oracle_k_5": 0.3684182401551243,
+      "mean_when_oracle_k_gt_5": 0.32746860745893247,
+      "raw_auc_for_oracle_k_gt_5": 0.4089068825910931,
+      "best_direction_auc_for_oracle_k_gt_5": 0.5910931174089069,
+      "best_direction_auc_ci_95_percentile": [
+        0.4558336400441664,
+        0.7239648509385351
+      ],
+      "higher_values_indicate_k_gt_5": false
+    },
+    "query_overlap_max_top20": {
+      "spearman_rho_with_oracle_k": -0.230492219331618,
+      "spearman_p_value": 0.0031694463346583,
+      "mean_when_oracle_k_5": 0.6622605065509902,
+      "mean_when_oracle_k_gt_5": 0.5764443416920197,
+      "raw_auc_for_oracle_k_gt_5": 0.29812292970187704,
+      "best_direction_auc_for_oracle_k_gt_5": 0.701877070298123,
+      "best_direction_auc_ci_95_percentile": [
+        0.5734265734265734,
+        0.8156054471843945
+      ],
+      "higher_values_indicate_k_gt_5": false
+    },
+    "candidate_lexical_diversity_top20": {
+      "spearman_rho_with_oracle_k": -0.08150402116189204,
+      "spearman_p_value": 0.30251253415693335,
+      "mean_when_oracle_k_5": 0.8970974641734354,
+      "mean_when_oracle_k_gt_5": 0.8942166661183603,
+      "raw_auc_for_oracle_k_gt_5": 0.42142068457857923,
+      "best_direction_auc_for_oracle_k_gt_5": 0.5785793154214207,
+      "best_direction_auc_ci_95_percentile": [
+        0.4493927125506073,
+        0.7029812292970188
+      ],
+      "higher_values_indicate_k_gt_5": false
+    }
+  },
+  "signals_ranked_by_exploratory_auc": [
+    "retrieval_margin_1_10",
+    "retrieval_score_std_top10",
+    "retrieval_margin_1_2",
+    "query_overlap_max_top20",
+    "retrieval_score_entropy_top100",
+    "retrieval_score_std_top100",
+    "query_overlap_mean_top20",
+    "candidate_lexical_diversity_top20",
+    "query_token_count"
+  ]
+}

@@ -233,7 +233,7 @@ measurement: 3.38x higher batch throughput and 70.37% lower online batch time.
 No further policy tuning is performed on the closed official test split.
 
 
-
+```
 Efficient Neural Search System
 │
 ├── 1. Dense Retrieval
@@ -262,3 +262,7 @@ Efficient Neural Search System
        ├── QPS
        ├── GPU memory
        └── cost / 1K queries
+
+```
+
+

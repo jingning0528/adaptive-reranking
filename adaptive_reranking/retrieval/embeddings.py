@@ -1,15 +1,18 @@
 """Batch document encoding independent of storage and vector-search backends."""
 
+from __future__ import annotations
+
 import hashlib
 import json
 import platform
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
-from typing import Protocol
+from typing import TYPE_CHECKING, Protocol
 
 import numpy as np
 
-from adaptive_reranking.data.base import Dataset, Document
+if TYPE_CHECKING:
+    from adaptive_reranking.data.base import Dataset, Document
 
 PREPROCESSING = "(title + ' ' + text).strip()"
 ARTIFACT_SCHEMA_VERSION = 1

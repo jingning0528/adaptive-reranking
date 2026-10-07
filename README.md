@@ -4,9 +4,11 @@ V1 is complete: a frozen two-tier retrieval-margin policy, SciFact quality
 evaluation, and a measured end-to-end batch-throughput benchmark. The release
 preserves the original algorithms, experiment settings, and recorded results.
 
-The completed system uses exact dense search and MiniLM reranking. ANN/FAISS,
-additional datasets, FastAPI serving, quantization, and interactive latency
-measurements are future work tracked in the [roadmap](docs/roadmap.md).
+The completed V1 system uses exact dense search and MiniLM reranking. V2 adds
+dataset abstraction, offline vector artifacts, and a persistent exact FAISS
+backend. Approximate search, larger-dataset benchmarks, FastAPI serving,
+quantization, and interactive latency measurements remain future work tracked
+in the [roadmap](docs/roadmap.md).
 
 > A zero-router-overhead policy uses retrieval confidence to reduce
 > cross-encoder scoring by 67.5%, improve SciFact test NDCG@10 by 0.009, and
@@ -161,8 +163,8 @@ commands keep V1's original output paths. Other datasets and splits write under
 scripts retain their original SciFact settings and use the shared loader.
 
 See [the dataset interface](docs/current/dataset_interface.md) for schema,
-offline loading, split selection, and test coverage. Offline indexing, FAISS,
-and serving remain later roadmap steps.
+offline loading, split selection, and test coverage. The offline embedding
+pipeline and FAISS backend below consume this interface; serving remains later work.
 
 ## V2 Step 2: offline embedding artifacts
 
@@ -206,7 +208,43 @@ vectors, doc_ids = artifacts.embeddings, artifacts.doc_ids
 
 The artifact loader requires no model inference or dataset loading. The
 [embedding pipeline contract](docs/current/embedding_pipeline.md) describes
-the reusable API and testing. FAISS indexing remains the next step.
+the reusable API and testing. The FAISS backend below consumes these saved bundles.
+
+## V2 Step 3: persistent FAISS retrieval
+
+Build a CPU `IndexFlatIP` from an existing **normalized** Step 2 bundle:
+
+```bash
+python -m scripts.build_faiss_index --dataset scifact
+python -m scripts.search_faiss \
+  --dataset scifact \
+  --query "Does exercise reduce cardiovascular risk?" \
+  --top-k 100
+```
+
+Use `--dataset nfcorpus` for its saved bundle. The builder does not download
+data or run an encoder. The search CLI loads the saved model/revision/length
+contract and encodes only the query. Both accept custom artifact directories.
+
+```text
+results/cache/faiss/scifact/
+├── faiss.index
+├── doc_ids.json
+├── metadata.json
+└── config.json
+```
+
+The standalone index bundle preserves document row alignment, encoder settings,
+source fingerprints, and file checksums. It can load and search after the source
+embedding bundle is removed. Query vectors are normalized, and the backend
+returns ranked document IDs and cosine scores. Existing index directories are
+preserved; use `--output-dir` to build another variant.
+
+Controlled tests compare Flat FAISS with NumPy brute force and the existing
+BEIR exact dense retrieval. The backend uses document ID order to resolve
+equal scores deterministically. This step adds exact FAISS retrieval; IVF/HNSW,
+larger-dataset performance comparisons, and ANN tuning remain later work.
+See [the FAISS backend contract](docs/current/faiss_retrieval.md).
 
 ## Reproduce completed V1
 

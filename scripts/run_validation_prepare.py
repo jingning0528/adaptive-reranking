@@ -9,7 +9,7 @@ import json
 import time
 from pathlib import Path
 
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from beir.retrieval import models
 from beir.retrieval.evaluation import EvaluateRetrieval
 from beir.retrieval.search.dense import DenseRetrievalExactSearch
@@ -17,13 +17,15 @@ from transformers import AutoTokenizer
 
 from adaptive_reranking.evaluation.validation import K_VALUES, oracle_ranking, validation_query_ids
 
-DATA_PATH = "results/datasets/scifact"
 BASE_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 TOKENIZER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 TOP_K = 100
 OUTPUT = Path("results/metrics/validation")
 
-corpus, train_queries, train_qrels = GenericDataLoader(DATA_PATH).load(split="train")
+dataset = load_dataset("scifact", split="train", download=False)
+corpus = dataset.corpus
+train_queries = dataset.queries
+train_qrels = dataset.qrels
 validation_ids = validation_query_ids(train_qrels)
 queries = {query_id: train_queries[query_id] for query_id in validation_ids}
 qrels = {query_id: train_qrels[query_id] for query_id in validation_ids}

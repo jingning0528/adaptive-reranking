@@ -3,8 +3,8 @@ results/datasets/
 models/
 .huggingface/
 results/cache/
-results/metrics/baseline/retrieval.json
-results/metrics/rerank/retrieval.json
+results/metrics/baseline/**/retrieval.json
+results/metrics/rerank/**/retrieval.json
 results/metrics/validation/*_retrieval.json
 results/metrics/method1/*_retrieval.json
 results/metrics/method2/*_retrieval.json

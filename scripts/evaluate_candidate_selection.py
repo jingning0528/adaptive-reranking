@@ -11,7 +11,7 @@ import math
 
 import joblib
 import numpy as np
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from beir.retrieval.evaluation import EvaluateRetrieval
 
 from adaptive_reranking.reranking.features import feature_matrix
@@ -25,7 +25,8 @@ BUDGET = CONFIG["selection_budget"]
 OUTPUT_TOP_K = CONFIG["output_top_k"]
 SPLIT = load_json("results/manifests/method1/split.json")
 
-_, _, all_qrels = GenericDataLoader("results/datasets/scifact").load(split="train")
+dataset = load_dataset("scifact", split="train", download=False)
+all_qrels = dataset.qrels
 rows_by_query = defaultdict(list)
 for row in ROWS:
     rows_by_query[row["query_id"]].append(row)

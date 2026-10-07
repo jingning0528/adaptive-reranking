@@ -11,7 +11,7 @@ import logging
 import time
 from pathlib import Path
 
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from sentence_transformers import CrossEncoder
 
 from adaptive_reranking.utils.io import load_json, write_json
@@ -51,7 +51,9 @@ else:
     metadata = {"fingerprint": fingerprint, "contract": contract, "timings_seconds": {}}
     write_json(METADATA_PATH, metadata)
 
-corpus, queries, _ = GenericDataLoader("results/datasets/scifact").load(split="test")
+dataset = load_dataset("scifact", split="test", download=False)
+corpus = dataset.corpus
+queries = dataset.queries
 retrieval = load_json(RETRIEVAL_PATH)
 candidates = {
     query_id: dict(

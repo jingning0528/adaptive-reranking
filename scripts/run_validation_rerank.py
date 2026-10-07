@@ -10,7 +10,7 @@ import json
 import time
 from pathlib import Path
 
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from beir.reranking import Rerank
 from beir.reranking.models import CrossEncoder
 from beir.retrieval.evaluation import EvaluateRetrieval
@@ -31,7 +31,10 @@ parser.add_argument("preset", choices=PRESETS)
 args = parser.parse_args()
 model_name = PRESETS[args.preset]
 
-corpus, train_queries, train_qrels = GenericDataLoader("results/datasets/scifact").load(split="train")
+dataset = load_dataset("scifact", split="train", download=False)
+corpus = dataset.corpus
+train_queries = dataset.queries
+train_qrels = dataset.qrels
 split = json.loads((Path("results/manifests/validation/split.json")).read_text(encoding="utf-8"))
 validation_ids = split["query_ids"]
 queries = {query_id: train_queries[query_id] for query_id in validation_ids}

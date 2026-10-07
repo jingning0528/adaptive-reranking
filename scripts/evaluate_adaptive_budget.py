@@ -11,7 +11,7 @@ from pathlib import Path
 
 import joblib
 import numpy as np
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from beir.retrieval.evaluation import EvaluateRetrieval
 
 from adaptive_reranking.utils.io import load_json, write_json
@@ -176,8 +176,10 @@ def write_curve_svg(rows, destination):
     destination.write_text("\n".join(elements), encoding="utf-8")
 
 
-_, _, train_qrels_all = GenericDataLoader("results/datasets/scifact").load(split="train")
-_, _, test_qrels = GenericDataLoader("results/datasets/scifact").load(split="test")
+dataset = load_dataset("scifact", split="train", download=False)
+train_qrels_all = dataset.qrels
+dataset = load_dataset("scifact", split="test", download=False)
+test_qrels = dataset.qrels
 train_ids = sorted(SPLIT["train_query_ids"])
 calibration_ids = sorted(SPLIT["calibration_query_ids"])
 test_ids = sorted(test_qrels)

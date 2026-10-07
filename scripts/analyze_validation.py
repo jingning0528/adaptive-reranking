@@ -8,12 +8,15 @@ if __package__ in (None, ""):
 import json
 from pathlib import Path
 
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 
 from adaptive_reranking.evaluation.validation import query_ndcg_at_k
 
 OUTPUT = Path("results/metrics/validation")
-corpus, train_queries, train_qrels = GenericDataLoader("results/datasets/scifact").load(split="train")
+dataset = load_dataset("scifact", split="train", download=False)
+corpus = dataset.corpus
+train_queries = dataset.queries
+train_qrels = dataset.qrels
 split = json.loads((Path("results/manifests/validation/split.json")).read_text(encoding="utf-8"))
 validation_ids = split["query_ids"]
 qrels = {query_id: train_qrels[query_id] for query_id in validation_ids}

@@ -13,7 +13,7 @@ from importlib.metadata import version
 from pathlib import Path
 
 import joblib
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from beir.retrieval import models
 from beir.retrieval.evaluation import EvaluateRetrieval
 from beir.retrieval.search.dense import DenseRetrievalExactSearch
@@ -26,7 +26,6 @@ from adaptive_reranking.data.splits import group_sizes, train_calibration_split
 logging.basicConfig(level=logging.INFO)
 
 CONFIG = load_json("configs/teacher.json")
-DATA_PATH = Path("results/datasets") / CONFIG["dataset"]
 ARTIFACTS = Path("results/cache/method1")
 RESULTS = Path("results/metrics/method1")
 CANDIDATES_PATH = ARTIFACTS / "candidates.joblib"
@@ -51,7 +50,10 @@ CACHE_FINGERPRINT = hashlib.sha256(
 
 ARTIFACTS.mkdir(parents=True, exist_ok=True)
 RESULTS.mkdir(parents=True, exist_ok=True)
-corpus, queries, qrels = GenericDataLoader(str(DATA_PATH)).load(split=CONFIG["source_split"])
+dataset = load_dataset(CONFIG["dataset"], split=CONFIG["source_split"], download=False)
+corpus = dataset.corpus
+queries = dataset.queries
+qrels = dataset.qrels
 validation_ids = set(load_json("results/manifests/validation/split.json")["query_ids"])
 remaining_queries = {query_id: text for query_id, text in queries.items() if query_id not in validation_ids}
 train_ids, calibration_ids, groups = train_calibration_split(

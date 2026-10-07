@@ -12,7 +12,7 @@ from pathlib import Path
 
 import joblib
 import numpy as np
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from beir.retrieval.evaluation import EvaluateRetrieval
 
 from adaptive_reranking.utils.io import load_json, write_json
@@ -82,7 +82,8 @@ def rerank_at_budget(query_ids, budget):
     return results
 
 
-_, _, all_qrels = GenericDataLoader("results/datasets/scifact").load(split="train")
+dataset = load_dataset("scifact", split="train", download=False)
+all_qrels = dataset.qrels
 validation_ids = sorted(SPLIT["validation_query_ids"])
 qrels = {query_id: all_qrels[query_id] for query_id in validation_ids}
 if set(validation_ids) - set(CANDIDATES):

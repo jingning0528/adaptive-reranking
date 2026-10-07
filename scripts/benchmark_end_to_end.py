@@ -14,7 +14,7 @@ from pathlib import Path
 import joblib
 import numpy as np
 import torch
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from sentence_transformers import CrossEncoder, SentenceTransformer
 
 from adaptive_reranking.utils.io import load_json, write_json
@@ -24,7 +24,9 @@ TRIALS = 2
 INDEX_PATH = Path("results/cache/method7/corpus_index.joblib")
 OUTPUT = Path("results/metrics/method7/end_to_end_latency.json")
 
-corpus, queries, _ = GenericDataLoader("results/datasets/scifact").load(split="test")
+dataset = load_dataset("scifact", split="test", download=False)
+corpus = dataset.corpus
+queries = dataset.queries
 query_ids = sorted(queries)
 doc_ids = sorted(corpus)
 documents = [

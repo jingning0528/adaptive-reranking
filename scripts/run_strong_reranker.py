@@ -13,7 +13,7 @@ from pathlib import Path
 
 import joblib
 import numpy as np
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from beir.retrieval.evaluation import EvaluateRetrieval
 from sentence_transformers import CrossEncoder
 
@@ -80,7 +80,10 @@ else:
     metadata = {"fingerprint": fingerprint, "contract": contract, "timings_seconds": {}}
     write_json(METADATA_PATH, metadata)
 
-corpus, all_queries, all_qrels = GenericDataLoader("results/datasets/scifact").load(split="train")
+dataset = load_dataset("scifact", split="train", download=False)
+corpus = dataset.corpus
+all_queries = dataset.queries
+all_qrels = dataset.qrels
 split = load_json(SPLIT_PATH)
 validation_ids = sorted(split["validation_query_ids"])
 queries = {query_id: all_queries[query_id] for query_id in validation_ids}

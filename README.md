@@ -113,7 +113,7 @@ frozen margin policy on the official SciFact test split.
 - `tests/`: existing unit tests.
 
 Run the commands below from the repository root after installing the project.
-Tests: `python -m unittest discover -s tests -v`.
+Tests: `python -m pytest -q` (install the `dev` extra below).
 
 ## Setup
 
@@ -123,6 +123,46 @@ source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e .
 ```
+
+For tests and development tools: `python -m pip install -e ".[dev]"`.
+
+## V2 Step 1: dataset abstraction
+
+The shared loader supports SciFact and NFCorpus through the same interface:
+
+```python
+from adaptive_reranking.data import load_dataset
+
+dataset = load_dataset("scifact")  # or "nfcorpus"; default split="test"
+corpus, queries, qrels = dataset.corpus, dataset.queries, dataset.qrels
+```
+
+Validate real dataset loading without running an experiment or loading models:
+
+```bash
+python -m scripts.check_dataset --dataset scifact
+python -m scripts.check_dataset --dataset nfcorpus
+python -m pytest -q
+```
+
+Both datasets use the existing exact retrieval and reranking pipeline:
+
+```bash
+python -m scripts.run_baseline --dataset scifact
+python -m scripts.run_rerank --dataset scifact
+python -m scripts.run_baseline --dataset nfcorpus
+python -m scripts.run_rerank --dataset nfcorpus
+```
+
+The last four commands run full model inference. NFCorpus support is validated
+as an interface change; no new benchmark results are claimed. SciFact test
+commands keep V1's original output paths. Other datasets and splits write under
+`results/metrics/{baseline,rerank}/{dataset}/{split}/`. The frozen V1 experiment
+scripts retain their original SciFact settings and use the shared loader.
+
+See [the dataset interface](docs/current/dataset_interface.md) for schema,
+offline loading, split selection, and test coverage. Offline indexing, FAISS,
+and serving remain later roadmap steps.
 
 ## Reproduce completed V1
 

@@ -14,7 +14,7 @@ from pathlib import Path
 
 import joblib
 import numpy as np
-from beir.datasets.data_loader import GenericDataLoader
+from adaptive_reranking.data import load_dataset
 from scipy.stats import spearmanr
 from sklearn.metrics import roc_auc_score
 
@@ -157,7 +157,9 @@ def write_histogram_svg(distribution, destination):
     destination.write_text("\n".join(elements), encoding="utf-8")
 
 
-corpus, queries, _ = GenericDataLoader("results/datasets/scifact").load(split="train")
+dataset = load_dataset("scifact", split="train", download=False)
+corpus = dataset.corpus
+queries = dataset.queries
 validation_ids = sorted(SPLIT["validation_query_ids"])
 rows = []
 for query_id in validation_ids:

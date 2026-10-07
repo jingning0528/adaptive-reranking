@@ -242,7 +242,7 @@ Efficient Neural Search System
 ├── 2. ANN Index
 │      └── FAISS
 │
-├── 3. Adaptive Reranking       ★ 你的核心贡献
+├── 3. Adaptive Reranking      
 │      └── dynamic compute budget
 │
 ├── 4. Efficient Inference

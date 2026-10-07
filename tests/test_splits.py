@@ -1,6 +1,6 @@
 import unittest
 
-from adaptive_reranking.splits import train_calibration_split
+from adaptive_reranking.data.splits import train_calibration_split
 
 
 class SplitTests(unittest.TestCase):

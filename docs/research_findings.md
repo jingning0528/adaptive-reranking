@@ -388,7 +388,7 @@ rather than being absorbed by routing overhead.
 
 This benchmark measures batch throughput on one Apple Silicon system, not
 interactive p50/p95 latency. Raw trials and the exact contract are stored in
-`results/method7/end_to_end_latency.json`.
+`results/metrics/method7/end_to_end_latency.json`.
 
 ## 9. Current Research Position
 

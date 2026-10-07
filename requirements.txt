@@ -1,0 +1,5 @@
+beir==2.2.0
+joblib>=1.4
+numpy>=1.26
+scikit-learn>=1.4
+sentence-transformers>=5,<7

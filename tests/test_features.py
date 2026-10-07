@@ -1,6 +1,6 @@
 import unittest
 
-from adaptive_reranking.features import FEATURE_NAMES, candidate_features
+from adaptive_reranking.reranking.features import FEATURE_NAMES, candidate_features
 
 
 class CandidateFeatureTests(unittest.TestCase):

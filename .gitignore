@@ -1,16 +1,16 @@
 # Custom added
-datasets/
+results/datasets/
 models/
 .huggingface/
-artifacts/
-results/baseline/retrieval.json
-results/rerank/retrieval.json
-results/validation/*_retrieval.json
-results/method1/*_retrieval.json
-results/method2/*_retrieval.json
-results/method3/*_retrieval.json
-results/method4/*_retrieval.json
-results/method6/*_retrieval.json
+results/cache/
+results/metrics/baseline/retrieval.json
+results/metrics/rerank/retrieval.json
+results/metrics/validation/*_retrieval.json
+results/metrics/method1/*_retrieval.json
+results/metrics/method2/*_retrieval.json
+results/metrics/method3/*_retrieval.json
+results/metrics/method4/*_retrieval.json
+results/metrics/method6/*_retrieval.json
 examples/**/datasets/
 examples/**/results/
 examples/**/embeddings/

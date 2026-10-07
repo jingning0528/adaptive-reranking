@@ -1,14 +1,3 @@
-import json
-from pathlib import Path
+"""Compatibility imports; implementation lives in utils.io."""
 
-
-def load_json(path: str | Path):
-    return json.loads(Path(path).read_text(encoding="utf-8"))
-
-
-def write_json(path: str | Path, value) -> None:
-    destination = Path(path)
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    temporary = destination.with_suffix(destination.suffix + ".tmp")
-    temporary.write_text(json.dumps(value, indent=2), encoding="utf-8")
-    temporary.replace(destination)
+from adaptive_reranking.utils.io import load_json, write_json  # noqa: F401

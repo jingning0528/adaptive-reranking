@@ -1,0 +1,75 @@
+{
+  "config": {
+    "dataset": "scifact",
+    "source_split": "train",
+    "retriever_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "teacher_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "teacher_model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "device": "cpu",
+    "teacher_cache_device": "mps",
+    "candidate_top_k": 100,
+    "selection_budget": 20,
+    "output_top_k": 10,
+    "max_length": 256,
+    "retriever_batch_size": 16,
+    "teacher_batch_size": 128,
+    "teacher_query_chunk_size": 16,
+    "split_seed": 20261001,
+    "calibration_fraction": 0.2,
+    "near_duplicate_threshold": 0.85,
+    "ensemble_size": 7,
+    "ensemble_query_fraction": 0.8,
+    "lambda_grid": [
+      0.0,
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ]
+  },
+  "teacher_cache_fingerprint": "05777b1272e4fd73f3c60f0a82cb9b98df1974b7503073ef0022218c110d4b12",
+  "teacher_cache_contract": {
+    "teacher_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "teacher_model_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "sentence_transformers_version": "6.1.0",
+    "max_length": 256,
+    "input_format": "[query, title + space + abstract]",
+    "candidate_top_k": 100,
+    "candidate_order": "retrieval score descending; document id preserves stable sort ties",
+    "score_activation": "CrossEncoder model default",
+    "teacher_cache_device": "mps"
+  },
+  "counts": {
+    "queries": 809,
+    "candidate_rows": 80900,
+    "newly_scored_queries": 761
+  },
+  "timings_seconds": {
+    "teacher_model_load": 2.412682249909267,
+    "teacher_scoring_new_queries": 1061.5830685845576
+  },
+  "feature_names": [
+    "retrieval_score",
+    "rank",
+    "reciprocal_rank",
+    "score_gap_top1",
+    "query_document_jaccard",
+    "query_document_recall",
+    "query_title_recall",
+    "query_token_count",
+    "title_token_count",
+    "document_token_count",
+    "query_number_count",
+    "query_acronym_count",
+    "all_numbers_present",
+    "all_acronyms_present",
+    "number_match_fraction",
+    "acronym_match_fraction"
+  ],
+  "artifacts": {
+    "candidate_cache": "results/cache/method1/candidates.joblib",
+    "teacher_checkpoint": "results/cache/method1/teacher_scores_checkpoint.json",
+    "training_dataset": "results/cache/method1/teacher_dataset.joblib"
+  }
+}

@@ -1,15 +1,23 @@
-# Budget-Aware Adaptive Neural Reranking for Efficient Retrieval
+# Adaptive Reranking — V1
+
+V1 is complete: a frozen two-tier retrieval-margin policy, SciFact quality
+evaluation, and a measured end-to-end batch-throughput benchmark. The release
+preserves the original algorithms, experiment settings, and recorded results.
+
+The completed system uses exact dense search and MiniLM reranking. ANN/FAISS,
+additional datasets, FastAPI serving, quantization, and interactive latency
+measurements are future work tracked in the [roadmap](docs/roadmap.md).
 
 > A zero-router-overhead policy uses retrieval confidence to reduce
 > cross-encoder scoring by 67.5%, improve SciFact test NDCG@10 by 0.009, and
 > deliver a measured 3.38x end-to-end online speedup versus Top-100 reranking.
 
 <p align="center">
-  <img src="results/method6/quality_cost_curve.svg" width="680"
+  <img src="results/figures/method6/quality_cost_curve.svg" width="680"
        alt="Quality-cost curve comparing fixed and adaptive reranking budgets on the held-out SciFact test set">
 </p>
 
-**Production interpretation:** At roughly one-third of the reranking budget,
+**V1 result:** At roughly one-third of the reranking budget,
 the adaptive policy is both faster and more accurate than full Top-100
 reranking on the held-out SciFact test set.
 
@@ -36,7 +44,7 @@ online timing includes query encoding, exact Top-100 search, routing, pair
 construction, cross-encoder inference, and final Top-10 ranking. This is a
 batch-throughput benchmark, not interactive per-query latency.
 
-See [PAPER.md](PAPER.md) for the paper-style report and reproducibility details.
+See [Paper](docs/paper.md) for the paper-style report and reproducibility details.
 
 This project studies how to allocate a limited neural reranking budget. Its
 final policy uses retrieval confidence to choose K=5 or K=50 from a retrieved
@@ -47,7 +55,7 @@ The project is independent from BEIR. It uses
 [BEIR](https://github.com/beir-cellar/beir) as an installed dependency and
 evaluation framework, with SciFact as the initial benchmark.
 
-## Current evidence
+## Completed V1 evidence
 
 - CPU bi-encoder baseline: `NDCG@10 = 0.64508` on the SciFact test split.
 - Frozen validation set: 162 queries held out from SciFact train.
@@ -80,18 +88,32 @@ evaluation framework, with SciFact as the initial benchmark.
   NDCG@10 versus `0.68165` for full K=100; the paired difference is `+0.00900`
   with CI `[0.00150, 0.01721]`, while using 67.5% fewer teacher scores.
 
-See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) for the controlled reranker
-comparison and error analysis, and [METHOD1_REPORT.md](METHOD1_REPORT.md) for
-the first candidate-selection result. [METHOD2_REPORT.md](METHOD2_REPORT.md)
+See [Validation report](docs/validation_report.md) for the controlled reranker
+comparison and error analysis, and [Candidate selection](docs/exploratory/candidate_selection.md) for
+the first candidate-selection result. [Reranker comparison](docs/exploratory/reranker_comparison.md)
 records the strong-reranker feasibility test.
-[METHOD3_REPORT.md](METHOD3_REPORT.md) reports the controlled 256-versus-512
+[Input length](docs/exploratory/input_length.md) reports the controlled 256-versus-512
 token experiment.
-[METHOD4_REPORT.md](METHOD4_REPORT.md) reports the fixed budget-quality curve
+[Fixed budget](docs/exploratory/fixed_budget.md) reports the fixed budget-quality curve
 that prepares the budget-aware direction.
-[C1_ORACLE_BUDGET_ANALYSIS.md](C1_ORACLE_BUDGET_ANALYSIS.md) analyzes oracle
+[Budget signal analysis](docs/exploratory/budget_signal_analysis.md) analyzes oracle
 budgets and qrels-free difficulty signals.
-[C2_ADAPTIVE_BUDGET_REPORT.md](C2_ADAPTIVE_BUDGET_REPORT.md) evaluates the
+[Adaptive budget](docs/current/adaptive_budget.md) evaluates the
 frozen margin policy on the official SciFact test split.
+
+## Repository layout
+
+- `adaptive_reranking/`: reusable data, retrieval, reranking, routing, evaluation, and utility code.
+- `scripts/`: experiment entry points and benchmark runners.
+- `configs/`: unchanged experiment settings and frozen policy.
+- `docs/current/`: [adaptive budget](docs/current/adaptive_budget.md), [system design](docs/current/system_design.md), and [evaluation](docs/current/evaluation.md).
+- `docs/exploratory/`: candidate selection, reranker comparison, input length, fixed budget, and budget signal reports.
+- `results/metrics/`, `results/figures/`, and `results/manifests/`: generated evidence, preserving experiment subdirectories.
+- `results/cache/` and `results/datasets/`: ignored local caches and downloaded data.
+- `tests/`: existing unit tests.
+
+Run the commands below from the repository root after installing the project.
+Tests: `python -m unittest discover -s tests -v`.
 
 ## Setup
 
@@ -102,21 +124,37 @@ python -m pip install --upgrade pip
 python -m pip install -e .
 ```
 
+## Reproduce completed V1
+
+Prepare the baseline retrieval and frozen test teacher cache, evaluate the policy,
+then run the end-to-end benchmark:
+
+```bash
+python -m scripts.run_baseline
+python -m scripts.prepare_c2_test_scores
+python -m scripts.evaluate_adaptive_budget
+python -m scripts.benchmark_end_to_end
+```
+
+The checked-in scoring and benchmark contracts use MPS on Apple Silicon;
+the bi-encoder baseline uses CPU. Preserve these settings when comparing the
+recorded timings. The commands below also reproduce the exploratory evidence.
+
 ## Reproduce the baselines
 
 ```bash
-python run_baseline.py
-python run_rerank.py
-python run_validation_prepare.py
-python run_validation_rerank.py tinybert_l2
-python run_validation_rerank.py minilm_l6
-python analyze_validation.py
+python -m scripts.run_baseline
+python -m scripts.run_rerank
+python -m scripts.run_validation_prepare
+python -m scripts.run_validation_rerank tinybert_l2
+python -m scripts.run_validation_rerank minilm_l6
+python -m scripts.analyze_validation
 ```
 
 Large datasets, model caches, retrieval runs, and teacher-score caches are
 ignored by Git. Small metrics and frozen split manifests are versioned.
 
-## Method 1: candidate-budget allocation
+## Exploratory Method 1: candidate-budget allocation
 
 The quality reference is frozen in
 [`configs/teacher.json`](configs/teacher.json): MiniLM-L6, Top-100 candidates,
@@ -131,12 +169,12 @@ scores per query:
 Run the cached simulation in order:
 
 ```bash
-python prepare_teacher_scores.py
-python train_score_predictor.py
-python evaluate_candidate_selection.py
+python -m scripts.prepare_teacher_scores
+python -m scripts.train_score_predictor
+python -m scripts.evaluate_candidate_selection
 ```
 
-`prepare_teacher_scores.py` is resumable because teacher scoring is the
+`scripts/prepare_teacher_scores.py` is resumable because teacher scoring is the
 expensive stage. A configuration fingerprint prevents resuming with a
 different model revision, input contract, candidate order, or scoring device.
 On Apple Silicon, the checked-in configuration uses MPS to generate the
@@ -155,7 +193,7 @@ for later work.
   quality is always evaluated with qrels.
 - Test data is reserved for reporting fixed methods, not model selection.
 
-## Method 2: model-routing feasibility
+## Exploratory Method 2: model-routing feasibility
 
 The first routing prerequisite test intentionally implements no router. It
 scores the frozen validation Top-100 with one preselected, larger reranker and
@@ -163,7 +201,7 @@ compares it with the existing MiniLM-L6 cache under the same 256-token input
 contract:
 
 ```bash
-python run_strong_reranker.py
+python -m scripts.run_strong_reranker
 ```
 
 The tested BGE-base reranker is worse than MiniLM-L6 on this validation set,
@@ -171,52 +209,52 @@ so the current pair does not justify routing work. The script is resumable and
 pins the model revision, candidate pool, split, device, and preprocessing in a
 cache fingerprint.
 
-## Method 3: input-length feasibility
+## Exploratory Method 3: input-length feasibility
 
 The next controlled test keeps MiniLM-L6 and all candidates fixed and changes
 only the maximum pair length from 256 to 512:
 
 ```bash
-python run_length_experiment.py
+python -m scripts.run_length_experiment
 ```
 
 The overall NDCG gain is small and uncertain, while Recall@10 decreases, so
 512 tokens should not replace 256 globally. The stored diagnostics stratify
 queries by truncation without implementing an adaptive policy.
 
-## Direction D: fixed budget-quality curve
+## Exploratory Method 4: fixed budget-quality curve
 
 The fixed-budget experiment uses cached MiniLM scores and introduces no new ML
 method:
 
 ```bash
-python evaluate_budget_curve.py
+python -m scripts.evaluate_budget_curve
 ```
 
 It evaluates K = 5, 10, 20, 30, 50, and 100 and saves both full paired metrics
-and a plot-ready CSV. This is a quality simulation; online latency remains to
-be measured.
+and a plot-ready CSV. This fixed-budget curve is a cached quality simulation. The completed V1
+benchmark below measures online batch throughput for the frozen adaptive policy.
 
-## Direction C1: oracle budget analysis
+## Exploratory C1: oracle budget analysis
 
 Run the exploratory oracle-label and cheap-signal analysis with:
 
 ```bash
-python analyze_oracle_budgets.py
+python -m scripts.analyze_oracle_budgets
 ```
 
 It writes a per-query CSV, JSON summary, and SVG histogram. This analysis uses
 validation qrels; its signal ranking is hypothesis generation, not final
 policy evaluation.
 
-## Direction C2: adaptive budget policy
+## Completed V1: adaptive budget policy
 
 Prepare the pinned official-test teacher cache, then evaluate the frozen
 train/calibration protocol:
 
 ```bash
-python prepare_c2_test_scores.py
-python evaluate_adaptive_budget.py
+python -m scripts.prepare_c2_test_scores
+python -m scripts.evaluate_adaptive_budget
 ```
 
 The policy uses only the bi-encoder Top-1/Top-10 score margin and routes each
@@ -225,44 +263,9 @@ quality-cost contribution. The frozen policy and its latency benchmark can be
 reproduced with:
 
 ```bash
-python benchmark_end_to_end.py
+python -m scripts.benchmark_end_to_end
 ```
 
 The benchmark confirms that the scoring reduction survives full online-pipeline
 measurement: 3.38x higher batch throughput and 70.37% lower online batch time.
 No further policy tuning is performed on the closed official test split.
-
-
-```
-Efficient Neural Search System
-│
-├── 1. Dense Retrieval
-│      └── BEIR + bi-encoder
-│
-├── 2. ANN Index
-│      └── FAISS
-│
-├── 3. Adaptive Reranking      
-│      └── dynamic compute budget
-│
-├── 4. Efficient Inference
-│      ├── batching
-│      └── FP16 / INT8
-│
-├── 5. Caching
-│      └── query / embedding cache
-│
-├── 6. Serving
-│      └── FastAPI
-│
-└── 7. Benchmark
-       ├── NDCG@10
-       ├── Recall@10
-       ├── p50 / p95 latency
-       ├── QPS
-       ├── GPU memory
-       └── cost / 1K queries
-
-```
-
-

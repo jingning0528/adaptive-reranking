@@ -164,6 +164,50 @@ See [the dataset interface](docs/current/dataset_interface.md) for schema,
 offline loading, split selection, and test coverage. Offline indexing, FAISS,
 and serving remain later roadmap steps.
 
+## V2 Step 2: offline embedding artifacts
+
+Build reusable document vectors independently of retrieval or an ANN backend:
+
+```bash
+python -m scripts.build_embeddings \
+  --dataset scifact \
+  --model sentence-transformers/all-MiniLM-L6-v2 \
+  --batch-size 32
+```
+
+Use `--dataset nfcorpus` for the second dataset. Encoding uses CPU and L2
+normalization by default; `--device`, `--no-normalize`, `--model-revision`, and
+`--max-length` configure the encoder contract. Dataset downloading can be
+disabled with `--no-download`.
+
+The default output is an ignored local bundle:
+
+```text
+results/cache/embeddings/scifact/
+├── corpus_embeddings.npy
+├── doc_ids.json
+├── metadata.json
+└── config.json
+```
+
+Vectors are float32, with document IDs sorted and aligned to matrix rows.
+Metadata records the dataset, split, model, dimension, document count,
+normalization, preprocessing, creation time, corpus fingerprint, and file
+checksums. Save/load validation detects incomplete or inconsistent bundles.
+Existing destinations are preserved; choose `--output-dir` for another model,
+configuration, or rebuilt corpus.
+
+```python
+from adaptive_reranking.retrieval.artifacts import load_embedding_artifacts
+
+artifacts = load_embedding_artifacts("results/cache/embeddings/scifact")
+vectors, doc_ids = artifacts.embeddings, artifacts.doc_ids
+```
+
+The artifact loader requires no model inference or dataset loading. The
+[embedding pipeline contract](docs/current/embedding_pipeline.md) describes
+the reusable API and testing. FAISS indexing remains the next step.
+
 ## Reproduce completed V1
 
 Prepare the baseline retrieval and frozen test teacher cache, evaluate the policy,

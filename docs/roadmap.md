@@ -3,8 +3,10 @@
 V1 is complete. The following milestones and system sketch describe future work.
 
 V2 Step 1 establishes a shared dataset interface for SciFact and NFCorpus.
-Next: offline embedding/index pipeline, then FAISS, then FastAPI. See
-[the dataset interface](current/dataset_interface.md) for the current contract.
+Step 2 adds backend-independent offline embedding artifacts. Next: FAISS index
+and ANN retrieval, then an exact-versus-FAISS benchmark, then FastAPI. See
+[the dataset interface](current/dataset_interface.md) and
+[the embedding pipeline](current/embedding_pipeline.md) for the current contracts.
 
 CURRENT
 SciFact Adaptive Reranking
@@ -12,11 +14,11 @@ SciFact Adaptive Reranking
 
 V2
 1 Dataset abstraction — shared SciFact/NFCorpus interface
-2 Offline data pipeline
-3 FAISS
-4 Add medium BEIR dataset ★
-5 Exact vs ANN benchmark
-6 FastAPI
+2 Offline embedding artifacts
+3 FAISS index + ANN retrieval
+4 Exact vs FAISS benchmark
+5 FastAPI
+6 Add medium BEIR dataset ★
 7 Tests
 8 p50 / p95 / QPS
 9 Logging
